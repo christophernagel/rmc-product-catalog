@@ -21,7 +21,7 @@ const ProductCatalog = ({ isEditor = false }) => {
         options: ["With Coupling"],
       },
     },
-    // Add more sample products as needed
+    // Add more
   ];
 
   const handleFilterChange = (newFilters) => {
