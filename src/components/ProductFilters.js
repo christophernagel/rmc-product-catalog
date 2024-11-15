@@ -4,6 +4,17 @@ const ProductFilters = ({ onFilterChange, activeFilters }) => {
   const [selectedCategory, setSelectedCategory] = useState("Conduit");
   const [activeFilterCount, setActiveFilterCount] = useState(0);
 
+  const categories = [
+    "Conduit",
+    "Conduit Bodies",
+    "Elbows",
+    "Couplings",
+    "Nipples",
+    "Strut",
+    "Plugs",
+    "Hubs",
+  ];
+
   // Enhanced category definitions with metadata
   const categoryFilters = {
     Conduit: {
@@ -11,21 +22,17 @@ const ProductFilters = ({ onFilterChange, activeFilters }) => {
       filters: {
         "Alloy Type": {
           options: ["SS304", "SS316"],
-          multiSelect: false,
           required: true,
         },
         Type: {
           options: ["Rigid", "Flex"],
-          multiSelect: false,
           required: true,
         },
-        Size: {
+        Gauge: {
           options: ['½"', '¾"', '1"', '1¼"', '1½"', '2"', '2½"', '3"', '4"'],
-          multiSelect: true,
         },
         Options: {
           options: ["With Coupling", "Without Coupling"],
-          multiSelect: false,
         },
       },
     },
@@ -34,20 +41,16 @@ const ProductFilters = ({ onFilterChange, activeFilters }) => {
       filters: {
         "Alloy Type": {
           options: ["SS304", "SS316"],
-          multiSelect: false,
           required: true,
         },
         "Body Style": {
           options: ["C", "LB", "LL", "LR", "T", "TB", "X"],
-          multiSelect: true,
         },
-        Size: {
+        Gauge: {
           options: ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
-          multiSelect: true,
         },
         Form: {
           options: ["Form 8"],
-          multiSelect: false,
           required: true,
         },
       },
@@ -57,16 +60,116 @@ const ProductFilters = ({ onFilterChange, activeFilters }) => {
       filters: {
         "Alloy Type": {
           options: ["SS304", "SS316"],
-          multiSelect: false,
           required: true,
         },
         Angle: {
           options: ["45°", "90°"],
-          multiSelect: true,
+        },
+        Gauge: {
+          options: ['½"', '¾"', '1"', '1¼"', '1½"', '2"', '2½"', '3"', '4"'],
+        },
+      },
+    },
+    Couplings: {
+      order: 4,
+      filters: {
+        "Alloy Type": {
+          options: ["SS316"],
+          required: true,
+        },
+        Type: {
+          options: ["Rigid", "3PC"],
+        },
+        Size: {
+          options: ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
+        },
+      },
+    },
+    Nipples: {
+      order: 5,
+      filters: {
+        "Alloy Type": {
+          options: ["SS304", "SS316"],
+          required: true,
         },
         Size: {
           options: ['½"', '¾"', '1"', '1¼"', '1½"', '2"', '2½"', '3"', '4"'],
-          multiSelect: true,
+        },
+        Length: {
+          options: [
+            "Close",
+            '1½"',
+            '2"',
+            '2½"',
+            '3"',
+            '3½"',
+            '4"',
+            '4½"',
+            '5"',
+            '5½"',
+            '6"',
+          ],
+        },
+      },
+    },
+    Strut: {
+      order: 6,
+      filters: {
+        "Alloy Type": {
+          options: ["SS"],
+          required: true,
+        },
+        Gauge: {
+          options: ["12G", "14G"],
+        },
+        Profile: {
+          options: ['1⅝" x 1⅝"', '13/16" x 1⅝"'],
+        },
+        Pattern: {
+          options: ["Slotted E-Hole"],
+        },
+        Length: {
+          options: ["10'"],
+        },
+      },
+    },
+    Plugs: {
+      order: 7,
+      filters: {
+        "Alloy Type": {
+          options: ["SS316"],
+          required: true,
+        },
+        Type: {
+          options: [
+            "Face Bushing",
+            "Grounding Bushing",
+            "Flex Male 90°",
+            "Flex Male Straight",
+            "Flex Male 45°",
+            "Box Connector",
+            "Conduit Cap",
+            "Floor Flange",
+          ],
+        },
+        Gauge: {
+          options: ['½"', '¾"', '1"', '1¼"', '1½"', '2"', '2½"', '3"', '4"'],
+        },
+      },
+    },
+    Hubs: {
+      order: 8,
+      filters: {
+        Type: {
+          options: ["Forged Fitting LT Hub/O-Ring/Locknut", "Grounding Hub"],
+          required: true,
+        },
+        "Alloy Type": {
+          options: ["SS316"],
+          required: true,
+        },
+        Gauge: {
+          options: ['½"', '¾"', '1"', '1¼"', '1½"', '2"', '2½"', '3"', '4"'],
         },
       },
     },
@@ -108,22 +211,12 @@ const ProductFilters = ({ onFilterChange, activeFilters }) => {
   };
 
   const handleFilterChange = (filterType, value) => {
-    const categoryConfig =
-      categoryFilters[selectedCategory]?.filters[filterType];
     const currentFilters = { ...activeFilters.filters };
 
-    if (!categoryConfig.multiSelect) {
-      // For single select, clear other values first
-      currentFilters[filterType] = {
-        [value]: !currentFilters[filterType]?.[value],
-      };
-    } else {
-      // For multi-select, toggle the selected value
-      currentFilters[filterType] = {
-        ...currentFilters[filterType],
-        [value]: !currentFilters[filterType]?.[value],
-      };
-    }
+    currentFilters[filterType] = {
+      ...currentFilters[filterType],
+      [value]: !currentFilters[filterType]?.[value],
+    };
 
     onFilterChange({
       category: selectedCategory,
@@ -137,7 +230,6 @@ const ProductFilters = ({ onFilterChange, activeFilters }) => {
 
   return (
     <div className="rmc-filters">
-      {/* Header with filter count and clear button */}
       <div className="filter-header">
         <div className="filter-count">
           <span>Filters</span>
@@ -152,28 +244,24 @@ const ProductFilters = ({ onFilterChange, activeFilters }) => {
         )}
       </div>
 
-      {/* Category Selection */}
-      <div className="filter-section primary-category">
+      <div className="primary-category">
         <h3>Product Category</h3>
         <div className="filter-group">
-          {Object.keys(categoryFilters)
-            .sort((a, b) => categoryFilters[a].order - categoryFilters[b].order)
-            .map((category) => (
-              <div key={category} className="filter-option">
-                <input
-                  type="radio"
-                  id={`category-${category}`}
-                  name="category"
-                  checked={selectedCategory === category}
-                  onChange={() => handleCategoryChange(category)}
-                />
-                <label htmlFor={`category-${category}`}>{category}</label>
-              </div>
-            ))}
+          {categories.map((category) => (
+            <div key={category} className="filter-option">
+              <input
+                type="radio"
+                id={`category-${category}`}
+                name="category"
+                checked={selectedCategory === category}
+                onChange={() => handleCategoryChange(category)}
+              />
+              <label htmlFor={`category-${category}`}>{category}</label>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Filter Options */}
       {selectedCategory && categoryFilters[selectedCategory]?.filters && (
         <div>
           {Object.entries(categoryFilters[selectedCategory].filters).map(
@@ -184,9 +272,8 @@ const ProductFilters = ({ onFilterChange, activeFilters }) => {
                   {config.options.map((option) => (
                     <div key={option} className="filter-option">
                       <input
-                        type={config.multiSelect ? "checkbox" : "radio"}
+                        type="checkbox"
                         id={`${filterType}-${option}`}
-                        name={config.multiSelect ? undefined : filterType}
                         checked={
                           activeFilters.filters?.[filterType]?.[option] || false
                         }
