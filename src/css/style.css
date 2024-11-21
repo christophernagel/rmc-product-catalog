@@ -31,10 +31,10 @@
 }
 
 .filter-header {
-  position: sticky; /* Added for sticky header */
-  top: 0; /* Added for sticky header */
-  background: white; /* Added for sticky header */
-  z-index: 10; /* Added for sticky header */
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 10;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -78,23 +78,33 @@
   border-bottom: 1px solid #e0e0e0;
 }
 
+.filter-sections {
+  position: relative;
+}
+
 .filter-section {
   padding: 0 0 12px 0;
   margin-bottom: 12px;
   border-bottom: 1px solid #ddd;
+  transition: all 0.3s ease-in-out;
+  transform-origin: top;
+  opacity: 1;
+  max-height: 500px;
+  overflow: hidden;
+  position: relative;
+}
+
+.filter-section.hidden {
+  opacity: 0;
+  max-height: 0;
+  margin: 0;
+  padding: 0;
+  transform: translateY(-10px);
 }
 
 .filter-section:last-child {
   margin-bottom: 0;
   border-bottom: none;
-}
-
-.primary-category h3 {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #333;
-  margin: 0 0 8px 0;
-  padding-bottom: 6px;
 }
 
 .filter-section h3 {
@@ -103,6 +113,15 @@
   color: #333;
   margin: 0 0 8px 0;
   padding-bottom: 6px;
+  position: sticky;
+  top: -1px; /* Adjusts for border */
+  z-index: 2;
+  background: white; /* Ensure the header has a background */
+  transition: box-shadow 0.2s ease;
+}
+
+.filter-section h3.sticky {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .filter-group {
@@ -128,6 +147,7 @@
   color: #555;
   cursor: pointer;
   line-height: 1.2;
+  transition: color 0.2s ease;
 }
 
 .filter-options-animated {
@@ -147,19 +167,31 @@
   transition: all 0.2s ease;
 }
 
-.filter-option label {
-  transition: color 0.2s ease;
+/* Added back missing styles for ProductGrid component */
+.product-category-section {
+  margin-bottom: 2rem;
+}
+
+.category-header {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 .rmc-product-grid {
   flex: 1;
-  margin-left: 25%;
   height: 100%;
   padding: 20px 40px;
   overflow-y: auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
 }
 
 .rmc-product-grid::-webkit-scrollbar {
@@ -220,20 +252,12 @@
   font-size: 0.9em;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* Responsive adjustments */
 @media (max-width: 1200px) {
   .rmc-product-grid {
+    padding: 20px;
+  }
+  .products-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -260,13 +284,19 @@
     height: auto;
     padding: 20px;
   }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 576px) {
   .rmc-product-grid {
+    padding: 20px;
+  }
+  .products-grid {
     grid-template-columns: 1fr;
   }
-
   .rmc-filters {
     position: static;
   }
