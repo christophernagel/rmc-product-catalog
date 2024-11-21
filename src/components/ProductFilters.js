@@ -42,8 +42,8 @@ const ProductFilters = ({ onFilterChange, activeFilters }) => {
       options: ["304", "316", "316L"],
       order: 2,
     },
-    Flexibility: {
-      options: ["Rigid", "Flex"],
+    "Conduit Type": {
+      options: ["Rigid"],
       order: 3,
       categorySpecific: "Conduit",
     },

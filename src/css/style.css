@@ -5,12 +5,10 @@
   height: 80vh;
   padding: 0 40px;
   position: relative;
-  overflow: hidden;
 }
 
 .rmc-filters {
-  width: 100%;
-  max-width: 320px;
+  width: 320px;
   overflow-y: auto;
   height: 100%;
   scroll-behavior: smooth;
@@ -89,8 +87,6 @@
   transition: all 0.3s ease-in-out;
   transform-origin: top;
   opacity: 1;
-  max-height: 500px;
-  overflow: hidden;
   position: relative;
 }
 
@@ -114,7 +110,7 @@
   margin: 0 0 8px 0;
   padding-bottom: 6px;
   position: sticky;
-  top: -1px; /* Adjusts for border */
+  top: 0px; /* Adjusts for border */
   z-index: 2;
   background: white; /* Ensure the header has a background */
   transition: box-shadow 0.2s ease;
