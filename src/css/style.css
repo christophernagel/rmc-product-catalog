@@ -162,9 +162,6 @@
 .filter-badge-hidden {
   opacity: 0;
   pointer-events: none;
-  width: 0;
-  padding: 0;
-  margin: 0;
 }
 
 /* Clear Filters Button */
@@ -468,7 +465,7 @@
 .rmc-product-image-container {
   position: relative;
   width: 100%;
-  padding-bottom: 75%; /* 4:3 Aspect Ratio */
+  padding-bottom: 56.25%; /* 4:3 Aspect Ratio */
   background: #f3f4f6;
   border-bottom: 1px solid #e5e7eb;
 }
