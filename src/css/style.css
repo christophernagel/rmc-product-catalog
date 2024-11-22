@@ -175,7 +175,7 @@
 
 /* Individual Filter Section */
 .filter-section {
-  padding: 0 0 20px 0;
+  padding: 0 0 16px 0;
   border-bottom: 1px solid #ddd;
   transition: all 0.3s ease-in-out;
   transform-origin: top;
@@ -198,13 +198,60 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0 4px 0;
+  padding: 0;
+  user-select: none;
+  height: 28px; /* Set explicit height to ensure consistent centering */
 }
 
-.filter-section h3 {
+.filter-section-header .filter-section-title {
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex: 1;
+}
+
+.filter-section-header .filter-section-title h3 {
+  margin: 0;
+  padding-left: 16px;
   font-size: 0.875rem;
   font-weight: 600;
   color: #333;
+  line-height: 16px; /* Match tooltip height */
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.filter-section-content {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.2s ease-out;
+}
+
+.filter-section-content.expanded {
+  max-height: 500px; /* Arbitrary large value */
+  opacity: 1;
+}
+
+.expand-icon {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 10px;
+  color: #6b7280;
+  transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.expand-icon.expanded {
+  transform: translateY(-50%) rotate(0deg);
+}
+
+.expand-icon:not(.expanded) {
+  transform: translateY(-50%) rotate(-90deg);
 }
 
 /* Filter Tooltip */
@@ -218,6 +265,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  align-self: center;
   font-size: 11px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -259,7 +307,7 @@
   box-shadow:
     0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  padding: 8px 16px;
+  padding: 0;
   z-index: 1001;
   animation: tooltipFadeIn 0.2s ease-out;
   left: auto !important; /* Align with end of filter column */
@@ -298,23 +346,40 @@
   border: 1px solid #646464;
 }
 
+.tooltip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.tooltip-header h3 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
 /* Tooltip Content */
 .tooltip-content {
-  color: #374151;
+  padding: 16px; /* Space for close button */
+}
+
+.tooltip-content p {
+  margin: 0;
   font-size: 0.875rem;
   line-height: 1.5;
-  padding: 8px 24px 0 0px; /* Space for close button */
+  color: #374151;
 }
 
 /* Tooltip Fade-In Animation */
 @keyframes tooltipFadeIn {
   from {
     opacity: 0;
-    transform: translateY(-4px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
@@ -324,9 +389,10 @@
 
 /* Filter Group Container */
 .filter-group {
+  padding-left: 16px;
   display: flex;
   flex-direction: column;
-  gap: 2px; /* Reduced gap between options */
+  gap: 2px;
 }
 
 /* Individual Filter Option */

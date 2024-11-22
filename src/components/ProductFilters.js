@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import ReactDOM from "react-dom";
 
-const TooltipPopup = ({ content, onClose, position }) => {
+const TooltipPopup = ({ content, title, onClose, position }) => {
   return ReactDOM.createPortal(
     <div className="tooltip-overlay" onClick={onClose}>
       <div
@@ -10,14 +10,20 @@ const TooltipPopup = ({ content, onClose, position }) => {
         style={{
           position: "fixed",
           top: position.top,
-          right: position.right, // Use right instead of left
-          width: "308px",
+          right: position.right,
+          width: "300px",
+          minHeight: "100px", // Increased to accommodate header
         }}
       >
-        <div className="tooltip-content">{content}</div>
-        <button className="tooltip-close" onClick={onClose}>
-          ×
-        </button>
+        <div className="tooltip-header">
+          <h3>{title}</h3>
+          <button className="tooltip-close" onClick={onClose}>
+            ×
+          </button>
+        </div>
+        <div className="tooltip-content">
+          <p>{content}</p>
+        </div>
       </div>
     </div>,
     document.body
@@ -26,26 +32,40 @@ const TooltipPopup = ({ content, onClose, position }) => {
 
 const FilterSection = ({ title, children, tooltip, style }) => {
   const [showTooltip, setShowTooltip] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true); // New state for collapse
   const [tooltipPosition, setTooltipPosition] = useState({ top: 0, left: 0 });
   const tooltipButtonRef = useRef(null);
   const filterSectionRef = useRef(null);
 
   const handleTooltipClick = (e) => {
+    e.stopPropagation(); // Prevent collapse toggle
     if (tooltipButtonRef.current) {
       const buttonRect = tooltipButtonRef.current.getBoundingClientRect();
       setTooltipPosition({
         top: buttonRect.top - 9,
-        // Position should extend left from the button's right edge
-        right: window.innerWidth - buttonRect.right - 10, // 8px offset for spacing
+        right: window.innerWidth - buttonRect.right - 10,
       });
       setShowTooltip(true);
     }
   };
 
+  const toggleExpand = () => {
+    setIsExpanded(!isExpanded);
+  };
+
   return (
     <div className="filter-section" ref={filterSectionRef} style={style}>
-      <div className="filter-section-header">
-        <h3>{title}</h3>
+      <div
+        className="filter-section-header"
+        onClick={toggleExpand}
+        style={{ cursor: "pointer" }}
+      >
+        <div className="filter-section-title">
+          <span className={`expand-icon ${isExpanded ? "expanded" : ""}`}>
+            ▼
+          </span>
+          <h3>{title}</h3>
+        </div>
         {tooltip && (
           <button
             ref={tooltipButtonRef}
@@ -57,10 +77,13 @@ const FilterSection = ({ title, children, tooltip, style }) => {
           </button>
         )}
       </div>
-      {children}
+      <div className={`filter-section-content ${isExpanded ? "expanded" : ""}`}>
+        {children}
+      </div>
       {showTooltip && tooltip && (
         <TooltipPopup
           content={tooltip}
+          title={title}
           onClose={() => setShowTooltip(false)}
           position={tooltipPosition}
         />
