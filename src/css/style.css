@@ -262,14 +262,15 @@
   padding: 8px 16px;
   z-index: 1001;
   animation: tooltipFadeIn 0.2s ease-out;
-  left: 320px !important; /* Align with end of filter column */
+  left: auto !important; /* Align with end of filter column */
+  transform-origin: right top;
 }
 
 /* Tooltip Close Button */
 .tooltip-close {
   position: absolute;
   top: 10px;
-  left: 10px;
+  right: 10px;
   width: 16px;
   height: 16px;
   min-width: 16px;
@@ -302,14 +303,14 @@
   color: #374151;
   font-size: 0.875rem;
   line-height: 1.5;
-  padding: 8px 0 0 24px; /* Space for close button */
+  padding: 8px 24px 0 0px; /* Space for close button */
 }
 
 /* Tooltip Fade-In Animation */
 @keyframes tooltipFadeIn {
   from {
     opacity: 0;
-    transform: translateY(-8px);
+    transform: translateY(-4px);
   }
   to {
     opacity: 1;

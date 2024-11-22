@@ -10,13 +10,14 @@ const TooltipPopup = ({ content, onClose, position }) => {
         style={{
           position: "fixed",
           top: position.top,
-          left: position.left,
+          right: position.right, // Use right instead of left
+          width: "308px",
         }}
       >
+        <div className="tooltip-content">{content}</div>
         <button className="tooltip-close" onClick={onClose}>
           ×
         </button>
-        <div className="tooltip-content">{content}</div>
       </div>
     </div>,
     document.body
@@ -30,14 +31,12 @@ const FilterSection = ({ title, children, tooltip, style }) => {
   const filterSectionRef = useRef(null);
 
   const handleTooltipClick = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-
     if (tooltipButtonRef.current) {
       const buttonRect = tooltipButtonRef.current.getBoundingClientRect();
       setTooltipPosition({
-        top: buttonRect.top - 8,
-        left: 320,
+        top: buttonRect.top - 9,
+        // Position should extend left from the button's right edge
+        right: window.innerWidth - buttonRect.right - 10, // 8px offset for spacing
       });
       setShowTooltip(true);
     }
