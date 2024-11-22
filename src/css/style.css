@@ -24,7 +24,7 @@
 .rmc-product-grid {
   flex: 1;
   height: 100%;
-  padding: 20px 40px;
+  padding: 4px 40px;
   overflow-y: auto;
 }
 
