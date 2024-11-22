@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ProductGrid from "./ProductGrid";
 import ProductFilters from "./ProductFilters";
+import sampleProducts from "./sampleProducts"; // Import the sample data
 
 const ProductCatalog = ({ isEditor = false }) => {
   const [activeFilters, setActiveFilters] = useState({
@@ -8,21 +9,8 @@ const ProductCatalog = ({ isEditor = false }) => {
     filters: {},
   });
 
-  // Sample products - replace with real data
-  const products = [
-    {
-      id: "SS-RC-05",
-      name: "SS304 Rigid Conduit",
-      category: "Conduit",
-      specifications: {
-        size: '½"',
-        alloyType: "SS304",
-        type: "Rigid",
-        options: ["With Coupling"],
-      },
-    },
-    // Add more
-  ];
+  // Use the imported sample products instead of the inline example
+  const [products] = useState(sampleProducts);
 
   const handleFilterChange = (newFilters) => {
     setActiveFilters(newFilters);

@@ -24,14 +24,18 @@ const ProductGrid = ({ products, filters }) => {
 
         if (activeFilters.length === 0) continue;
 
-        const productValue = product.specifications?.[filterType.toLowerCase()];
+        const productValue = product.specifications[filterType];
+
+        if (!productValue) return false;
 
         if (Array.isArray(productValue)) {
           if (!activeFilters.some((filter) => productValue.includes(filter))) {
             return false;
           }
-        } else if (!activeFilters.includes(productValue)) {
-          return false;
+        } else {
+          if (!activeFilters.includes(productValue)) {
+            return false;
+          }
         }
       }
       return true;
