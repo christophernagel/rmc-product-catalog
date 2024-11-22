@@ -8,7 +8,7 @@ const TooltipPopup = ({ content, onClose, position }) => {
         className="tooltip-popup"
         onClick={(e) => e.stopPropagation()}
         style={{
-          position: "fixed", // Changed from absolute
+          position: "fixed",
           top: position.top,
           left: position.left,
         }}
@@ -23,7 +23,7 @@ const TooltipPopup = ({ content, onClose, position }) => {
   );
 };
 
-const FilterSection = ({ title, children, className, tooltip }) => {
+const FilterSection = ({ title, children, tooltip, style }) => {
   const [showTooltip, setShowTooltip] = useState(false);
   const [tooltipPosition, setTooltipPosition] = useState({ top: 0, left: 0 });
   const tooltipButtonRef = useRef(null);
@@ -35,9 +35,8 @@ const FilterSection = ({ title, children, className, tooltip }) => {
 
     if (tooltipButtonRef.current) {
       const buttonRect = tooltipButtonRef.current.getBoundingClientRect();
-
       setTooltipPosition({
-        top: buttonRect.top - 8, // Subtracted 2 pixels here
+        top: buttonRect.top - 8,
         left: 320,
       });
       setShowTooltip(true);
@@ -45,7 +44,7 @@ const FilterSection = ({ title, children, className, tooltip }) => {
   };
 
   return (
-    <div className={`filter-section ${className || ""}`} ref={filterSectionRef}>
+    <div className="filter-section" ref={filterSectionRef} style={style}>
       <div className="filter-section-header">
         <h3>{title}</h3>
         {tooltip && (
@@ -103,7 +102,6 @@ const ProductFilters = ({ onFilterChange, activeFilters }) => {
       order: 4,
       tooltip: "Applicable safety and compliance standards",
     },
-    // Category-specific filters
     "Conduit Type": {
       options: ["Rigid", "IMC"],
       order: 5,
@@ -162,7 +160,6 @@ const ProductFilters = ({ onFilterChange, activeFilters }) => {
       categorySpecific: ["Elbows"],
       tooltip: "Standard bend angles for direction changes",
     },
-    // Strut-specific filters
     "Strut Properties": {
       options: ["12 Gauge", "14 Gauge", '1⅝" x 1⅝"', '13/16" x 1⅝"'],
       order: 13,
@@ -211,7 +208,6 @@ const ProductFilters = ({ onFilterChange, activeFilters }) => {
       [value]: !currentFilters[filterType]?.[value],
     };
 
-    // Clear incompatible filters when category changes
     const newConfig = filterStructure[filterType];
     if (newConfig?.triggersCategory) {
       Object.keys(currentFilters).forEach((key) => {
@@ -259,9 +255,9 @@ const ProductFilters = ({ onFilterChange, activeFilters }) => {
           key={filterType}
           title={filterType}
           tooltip={config.tooltip}
-          className={!isVisible ? "hidden" : ""}
+          style={{ display: isVisible ? "block" : "none" }}
         >
-          <div className="filter-group filter-options-animated">
+          <div className="filter-group">
             {config.options.map((option) => (
               <div key={option} className="filter-option">
                 <input
