@@ -2,11 +2,11 @@ const sampleProducts = [
   // Conduit Products
   {
     id: "SR6CT",
-    name: "SS316L Rigid Conduit",
+    name: "SS316 Rigid Conduit",
     category: "Conduit",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
-      "Material Grade": "316L",
+      "Material Grade": "316",
       "Conduit Type": "Rigid",
       Environment: [
         "Indoor",
@@ -22,11 +22,11 @@ const sampleProducts = [
   },
   {
     id: "SR4CT",
-    name: "SS304L Rigid Conduit",
+    name: "SS304 Rigid Conduit",
     category: "Conduit",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
-      "Material Grade": "304L",
+      "Material Grade": "304",
       "Conduit Type": "Rigid",
       Environment: [
         "Indoor",
