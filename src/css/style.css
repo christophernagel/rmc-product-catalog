@@ -139,6 +139,7 @@
   align-items: center;
   gap: 0.5rem;
   font-weight: 500;
+  min-height: 28px;
 }
 
 /* Filter Badge */
@@ -149,22 +150,53 @@
   border-radius: 9999px;
   font-size: 0.75rem;
   font-weight: 500;
+  min-width: 2rem; /* Add minimum width to prevent collapse */
+  opacity: 1;
+  transition: all 0.2s ease; /* Transition all properties */
+  overflow: hidden; /* Contain the number */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter-badge-hidden {
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  padding: 0;
+  margin: 0;
 }
 
 /* Clear Filters Button */
 .clear-filters {
   font-size: 0.875rem;
-  color: #6b7280;
+  color: #53525b;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.25rem 0.5rem;
-  margin-left: 8px; /* Added for spacing */
-  white-space: nowrap; /* Prevent text wrapping */
+  padding: 0.25rem 0.75rem;
+  margin-left: 8px;
+  white-space: nowrap;
+  height: 28px;
+  opacity: 1;
+  border-radius: 9999px;
+  transition:
+    opacity 0.2s ease,
+    background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e0e7ff;
 }
 
 .clear-filters:hover {
-  color: #374151;
+  background-color: #c7d2fe;
+  color: #4f46e5;
+}
+
+.clear-filters-hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* Filter Sections Container */

@@ -12,7 +12,7 @@ const TooltipPopup = ({ content, title, onClose, position }) => {
           top: position.top,
           right: position.right,
           width: "300px",
-          minHeight: "100px", // Increased to accommodate header
+          minHeight: "100px",
         }}
       >
         <div className="tooltip-header">
@@ -30,15 +30,15 @@ const TooltipPopup = ({ content, title, onClose, position }) => {
   );
 };
 
-const FilterSection = ({ title, children, tooltip, style }) => {
+const FilterSection = ({ title, children, tooltip }) => {
   const [showTooltip, setShowTooltip] = useState(false);
-  const [isExpanded, setIsExpanded] = useState(true); // New state for collapse
+  const [isExpanded, setIsExpanded] = useState(true);
   const [tooltipPosition, setTooltipPosition] = useState({ top: 0, left: 0 });
   const tooltipButtonRef = useRef(null);
   const filterSectionRef = useRef(null);
 
   const handleTooltipClick = (e) => {
-    e.stopPropagation(); // Prevent collapse toggle
+    e.stopPropagation();
     if (tooltipButtonRef.current) {
       const buttonRect = tooltipButtonRef.current.getBoundingClientRect();
       setTooltipPosition({
@@ -54,7 +54,7 @@ const FilterSection = ({ title, children, tooltip, style }) => {
   };
 
   return (
-    <div className="filter-section" ref={filterSectionRef} style={style}>
+    <div className="filter-section" ref={filterSectionRef}>
       <div
         className="filter-section-header"
         onClick={toggleExpand}
@@ -94,7 +94,6 @@ const FilterSection = ({ title, children, tooltip, style }) => {
 
 const ProductFilters = ({ onFilterChange, activeFilters }) => {
   const [activeFilterCount, setActiveFilterCount] = useState(0);
-  const [activeCategory, setActiveCategory] = useState(null);
 
   const filterStructure = {
     "Trade Size": {
@@ -127,33 +126,26 @@ const ProductFilters = ({ onFilterChange, activeFilters }) => {
     "Conduit Type": {
       options: ["Rigid", "IMC"],
       order: 5,
-      categorySpecific: "Conduit",
       tooltip: "Type and construction method of conduit",
     },
     "Body Style": {
       options: ["C", "LB", "LL", "LR", "T", "TB", "X"],
       order: 6,
-      categorySpecific: "Conduit Bodies",
-      triggersCategory: true,
       tooltip: "Standard conduit body configurations for routing changes",
     },
     "Box Style": {
       options: ["FDC", "FDCT", "FDX"],
       order: 7,
-      categorySpecific: "Conduit Bodies",
       tooltip: "Conduit box configurations for junctions and pulls",
     },
     "Hub Configuration": {
       options: ["Grounding", "Line Terminating"],
       order: 8,
-      categorySpecific: "Hubs",
-      triggersCategory: true,
       tooltip: "Hub types for conduit termination and grounding",
     },
     "Hub Style": {
       options: ["Standard", "O-Ring/Locknut"],
       order: 9,
-      categorySpecific: "Hubs",
       tooltip: "Hub sealing and mounting options",
     },
     "Fitting Type": {
@@ -165,55 +157,33 @@ const ProductFilters = ({ onFilterChange, activeFilters }) => {
         "Floor Flange",
       ],
       order: 10,
-      categorySpecific: "Fittings",
-      triggersCategory: true,
       tooltip: "Various fittings for conduit system connections",
     },
     "Coupling Style": {
       options: ["Standard", "3-Piece", "Reducing"],
       order: 11,
-      categorySpecific: "Couplings",
-      triggersCategory: true,
       tooltip: "Coupling configurations for conduit connections",
     },
     "Elbow Angle": {
       options: ["45°", "90°"],
       order: 12,
-      categorySpecific: ["Elbows"],
       tooltip: "Standard bend angles for direction changes",
     },
     "Strut Properties": {
       options: ["12 Gauge", "14 Gauge", '1⅝" x 1⅝"', '13/16" x 1⅝"'],
       order: 13,
-      categorySpecific: "Strut",
-      triggersCategory: true,
       tooltip: "Strut thickness and profile dimensions",
     },
     "Strut Pattern": {
       options: ["Solid", "Slotted", "Elongated Holes"],
       order: 14,
-      categorySpecific: "Strut",
       tooltip: "Hole patterns for mounting flexibility",
     },
   };
 
   useEffect(() => {
-    updateActiveCategory();
     updateFilterCount();
   }, [activeFilters]);
-
-  const updateActiveCategory = () => {
-    for (const [filterType, values] of Object.entries(
-      activeFilters.filters || {}
-    )) {
-      const config = filterStructure[filterType];
-      if (config?.triggersCategory && Object.values(values).some(Boolean)) {
-        setActiveCategory(config.categorySpecific);
-        return;
-      }
-    }
-    setActiveCategory(null);
-  };
 
   const updateFilterCount = () => {
     const count = Object.values(activeFilters.filters || {}).reduce(
@@ -229,55 +199,21 @@ const ProductFilters = ({ onFilterChange, activeFilters }) => {
       ...currentFilters[filterType],
       [value]: !currentFilters[filterType]?.[value],
     };
-
-    const newConfig = filterStructure[filterType];
-    if (newConfig?.triggersCategory) {
-      Object.keys(currentFilters).forEach((key) => {
-        const keyConfig = filterStructure[key];
-        if (
-          keyConfig?.categorySpecific &&
-          keyConfig.categorySpecific !== newConfig.categorySpecific
-        ) {
-          delete currentFilters[key];
-        }
-      });
-    }
-
     onFilterChange({ filters: currentFilters });
   };
 
   const clearFilters = () => {
     onFilterChange({ filters: {} });
-    setActiveCategory(null);
-  };
-
-  const getVisibleFilters = () => {
-    return Object.entries(filterStructure)
-      .filter(([_, config]) => {
-        if (!activeCategory) return true;
-        if (!config.categorySpecific) return true;
-        if (Array.isArray(config.categorySpecific)) {
-          return config.categorySpecific.includes(activeCategory);
-        }
-        return config.categorySpecific === activeCategory;
-      })
-      .sort(([_, a], [__, b]) => a.order - b.order);
   };
 
   const renderFilters = () => {
-    const visibleFilters = getVisibleFilters();
-    const allFilters = Object.keys(filterStructure);
-
-    return allFilters.map((filterType) => {
-      const config = filterStructure[filterType];
-      const isVisible = visibleFilters.some(([type]) => type === filterType);
-
-      return (
+    return Object.entries(filterStructure)
+      .sort(([_, a], [__, b]) => a.order - b.order)
+      .map(([filterType, config]) => (
         <FilterSection
           key={filterType}
           title={filterType}
           tooltip={config.tooltip}
-          style={{ display: isVisible ? "block" : "none" }}
         >
           <div className="filter-group">
             {config.options.map((option) => (
@@ -295,8 +231,7 @@ const ProductFilters = ({ onFilterChange, activeFilters }) => {
             ))}
           </div>
         </FilterSection>
-      );
-    });
+      ));
   };
 
   return (
@@ -304,15 +239,22 @@ const ProductFilters = ({ onFilterChange, activeFilters }) => {
       <div className="filter-header">
         <div className="filter-count">
           <span>Filter By</span>
-          {activeFilterCount > 0 && (
-            <span className="filter-badge">{activeFilterCount}</span>
-          )}
+          <span
+            className={`filter-badge ${
+              activeFilterCount === 0 ? "filter-badge-hidden" : ""
+            }`}
+          >
+            {activeFilterCount || ""}
+          </span>
         </div>
-        {activeFilterCount > 0 && (
-          <button onClick={clearFilters} className="clear-filters">
-            Clear
-          </button>
-        )}
+        <button
+          onClick={clearFilters}
+          className={`clear-filters ${
+            activeFilterCount === 0 ? "clear-filters-hidden" : ""
+          }`}
+        >
+          Clear
+        </button>
       </div>
       <div className="filter-sections">{renderFilters()}</div>
     </div>
