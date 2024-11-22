@@ -24,7 +24,7 @@
 .rmc-product-grid {
   flex: 1;
   height: 100%;
-  padding: 4px 40px;
+  padding: 2px 40px;
   overflow-y: auto;
 }
 
@@ -363,7 +363,7 @@
 
 /* Tooltip Content */
 .tooltip-content {
-  padding: 16px; /* Space for close button */
+  padding: 10px 16px 16px;
 }
 
 .tooltip-content p {
