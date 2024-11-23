@@ -444,6 +444,37 @@
   cursor: pointer;
 }
 
+/* Checkbox styling */
+.filter-option input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 13px;
+  height: 13px;
+  border: 2px solid #6b7280;
+  border-radius: 2px;
+  background: white;
+  margin: 0;
+  cursor: pointer;
+  position: relative;
+}
+
+.filter-option input[type="checkbox"]:checked {
+  background-color: #4f46e5;
+  border-color: #4f46e5;
+}
+
+.filter-option input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  width: 5px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
 /* Filter Option Labels */
 .filter-option label {
   font-size: 0.875rem;
