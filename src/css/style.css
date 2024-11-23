@@ -444,35 +444,79 @@
   cursor: pointer;
 }
 
-/* Checkbox styling */
 .filter-option input[type="checkbox"] {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 13px;
-  height: 13px;
-  border: 2px solid #6b7280;
-  border-radius: 4px;
-  background: white;
-  margin: 0;
-  cursor: pointer;
-  position: relative;
+  /* Reset */
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  outline: none !important;
+
+  /* Size */
+  width: 13px !important;
+  height: 13px !important;
+  min-width: 13px !important;
+  min-height: 13px !important;
+
+  /* Border & Radius */
+  border: 2px solid #6b7280 !important;
+  border-radius: 2px !important;
+  -webkit-border-radius: 2px !important;
+  -moz-border-radius: 2px !important;
+
+  /* Background */
+  background-color: white !important;
+
+  /* Positioning */
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative !important;
+
+  /* Interaction */
+  cursor: pointer !important;
+
+  /* Ensure proper box sizing */
+  box-sizing: border-box !important;
+  -webkit-box-sizing: border-box !important;
+  -moz-box-sizing: border-box !important;
 }
 
 .filter-option input[type="checkbox"]:checked {
-  background-color: #4f46e5;
-  border-color: #4f46e5;
+  background-color: #4f46e5 !important;
+  border-color: #4f46e5 !important;
 }
 
 .filter-option input[type="checkbox"]:checked::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 45%;
-  width: 5px;
-  height: 8px;
-  border: solid white;
-  border-width: 0 2px 2px 0;
-  transform: translate(-50%, -50%) rotate(45deg);
+  content: "" !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 45% !important;
+  width: 5px !important;
+  height: 8px !important;
+  border: solid white !important;
+  border-width: 0 2px 2px 0 !important;
+  transform: translate(-50%, -50%) rotate(45deg) !important;
+  -webkit-transform: translate(-50%, -50%) rotate(45deg) !important;
+  -moz-transform: translate(-50%, -50%) rotate(45deg) !important;
+  box-sizing: content-box !important;
+  -webkit-box-sizing: content-box !important;
+  -moz-box-sizing: content-box !important;
+}
+
+/* Focus state */
+.filter-option input[type="checkbox"]:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2) !important;
+}
+
+/* Hover state */
+.filter-option input[type="checkbox"]:hover {
+  border-color: #4f46e5 !important;
+}
+
+/* Disabled state if needed */
+.filter-option input[type="checkbox"]:disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
 }
 
 /* Filter Option Labels */
