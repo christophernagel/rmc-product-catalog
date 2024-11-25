@@ -2,21 +2,12 @@ import React from "react";
 import ProductCard from "./ProductCard";
 
 const ProductGrid = ({ products, filters }) => {
-  const groupByCategory = (products) => {
-    return products.reduce((acc, product) => {
-      const category = product.category;
-      if (!acc[category]) acc[category] = [];
-      acc[category].push(product);
-      return acc;
-    }, {});
-  };
-
   const filterProducts = (products) => {
-    return products.filter((product) => {
-      // If no filters are active, show all products
-      if (Object.keys(filters).length === 0) return true;
+    // If no filters are active, show all products
+    if (Object.keys(filters).length === 0) return products;
 
-      // Check each active filter category
+    return products.filter((product) => {
+      // Check if product matches ANY active filter
       for (const [category, activeValues] of Object.entries(filters)) {
         const activeFilters = Object.entries(activeValues)
           .filter(([_, isActive]) => isActive)
@@ -24,7 +15,7 @@ const ProductGrid = ({ products, filters }) => {
 
         if (activeFilters.length === 0) continue;
 
-        // Match filter categories to product specifications
+        // Check if product matches any filter in this category
         let matches = false;
         switch (category) {
           case "Conduit":
@@ -66,39 +57,25 @@ const ProductGrid = ({ products, filters }) => {
             );
             break;
           case "Material Grade":
-            matches = activeFilters.includes(
-              product.specifications["Material Grade"]
-            );
-            break;
           case "Environment":
           case "Certification":
             matches = activeFilters.some((filter) =>
               product.specifications[category]?.includes(filter)
             );
             break;
-          default:
-            matches = true;
         }
 
-        if (!matches && activeFilters.length > 0) return false;
+        // If it matches any filter, show the product
+        if (matches) return true;
       }
-      return true;
+      // If no matches found in any category, don't show the product
+      return false;
     });
   };
 
-  const groupedProducts = groupByCategory(products);
-  const filteredGroups = Object.entries(groupedProducts).reduce(
-    (acc, [category, products]) => {
-      const filtered = filterProducts(products);
-      if (filtered.length > 0) {
-        acc[category] = filtered;
-      }
-      return acc;
-    },
-    {}
-  );
+  const filteredProducts = filterProducts(products);
 
-  if (Object.keys(filteredGroups).length === 0) {
+  if (filteredProducts.length === 0) {
     return (
       <div className="rmc-product-grid-empty">
         <p>No products match the selected filters.</p>
@@ -108,16 +85,11 @@ const ProductGrid = ({ products, filters }) => {
 
   return (
     <div className="rmc-product-grid">
-      {Object.entries(filteredGroups).map(([category, products]) => (
-        <div key={category} className="product-category-section">
-          <h2 className="category-header">{category}</h2>
-          <div className="products-grid">
-            {products.map((product) => (
-              <ProductCard key={product.id} {...product} />
-            ))}
-          </div>
-        </div>
-      ))}
+      <div className="products-grid">
+        {filteredProducts.map((product) => (
+          <ProductCard key={product.id} {...product} />
+        ))}
+      </div>
     </div>
   );
 };
