@@ -1,28 +1,42 @@
 import React, { useState } from "react";
 import ProductGrid from "./ProductGrid";
 import ProductFilters from "./ProductFilters";
-import sampleProducts from "./sampleProducts"; // Import the sample data
+import ActiveFiltersBar from "./ActiveFiltersBar";
+import sampleProducts from "./sampleProducts";
 
-const ProductCatalog = ({ isEditor = false }) => {
-  const [activeFilters, setActiveFilters] = useState({
-    category: "",
-    filters: {},
-  });
-
-  // Use the imported sample products instead of the inline example
-  const [products] = useState(sampleProducts);
+const ProductCatalog = () => {
+  const [activeFilters, setActiveFilters] = useState({});
 
   const handleFilterChange = (newFilters) => {
     setActiveFilters(newFilters);
   };
 
+  const handleRemoveFilter = (category, value) => {
+    const newFilters = { ...activeFilters };
+    if (newFilters[category]) {
+      delete newFilters[category][value];
+      if (Object.keys(newFilters[category]).length === 0) {
+        delete newFilters[category];
+      }
+    }
+    setActiveFilters(newFilters);
+  };
+
   return (
     <div className="rmc-product-catalog">
-      <ProductFilters
-        onFilterChange={handleFilterChange}
-        activeFilters={activeFilters}
-      />
-      <ProductGrid products={products} filters={activeFilters} />
+      <div className="rmc-catalog-layout">
+        <ProductFilters
+          onFilterChange={handleFilterChange}
+          activeFilters={activeFilters}
+        />
+        <div className="rmc-catalog-content">
+          <ActiveFiltersBar
+            filters={activeFilters}
+            onRemoveFilter={handleRemoveFilter}
+          />
+          <ProductGrid products={sampleProducts} filters={activeFilters} />
+        </div>
+      </div>
     </div>
   );
 };

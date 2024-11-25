@@ -13,30 +13,74 @@ const ProductGrid = ({ products, filters }) => {
 
   const filterProducts = (products) => {
     return products.filter((product) => {
-      if (!filters.filters) return true;
+      // If no filters are active, show all products
+      if (Object.keys(filters).length === 0) return true;
 
-      for (const [filterType, filterValues] of Object.entries(
-        filters.filters
-      )) {
-        const activeFilters = Object.entries(filterValues)
+      // Check each active filter category
+      for (const [category, activeValues] of Object.entries(filters)) {
+        const activeFilters = Object.entries(activeValues)
           .filter(([_, isActive]) => isActive)
           .map(([value]) => value);
 
         if (activeFilters.length === 0) continue;
 
-        const productValue = product.specifications[filterType];
-
-        if (!productValue) return false;
-
-        if (Array.isArray(productValue)) {
-          if (!activeFilters.some((filter) => productValue.includes(filter))) {
-            return false;
-          }
-        } else {
-          if (!activeFilters.includes(productValue)) {
-            return false;
-          }
+        // Match filter categories to product specifications
+        let matches = false;
+        switch (category) {
+          case "Conduit":
+            matches = activeFilters.includes(
+              product.specifications["Conduit Type"]
+            );
+            break;
+          case "Strut":
+            matches = activeFilters.some(
+              (filter) =>
+                product.specifications["Strut Properties"]?.includes(filter) ||
+                product.specifications["Strut Pattern"]?.includes(filter)
+            );
+            break;
+          case "Conduit Bodies":
+            matches = activeFilters.includes(
+              product.specifications["Body Style"]
+            );
+            break;
+          case "Conduit Hubs":
+            matches =
+              activeFilters.includes(
+                product.specifications["Hub Configuration"]
+              ) || activeFilters.includes(product.specifications["Hub Style"]);
+            break;
+          case "Conduit Elbows":
+            matches = activeFilters.includes(
+              product.specifications["Elbow Angle"]
+            );
+            break;
+          case "Junction Boxes":
+            matches = activeFilters.includes(
+              product.specifications["Box Style"]
+            );
+            break;
+          case "Couplings":
+            matches = activeFilters.includes(
+              product.specifications["Coupling Style"]
+            );
+            break;
+          case "Material Grade":
+            matches = activeFilters.includes(
+              product.specifications["Material Grade"]
+            );
+            break;
+          case "Environment":
+          case "Certification":
+            matches = activeFilters.some((filter) =>
+              product.specifications[category]?.includes(filter)
+            );
+            break;
+          default:
+            matches = true;
         }
+
+        if (!matches && activeFilters.length > 0) return false;
       }
       return true;
     });
@@ -69,7 +113,7 @@ const ProductGrid = ({ products, filters }) => {
           <h2 className="category-header">{category}</h2>
           <div className="products-grid">
             {products.map((product) => (
-              <ProductCard key={product.id} {...product} showCategory={false} />
+              <ProductCard key={product.id} {...product} />
             ))}
           </div>
         </div>
