@@ -53,7 +53,7 @@
   top: 0;
   z-index: 10;
   background-color: white;
-  padding: 1rem 0;
+  padding: 0 0 12px;
   border-bottom: 1px solid #e5e7eb;
   display: flex;
   align-items: center;
@@ -79,8 +79,7 @@
   overflow-x: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  position: relative; /* Add positioning context */
-  padding: 4px 0; /* Add padding for shadow space */
+  position: relative;
 }
 
 .rmc-active-filters-list::-webkit-scrollbar {
@@ -139,6 +138,10 @@
   );
   pointer-events: none;
   z-index: 3;
+}
+
+.rmc-active-filters-scroll-container.show-shadow::after {
+  opacity: 1;
 }
 
 .rmc-active-filter-tag {

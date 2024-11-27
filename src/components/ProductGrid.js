@@ -3,11 +3,15 @@ import ProductCard from "./ProductCard";
 
 const ProductGrid = ({ products, filters }) => {
   const filterProducts = (products) => {
-    // If no filters are active, show all products
-    if (Object.keys(filters).length === 0) return products;
+    // Check if there are any active filters
+    const hasActiveFilters = Object.values(filters).some((category) =>
+      Object.values(category).some(Boolean)
+    );
+
+    // If no filters are active, return all products
+    if (!hasActiveFilters) return products;
 
     return products.filter((product) => {
-      // Check if product matches ANY active filter
       for (const [category, activeValues] of Object.entries(filters)) {
         const activeFilters = Object.entries(activeValues)
           .filter(([_, isActive]) => isActive)
@@ -15,7 +19,6 @@ const ProductGrid = ({ products, filters }) => {
 
         if (activeFilters.length === 0) continue;
 
-        // Check if product matches any filter in this category
         let matches = false;
         switch (category) {
           case "Conduit":
@@ -65,10 +68,8 @@ const ProductGrid = ({ products, filters }) => {
             break;
         }
 
-        // If it matches any filter, show the product
         if (matches) return true;
       }
-      // If no matches found in any category, don't show the product
       return false;
     });
   };
