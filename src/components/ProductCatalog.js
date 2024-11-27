@@ -5,30 +5,25 @@ import ActiveFiltersBar from "./ActiveFiltersBar";
 import sampleProducts from "./sampleProducts";
 
 const ProductCatalog = () => {
-  const [activeFilters, setActiveFilters] = useState({});
-
-  const handleFilterChange = (newFilters) => {
-    setActiveFilters(newFilters);
-  };
-
-  const handleRemoveFilter = (category, value) => {
-    const newFilters = { ...activeFilters };
-    if (newFilters[category]) {
-      delete newFilters[category][value];
-      if (Object.keys(newFilters[category]).length === 0) {
-        delete newFilters[category];
-      }
-    }
-    setActiveFilters(newFilters);
-  };
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
     <div className="rmc-product-catalog">
       <div className="rmc-catalog-layout">
-        <ProductFilters
-          onFilterChange={handleFilterChange}
-          activeFilters={activeFilters}
-        />
+        {isMobile ? (
+          <FilterDrawer>
+            <ProductFilters
+              onFilterChange={handleFilterChange}
+              activeFilters={activeFilters}
+            />
+          </FilterDrawer>
+        ) : (
+          <ProductFilters
+            onFilterChange={handleFilterChange}
+            activeFilters={activeFilters}
+          />
+        )}
+
         <div className="rmc-catalog-content">
           <ActiveFiltersBar
             filters={activeFilters}
