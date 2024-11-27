@@ -77,9 +77,9 @@
   gap: 0.5rem;
   align-items: center;
   overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  position: relative;
+  padding-bottom: 8px; /* Add space for shadow */
+  margin-bottom: -8px; /* Compensate for padding */
+  position: relative; /* For shadow containment */
 }
 
 .rmc-active-filters-list::-webkit-scrollbar {
@@ -119,29 +119,24 @@
   position: relative;
   flex: 1;
   min-width: 0;
-  isolation: isolate;
+  margin-right: 16px; /* Add space for shadow to be visible */
 }
 
-.rmc-active-filters-scroll-container.show-shadow::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  height: calc(100% + 8px); /* Slightly taller than container */
-  width: 30px; /* Increased width for visibility */
-  background: linear-gradient(
+.rmc-active-filters-scroll-container.show-shadow .rmc-active-filters-list {
+  mask-image: linear-gradient(
     to right,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(255, 255, 255, 0.8) 50%,
-    rgba(255, 255, 255, 0) 100%
+    transparent,
+    black 30px,
+    black calc(100% - 30px),
+    transparent
   );
-  pointer-events: none;
-  z-index: 3;
-}
-
-.rmc-active-filters-scroll-container.show-shadow::after {
-  opacity: 1;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 30px,
+    black calc(100% - 30px),
+    transparent
+  );
 }
 
 .rmc-active-filter-tag {

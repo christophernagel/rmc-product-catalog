@@ -1,32 +1,40 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 
 const ActiveFiltersBar = ({ filters, onRemoveFilter, onSearch }) => {
-  const [showLeftShadow, setShowLeftShadow] = useState(false);
+  const [showShadow, setShowShadow] = useState(false);
   const scrollContainerRef = useRef(null);
 
-  const checkForOverflow = () => {
+  const checkForOverflow = useCallback(() => {
     const element = scrollContainerRef.current;
     if (element) {
       const hasOverflow = element.scrollWidth > element.clientWidth;
-      const hasScroll = element.scrollLeft > 0;
-      setShowLeftShadow(hasOverflow && hasScroll);
+      const hasScroll =
+        element.scrollLeft > 0 ||
+        element.scrollLeft < element.scrollWidth - element.clientWidth;
+      setShowShadow(hasOverflow && hasScroll);
     }
-  };
+  }, []);
 
-  // Check on mount and when filters change
   useEffect(() => {
     checkForOverflow();
-    // Add resize observer to check when width changes
-    const observer = new ResizeObserver(checkForOverflow);
+
+    const observer = new ResizeObserver(() => {
+      requestAnimationFrame(checkForOverflow);
+    });
+
     if (scrollContainerRef.current) {
       observer.observe(scrollContainerRef.current);
     }
-    return () => observer.disconnect();
-  }, [filters]);
 
-  const handleScroll = () => {
-    checkForOverflow();
-  };
+    return () => observer.disconnect();
+  }, [filters, checkForOverflow]);
+
+  const handleScroll = useCallback(
+    (e) => {
+      requestAnimationFrame(checkForOverflow);
+    },
+    [checkForOverflow]
+  );
 
   const getActiveFilters = () => {
     const active = [];
@@ -64,7 +72,7 @@ const ActiveFiltersBar = ({ filters, onRemoveFilter, onSearch }) => {
       <span className="rmc-active-filters-label">Active Filters:</span>
       <div
         className={`rmc-active-filters-scroll-container ${
-          showLeftShadow ? "show-shadow" : ""
+          showShadow ? "show-shadow" : ""
         }`}
       >
         <div
