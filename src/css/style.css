@@ -2,6 +2,41 @@
    Layout Containers
 =========================================================== */
 
+body .rmc-product-catalog .rmc-search-input,
+.rmc-search-input {
+  width: 100% !important;
+  padding: 0.75rem 1rem 0.75rem 2.5rem !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 2rem !important;
+  font-size: 0.875rem !important;
+  color: #374151 !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239aa0a6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: 12px center !important;
+  background-size: 20px !important;
+  background-color: white !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+  line-height: normal !important;
+  min-height: auto !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  transition: all 0.2s ease !important;
+}
+
+body .rmc-product-catalog .rmc-search-input:focus,
+.rmc-search-input:focus {
+  outline: none !important;
+  border-color: #4f46e5 !important;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1) !important;
+}
+
+body .rmc-product-catalog .rmc-search-input::placeholder,
+.rmc-search-input::placeholder {
+  color: #9aa0a6 !important;
+  font-size: 0.875rem !important;
+}
+
 /* Main Product Catalog Container */
 .rmc-product-catalog {
   display: flex;
@@ -22,8 +57,8 @@
 
 /* Product Grid Area */
 .rmc-product-grid {
-  height: calc(100% - 60px); /* Account for filters bar height */
-  padding: 0; /* Remove padding as it's handled by catalog-content */
+  height: calc(100% - 60px);
+  padding: 0;
 }
 
 .rmc-product-grid-empty {
@@ -78,51 +113,28 @@
   align-items: center;
   overflow-x: auto;
   position: relative;
-  padding: 4px 0; /* Add padding for shadow space */
+  padding: 4px 0;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
 .rmc-active-filters-list::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none;
 }
 
 .rmc-search-container {
   position: relative;
   min-width: 250px;
   margin-left: auto;
+  margin-right: 12px;
   z-index: 4;
-}
-
-.rmc-search-input {
-  width: 100%;
-  padding: 0.75rem 1rem 0.75rem 2.5rem; /* Make room for icon */
-  border: 1px solid #e5e7eb;
-  border-radius: 0.375rem;
-  font-size: 0.875rem;
-  color: #374151;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239aa0a6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: 12px center;
-  background-size: 20px;
-}
-
-.rmc-search-input:focus {
-  outline: none;
-  border-color: #4f46e5;
-  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
-}
-
-.rmc-search-input::placeholder {
-  color: #9aa0a6;
-  font-size: 0.875rem;
 }
 
 .rmc-active-filters-scroll-container {
   position: relative;
   flex: 1;
   min-width: 0;
-  margin-right: 12px; /* Add space for shadow to be visible */
+  margin-right: 12px;
 }
 
 .rmc-active-filters-scroll-container.show-shadow::before {
@@ -131,7 +143,7 @@
   top: 0;
   right: 0;
   height: 100%;
-  width: 8px; /* Width of shadow */
+  width: 8px;
   pointer-events: none;
   background: linear-gradient(
     to right,
@@ -167,8 +179,8 @@
 
 .rmc-filter-tag-text {
   display: inline-block;
-  font-size: 0.875rem; /* Match filter options */
-  color: #555; /* Match filter options */
+  font-size: 0.875rem;
+  color: #555;
 }
 
 .rmc-filter-tag-remove {
@@ -194,12 +206,10 @@
    Product Grid and Cards
 =========================================================== */
 
-/* Product Category Section */
 .product-category-section {
   margin-bottom: 2rem;
 }
 
-/* Category Header */
 .category-header {
   font-size: 1.5rem;
   font-weight: 600;
@@ -209,14 +219,12 @@
   border-bottom: 2px solid #e5e7eb;
 }
 
-/* Products Grid Layout */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
-/* Individual Product Card */
 .rmc-product-card {
   padding: 0;
   border: 1px solid #e5e7eb;
@@ -243,33 +251,25 @@
    Scrollbar Styles
 =========================================================== */
 
-/* Custom Scrollbar for Filters */
-.rmc-filters::-webkit-scrollbar {
-  width: 8px;
-}
-
-.rmc-filters::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.rmc-filters::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-}
-
-/* Custom Scrollbar for Product Grid */
+.rmc-filters::-webkit-scrollbar,
 .rmc-product-grid::-webkit-scrollbar {
   width: 8px;
 }
 
+.rmc-filters::-webkit-scrollbar-track,
 .rmc-product-grid::-webkit-scrollbar-track {
   background: transparent;
 }
 
+.rmc-filters::-webkit-scrollbar-thumb,
 .rmc-product-grid::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 }
+
+/* ===========================================================
+   Filter Components
+=========================================================== */
 
 /* ===========================================================
    Filter Components
