@@ -77,9 +77,10 @@
   gap: 0.5rem;
   align-items: center;
   overflow-x: auto;
-  padding-bottom: 8px; /* Add space for shadow */
-  margin-bottom: -8px; /* Compensate for padding */
-  position: relative; /* For shadow containment */
+  position: relative;
+  padding: 4px 0; /* Add padding for shadow space */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .rmc-active-filters-list::-webkit-scrollbar {
@@ -91,18 +92,19 @@
   min-width: 250px;
   margin-left: auto;
   z-index: 4;
-  background-color: white;
 }
 
 .rmc-search-input {
   width: 100%;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1rem 0.75rem 2.5rem; /* Make room for icon */
   border: 1px solid #e5e7eb;
   border-radius: 0.375rem;
   font-size: 0.875rem;
   color: #374151;
-  background-color: white;
-  transition: border-color 150ms ease-in-out;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239aa0a6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 12px center;
+  background-size: 20px;
 }
 
 .rmc-search-input:focus {
@@ -112,31 +114,36 @@
 }
 
 .rmc-search-input::placeholder {
-  color: #9ca3af;
+  color: #9aa0a6;
+  font-size: 0.875rem;
 }
 
 .rmc-active-filters-scroll-container {
   position: relative;
   flex: 1;
   min-width: 0;
-  margin-right: 16px; /* Add space for shadow to be visible */
+  margin-right: 12px; /* Add space for shadow to be visible */
 }
 
-.rmc-active-filters-scroll-container.show-shadow .rmc-active-filters-list {
-  mask-image: linear-gradient(
+.rmc-active-filters-scroll-container.show-shadow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 8px; /* Width of shadow */
+  pointer-events: none;
+  background: linear-gradient(
     to right,
-    transparent,
-    black 30px,
-    black calc(100% - 30px),
-    transparent
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.01) 15%,
+    rgba(0, 0, 0, 0.03) 30%,
+    rgba(0, 0, 0, 0.05) 50%,
+    rgba(0, 0, 0, 0.07) 75%,
+    rgba(0, 0, 0, 0.08) 100%
   );
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent,
-    black 30px,
-    black calc(100% - 30px),
-    transparent
-  );
+  box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.3) inset;
+  z-index: 1;
 }
 
 .rmc-active-filter-tag {
