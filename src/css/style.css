@@ -60,6 +60,17 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
   flex-shrink: 0; /* Prevent shrinking */
 }
 
+.desktop-filters {
+  width: 320px;
+  min-width: 280px;
+  max-width: 320px;
+  flex-shrink: 0;
+}
+
+.mobile-filters {
+  display: none;
+}
+
 /* Product Grid Area */
 .rmc-product-grid {
   height: calc(100% - 60px);
@@ -936,23 +947,27 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
     flex-direction: column;
   }
 
+  .desktop-filters {
+    display: none;
+  }
+  .mobile-filters {
+    display: block;
+  }
   /* Filter drawer */
   .rmc-filters {
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    width: 75%;
-    transform: translate(-50%, calc(100% - var(--header-height)));
-    background: white;
-    border-radius: 16px 16px 0 0;
-    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    z-index: 1000;
-    max-height: 85vh;
+    position: relative; /* Change from fixed */
+    bottom: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    transition: none;
   }
 
   .rmc-filters.expanded {
-    transform: translate(-50%, 15vh);
+    transform: none;
   }
 
   /* Filter sections */
@@ -965,18 +980,42 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
   .filter-section-header {
     top: 0;
   }
-
+  .filter-drawer {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    width: 75%;
+    transform: translate(-50%, 100%);
+    background: white;
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .filter-drawer.expanded {
+    transform: translate(-50%, 15vh);
+  }
+  .filter-drawer-content {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+  }
   /* Pull handle */
   .filter-drawer-handle {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    flex-shrink: 0;
+    width: 100%;
     height: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    background: white;
+    z-index: 2;
+    border-radius: 16px 16px 0 0;
   }
 
   .handle-line {
@@ -1031,6 +1070,14 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
 
   .rmc-active-filters-label {
     width: auto;
+  }
+  .rmc-filters {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    padding: 0 15px;
+    position: relative;
+    background: white;
   }
 }
 
