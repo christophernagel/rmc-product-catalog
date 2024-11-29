@@ -43,13 +43,15 @@ const ProductCatalog = () => {
       );
     }
 
-    // Apply category filters
+    // Apply category filters with OR logic
     const hasActiveFilters = Object.values(activeFilters).some((category) =>
       Object.values(category).some(Boolean)
     );
 
     if (hasActiveFilters) {
       filtered = filtered.filter((product) => {
+        let hasAnyMatch = false;
+
         for (const [category, values] of Object.entries(activeFilters)) {
           const activeValues = Object.entries(values)
             .filter(([_, isActive]) => isActive)
@@ -88,11 +90,13 @@ const ProductCatalog = () => {
             }
           });
 
-          if (activeValues.length > 0 && !matchesCategory) {
-            return false;
+          if (matchesCategory) {
+            hasAnyMatch = true;
+            break;
           }
         }
-        return true;
+
+        return hasAnyMatch;
       });
     }
 
