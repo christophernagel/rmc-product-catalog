@@ -988,7 +988,7 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
     ); /* Add this to account for iOS safe area */
     left: 0;
     width: 100%;
-    transform: translateY(100%);
+    transform: translateY(calc(100% - 60px));
     background: white;
     border-radius: 16px 16px 0 0;
     box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
@@ -999,7 +999,7 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
     flex-direction: column;
   }
   .filter-drawer.expanded {
-    transform: translateY(0);
+    transform: translateY(15vh);
     /* Add bottom padding to account for the home indicator */
     padding-bottom: env(safe-area-inset-bottom);
   }
