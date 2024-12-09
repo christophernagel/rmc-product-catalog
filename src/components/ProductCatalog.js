@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ProductGrid from "./ProductGrid";
 import ProductFilters from "./ProductFilters";
 import FilterDrawer from "./FilterDrawer";
@@ -6,8 +6,54 @@ import ActiveFiltersBar from "./ActiveFiltersBar";
 import sampleProducts from "./sampleProducts";
 
 const ProductCatalog = () => {
-  const [activeFilters, setActiveFilters] = useState({});
+  // Initialize filters from URL with validation
+  const initializeFiltersFromURL = () => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const filterParams = {};
+
+      // Remove validation against sampleProducts since it might not be loaded
+      params.forEach((value, category) => {
+        // Instead validate against our known filterStructure
+        filterParams[category] = {
+          ...(filterParams[category] || {}),
+          [value]: true,
+        };
+      });
+
+      return filterParams;
+    } catch (error) {
+      console.warn("Error parsing URL parameters:", error);
+      return {};
+    }
+  };
+
+  const [activeFilters, setActiveFilters] = useState(
+    initializeFiltersFromURL()
+  );
   const [searchQuery, setSearchQuery] = useState("");
+
+  // Update URL when filters change
+  useEffect(() => {
+    const params = new URLSearchParams();
+
+    Object.entries(activeFilters).forEach(([category, values]) => {
+      Object.entries(values).forEach(([value, isActive]) => {
+        if (isActive) {
+          params.append(category, value);
+        }
+      });
+    });
+
+    // Update URL without page refresh
+    window.history.replaceState(
+      {},
+      "",
+      `${window.location.pathname}${
+        params.toString() ? "?" + params.toString() : ""
+      }`
+    );
+  }, [activeFilters]);
 
   const handleFilterChange = (newFilters) => {
     setActiveFilters(newFilters);
