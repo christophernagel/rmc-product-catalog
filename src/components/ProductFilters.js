@@ -30,11 +30,55 @@ const TooltipPopup = ({ content, title, onClose, position }) => {
   );
 };
 
-const FilterSection = ({ title, children, tooltip }) => {
+const FilterSection = ({
+  title,
+  children,
+  tooltip,
+  onFilterChange,
+  activeFilters,
+}) => {
   const [showTooltip, setShowTooltip] = useState(false);
   const [isExpanded, setIsExpanded] = useState(true);
   const [tooltipPosition, setTooltipPosition] = useState({ top: 0, left: 0 });
   const tooltipButtonRef = useRef(null);
+
+  const allSelected = React.useMemo(() => {
+    if (!activeFilters?.[title]) return false;
+    const options =
+      React.Children.toArray(children).find(
+        (child) =>
+          child.type === "div" && child.props.className === "filter-group"
+      )?.props.children || [];
+
+    const optionValues = options.map(
+      (option) => option.props.children[1].props.children
+    );
+    return (
+      optionValues.length > 0 &&
+      optionValues.every((value) => activeFilters[title][value])
+    );
+  }, [activeFilters, title, children]);
+
+  const handleHeaderCheckboxChange = (e) => {
+    e.stopPropagation();
+    const isChecked = e.target.checked;
+
+    const options =
+      React.Children.toArray(children).find(
+        (child) =>
+          child.type === "div" && child.props.className === "filter-group"
+      )?.props.children || [];
+
+    const newFilters = { ...activeFilters };
+    newFilters[title] = {};
+
+    options.forEach((option) => {
+      const value = option.props.children[1].props.children;
+      newFilters[title][value] = isChecked;
+    });
+
+    onFilterChange(newFilters);
+  };
 
   const handleTooltipClick = (e) => {
     e.stopPropagation();
@@ -53,12 +97,17 @@ const FilterSection = ({ title, children, tooltip }) => {
       <div
         className="filter-section-header"
         onClick={() => setIsExpanded(!isExpanded)}
-        style={{ cursor: "pointer" }}
       >
         <div className="filter-section-title">
           <span className={`expand-icon ${isExpanded ? "expanded" : ""}`}>
             ▼
           </span>
+          <input
+            type="checkbox"
+            checked={allSelected}
+            onChange={handleHeaderCheckboxChange}
+            onClick={(e) => e.stopPropagation()}
+          />
           <h3>{title}</h3>
         </div>
         {tooltip && (
@@ -190,7 +239,13 @@ const ProductFilters = ({ onFilterChange, activeFilters }) => {
     return Object.entries(filterStructure)
       .sort(([_, a], [__, b]) => a.order - b.order)
       .map(([category, config]) => (
-        <FilterSection key={category} title={category} tooltip={config.tooltip}>
+        <FilterSection
+          key={category}
+          title={category}
+          tooltip={config.tooltip}
+          onFilterChange={onFilterChange}
+          activeFilters={activeFilters}
+        >
           <div className="filter-group">
             {config.options.map((option) => (
               <div key={option} className="filter-option">

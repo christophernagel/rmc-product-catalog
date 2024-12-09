@@ -287,10 +287,6 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
    Filter Components
 =========================================================== */
 
-/* ===========================================================
-   Filter Components
-=========================================================== */
-
 /* Filter Header */
 .filter-header {
   position: sticky;
@@ -303,6 +299,37 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
   padding: 8px 0;
   border-bottom: 1px solid #e5e7eb;
   margin-bottom: 0;
+}
+
+.filter-header-checkbox {
+  margin-left: 8px !important;
+  margin-right: 8px !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  width: 13px !important;
+  height: 13px !important;
+  border: 2px solid #6b7280 !important;
+  border-radius: 2px !important;
+  cursor: pointer !important;
+  position: relative !important;
+  background: white !important;
+}
+
+.filter-header-checkbox:checked {
+  background-color: #4f46e5 !important;
+  border-color: #4f46e5 !important;
+}
+
+.filter-header-checkbox:checked::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 45% !important;
+  width: 4px !important;
+  height: 7px !important;
+  border: solid white !important;
+  border-width: 0 1.5px 1.5px 0 !important;
+  transform: translate(-50%, -50%) rotate(45deg) !important;
 }
 
 /* Filter Count Display */
@@ -404,6 +431,7 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
   height: 28px; /* Set explicit height to ensure consistent centering */
 }
 
+/* Header checkbox specific styling and positioning */
 .filter-section-header .filter-section-title {
   display: flex;
   align-items: center;
@@ -411,9 +439,50 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
   flex: 1;
 }
 
+.filter-section-header .filter-section-title input[type="checkbox"] {
+  margin-left: 18px !important;
+  margin-right: 4px !important;
+  /* Visual styling */
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  width: 13px !important;
+  height: 13px !important;
+  border: 2px solid #6b7280 !important;
+  border-radius: 2px !important;
+  background-color: white !important;
+  position: relative !important;
+  cursor: pointer !important;
+}
+
+/* Header checkbox checked state */
+.filter-section-header .filter-section-title input[type="checkbox"]:checked {
+  background-color: #4f46e5 !important;
+  border-color: #4f46e5 !important;
+}
+
+/* Header checkbox checkmark */
+.filter-section-header
+  .filter-section-title
+  input[type="checkbox"]:checked::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 45% !important;
+  width: 4px !important;
+  height: 7px !important;
+  border: solid white !important;
+  border-width: 0 1.5px 1.5px 0 !important;
+  transform: translate(-50%, -50%) rotate(45deg) !important;
+}
+
+/* Header checkbox hover state */
+.filter-section-header .filter-section-title input[type="checkbox"]:hover {
+  border-color: #4f46e5 !important;
+}
+
 .filter-section-header .filter-section-title h3 {
   margin: 0;
-  padding-left: 16px;
+  padding-left: 4px;
   font-size: 0.875rem;
   font-weight: 600;
   color: #333;
@@ -484,7 +553,6 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
    Tooltip Components
 =========================================================== */
 
-/* Tooltip Overlay (Background) */
 .tooltip-overlay {
   position: fixed;
   top: 0;
@@ -498,10 +566,9 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
   align-items: flex-start;
 }
 
-/* Tooltip Popup */
 .tooltip-popup {
   position: fixed;
-  min-height: 80px; /* Ensures a minimum height */
+  min-height: 80px;
   width: 300px;
   background: white;
   border-radius: 8px;
@@ -511,11 +578,10 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
   padding: 0;
   z-index: 1001;
   animation: tooltipFadeIn 0.2s ease-out;
-  left: auto !important; /* Align with end of filter column */
+  left: auto !important;
   transform-origin: right top;
 }
 
-/* Tooltip Close Button */
 .tooltip-close {
   position: absolute;
   top: 10px;
@@ -527,7 +593,7 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
   border-radius: 50%;
   background: #e5e7eb;
   color: #6b7280;
-  border: 1px solid #848484; /* Added to match tooltip */
+  border: 1px solid #848484;
   font-size: 11px;
   padding: 0;
   margin: 0;
@@ -562,7 +628,6 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
   margin: 0;
 }
 
-/* Tooltip Content */
 .tooltip-content {
   padding: 10px 16px 16px;
 }
@@ -574,7 +639,6 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
   color: #374151;
 }
 
-/* Tooltip Fade-In Animation */
 @keyframes tooltipFadeIn {
   from {
     opacity: 0;
@@ -588,15 +652,13 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
    Filter Options
 =========================================================== */
 
-/* Filter Group Container */
 .filter-group {
-  padding-left: 16px;
+  padding-left: 38px;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 1.8px;
 }
 
-/* Individual Filter Option */
 .filter-option {
   display: flex;
   align-items: center;
@@ -609,7 +671,6 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
   background-color: rgba(0, 0, 0, 0.02);
 }
 
-/* Checkbox and Radio Inputs */
 .filter-option input[type="radio"],
 .filter-option input[type="checkbox"] {
   margin: 0;
@@ -617,39 +678,22 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
 }
 
 .filter-option input[type="checkbox"] {
-  /* Reset */
   appearance: none !important;
   -webkit-appearance: none !important;
   -moz-appearance: none !important;
   outline: none !important;
-
-  /* Size */
   width: 13px !important;
   height: 13px !important;
   min-width: 13px !important;
   min-height: 13px !important;
-
-  /* Border & Radius */
   border: 2px solid #6b7280 !important;
   border-radius: 2px !important;
-  -webkit-border-radius: 2px !important;
-  -moz-border-radius: 2px !important;
-
-  /* Background */
   background-color: white !important;
-
-  /* Positioning */
   margin: 0 !important;
   padding: 0 !important;
   position: relative !important;
-
-  /* Interaction */
   cursor: pointer !important;
-
-  /* Ensure proper box sizing */
   box-sizing: border-box !important;
-  -webkit-box-sizing: border-box !important;
-  -moz-box-sizing: border-box !important;
 }
 
 .filter-option input[type="checkbox"]:checked {
@@ -662,36 +706,28 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
   position: absolute !important;
   left: 50% !important;
   top: 45% !important;
-  width: 4px !important; /* Slightly smaller width */
-  height: 7px !important; /* Slightly smaller height */
+  width: 4px !important;
+  height: 7px !important;
   border: solid white !important;
-  border-width: 0 1.5px 1.5px 0 !important; /* Adjusted border width */
+  border-width: 0 1.5px 1.5px 0 !important;
   transform: translate(-50%, -50%) rotate(45deg) !important;
-  -webkit-transform: translate(-50%, -50%) rotate(45deg) !important;
-  -moz-transform: translate(-50%, -50%) rotate(45deg) !important;
   box-sizing: content-box !important;
-  -webkit-box-sizing: content-box !important;
-  -moz-box-sizing: content-box !important;
 }
 
-/* Focus state */
 .filter-option input[type="checkbox"]:focus {
   outline: none !important;
   box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2) !important;
 }
 
-/* Hover state */
 .filter-option input[type="checkbox"]:hover {
   border-color: #4f46e5 !important;
 }
 
-/* Disabled state if needed */
 .filter-option input[type="checkbox"]:disabled {
   opacity: 0.5 !important;
   cursor: not-allowed !important;
 }
 
-/* Filter Option Labels */
 .filter-option label {
   font-size: 0.875rem;
   color: #555;
@@ -708,16 +744,14 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
    Product Card Components
 =========================================================== */
 
-/* Product Image Container */
 .rmc-product-image-container {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* 4:3 Aspect Ratio */
+  padding-bottom: 56.25%;
   background: #f3f4f6;
   border-bottom: 1px solid #e5e7eb;
 }
 
-/* Placeholder Image for Products */
 .rmc-product-image {
   position: absolute;
   top: 0;
@@ -728,7 +762,6 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
   padding: 1rem;
 }
 
-/* Type Indicators */
 .rmc-type-indicator {
   position: absolute;
   top: 0.75rem;
@@ -752,17 +785,16 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
   flex-shrink: 0;
 }
 
-/* Type Indicator Colors */
 .emt .rmc-type-dot {
-  background-color: #10b981; /* Green */
+  background-color: #10b981;
 }
 
 .imc .rmc-type-dot {
-  background-color: #3b82f6; /* Blue */
+  background-color: #3b82f6;
 }
 
 .rigid .rmc-type-dot {
-  background-color: #94a3b8; /* Silver/Gray */
+  background-color: #94a3b8;
 }
 
 .rmc-type-label {
@@ -771,12 +803,10 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
   font-weight: 500;
 }
 
-/* Product Content Wrapper */
 .rmc-product-content {
-  padding: 0.5rem 1rem 1.25rem; /* Reduced top padding, maintained bottom padding */
+  padding: 0.5rem 1rem 1.25rem;
 }
 
-/* Product Title */
 .rmc-product-title {
   margin: 0;
   padding: 0 0 0.25rem 0;
@@ -785,7 +815,6 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
   line-height: 1.3;
 }
 
-/* Primary Specifications */
 .rmc-primary-specs {
   display: flex;
   flex-wrap: wrap;
@@ -801,7 +830,6 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
   color: #374151;
 }
 
-/* Environments Section */
 .rmc-environments {
   margin-bottom: 1rem;
 }
@@ -821,7 +849,6 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
   font-size: 0.75rem;
 }
 
-/* Product Options */
 .rmc-options {
   margin: 0;
   padding-left: 1.25rem;
@@ -859,7 +886,6 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
   margin: 0.5rem 0 1rem;
 }
 
-/* Product Details */
 .rmc-product-details {
   padding: 0;
 }
@@ -885,9 +911,7 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
    Responsive Adjustments
 =========================================================== */
 
-/* Tablets and Small Desktops */
 @media (max-width: 1200px) {
-  /* Adjust padding and reduce columns */
   .rmc-product-grid {
     padding: 20px;
   }
@@ -903,9 +927,7 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
   }
 }
 
-/* Mobile Devices */
 @media (max-width: 768px) {
-  /* Layout adjustments */
   .rmc-catalog-layout {
     flex-direction: column;
     gap: 1rem;
@@ -926,9 +948,9 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
   .mobile-filters {
     display: block;
   }
-  /* Filter drawer */
+
   .rmc-filters {
-    position: relative; /* Change from fixed */
+    position: relative;
     bottom: auto;
     left: auto;
     transform: none;
@@ -943,7 +965,6 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
     transform: none;
   }
 
-  /* Filter sections */
   .filter-sections {
     height: calc(100% - 24px);
     overflow-y: auto;
@@ -956,9 +977,7 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
   .filter-drawer {
     display: block;
     position: fixed;
-    bottom: env(
-      safe-area-inset-bottom
-    ); /* Add this to account for iOS safe area */
+    bottom: env(safe-area-inset-bottom);
     left: 0;
     width: 100%;
     transform: translateY(calc(100% - 60px));
@@ -973,7 +992,6 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
   }
   .filter-drawer.expanded {
     transform: translateY(15vh);
-    /* Add bottom padding to account for the home indicator */
     padding-bottom: env(safe-area-inset-bottom);
   }
   .filter-drawer-content {
@@ -981,7 +999,7 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
     overflow: hidden;
     position: relative;
   }
-  /* Pull handle */
+
   .filter-drawer-handle {
     flex-shrink: 0;
     width: 100%;
@@ -1002,7 +1020,6 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
     border-radius: 2px;
   }
 
-  /* Overlay */
   .filter-drawer-overlay {
     position: fixed;
     top: 0;
@@ -1021,7 +1038,6 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
     pointer-events: auto;
   }
 
-  /* Product grid adjustments */
   .rmc-product-grid {
     margin-left: 0;
     height: auto;
@@ -1032,7 +1048,6 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
     grid-template-columns: 1fr;
   }
 
-  /* Active filters and search adjustments */
   .rmc-active-filters-bar {
     flex-wrap: wrap;
     gap: 0.75rem;
@@ -1058,9 +1073,7 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
   }
 }
 
-/* Extra Small Devices */
 @media (max-width: 576px) {
-  /* Further adjustments for small devices */
   .rmc-product-catalog {
     padding: 20px;
   }

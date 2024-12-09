@@ -87,7 +87,7 @@ const ProductCard = ({ name, specifications }) => {
           <span className="rmc-type-label">{type}</span>
         </div>
         <img
-          src="/wp-content/uploads/2024/12/conduit-body.png"
+          src="/wp-content/uploads/2024/12/Conduit-body.png"
           alt={name}
           className="rmc-product-image"
         />
