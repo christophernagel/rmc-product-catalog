@@ -42,7 +42,7 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
   display: flex;
   width: 100%;
   height: 82vh; /* Keep original height */
-  padding: 0 40px;
+  padding: 0 12px;
   position: relative;
   max-width: none; /* Add max-width */
   margin: 0 auto; /* Center the catalog */
