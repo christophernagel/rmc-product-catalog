@@ -288,7 +288,7 @@ const sampleProducts = [
     id: "STR-12G-158-158-EHO",
     name: "Strut Channel with Elongated Holes",
     category: "Strut",
-    image: "/wp-content/uploads/2024/12/SS-Rigid-Conduit_v1-min.png",
+    image: "/wp-content/uploads/2024/12/shallow-strut.png",
     specifications: {
       "Strut Properties": ["12 Gauge", '1⅝" x 1⅝"'],
       "Strut Pattern": "Elongated Holes",
@@ -308,7 +308,7 @@ const sampleProducts = [
     id: "STR-14G-1316-158-SLD",
     name: "Strut Channel Solid",
     category: "Strut",
-    image: "/wp-content/uploads/2024/12/SS-Rigid-Conduit_v1-min.png",
+    image: "/wp-content/uploads/2024/12/shallow-strut.png",
     specifications: {
       "Strut Properties": ["14 Gauge", '13/16" x 1⅝"'],
       "Strut Pattern": "Solid",
@@ -326,9 +326,9 @@ const sampleProducts = [
   },
   {
     id: "STR-12G-158-158-EHO-BB",
-    name: "Back-to-Back Strut Channel",
+    name: "Deep Strut Channel with Elongated Holes",
     category: "Strut",
-    image: "/wp-content/uploads/2024/12/SS-Rigid-Conduit_v1-min.png",
+    image: "/wp-content/uploads/2024/12/deep-strut.png",
     specifications: {
       "Strut Properties": ["12 Gauge", '1⅝" x 1⅝"'],
       "Strut Pattern": "Elongated Holes",
