@@ -151,9 +151,9 @@ const sampleProducts = [
   },
   {
     id: "SR6XB",
-    name: "X Conduit Body",
+    name: "XB Conduit Body",
     category: "Conduit Bodies",
-    image: "/wp-content/uploads/2024/12/X-Conduit-Body_v1-min.png",
+    image: "/wp-content/uploads/2024/12/XB-Conduit-Body_v1-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
@@ -350,7 +350,7 @@ const sampleProducts = [
     id: "SR6CPL",
     name: "Standard Coupling",
     category: "Couplings",
-    image: "/wp-content/uploads/2024/12/SS-Rigid-Coupling_v1.png",
+    image: "/wp-content/uploads/2024/12/SS-Rigid-Coupling_v1-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
