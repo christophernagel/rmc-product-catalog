@@ -3,7 +3,7 @@ const sampleProducts = [
   {
     id: "SR6CT",
     name: "SS316 Rigid Conduit",
-    pageUrl: "/home/product-catalog/product-template/",
+    pageUrl: "/index.php/home/product-catalog/product-template/",
     category: "Conduit",
     image: "/wp-content/uploads/2024/12/SS-Rigid-Conduit_v1-min.png",
     specifications: {
@@ -25,7 +25,7 @@ const sampleProducts = [
   {
     id: "SR4CT",
     name: "SS304 Rigid Conduit",
-    pageUrl: "/home/product-catalog/product-template/",
+    pageUrl: "/index.php/home/product-catalog/product-template/",
     category: "Conduit",
     image: "/wp-content/uploads/2024/12/SS-Rigid-Conduit_v1-min.png",
     specifications: {
