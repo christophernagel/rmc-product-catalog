@@ -4,6 +4,7 @@ const sampleProducts = [
     id: "SR6CT",
     name: "SS316 Rigid Conduit",
     category: "Conduit",
+    image: "/wp-content/uploads/2024/12/SS-Rigid-Conduit_v1-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
@@ -24,6 +25,7 @@ const sampleProducts = [
     id: "SR4CT",
     name: "SS304 Rigid Conduit",
     category: "Conduit",
+    image: "/wp-content/uploads/2024/12/SS-Rigid-Conduit_v1-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "304",
@@ -44,8 +46,9 @@ const sampleProducts = [
   // Conduit Bodies
   {
     id: "SR6LB",
-    name: "SS316 LB Conduit Body",
+    name: "LB Conduit Body",
     category: "Conduit Bodies",
+    image: "/wp-content/uploads/2024/12/LB-Conduit-Body_v1-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
@@ -64,8 +67,9 @@ const sampleProducts = [
   },
   {
     id: "SR6LL",
-    name: "SS316 LL Conduit Body",
+    name: "LL Conduit Body",
     category: "Conduit Bodies",
+    image: "/wp-content/uploads/2024/12/LL-Conduit-Body_v1-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
@@ -84,8 +88,9 @@ const sampleProducts = [
   },
   {
     id: "SR6LR",
-    name: "SS316 LR Conduit Body",
+    name: "LR Conduit Body",
     category: "Conduit Bodies",
+    image: "/wp-content/uploads/2024/12/LR-Conduit-Body_v1-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
@@ -104,8 +109,9 @@ const sampleProducts = [
   },
   {
     id: "SR6C",
-    name: "SS316 C Conduit Body",
+    name: "C Conduit Body",
     category: "Conduit Bodies",
+    image: "/wp-content/uploads/2024/12/C-Conduit-Body_v1-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
@@ -124,8 +130,9 @@ const sampleProducts = [
   },
   {
     id: "SR6T",
-    name: "SS316 T Conduit Body",
+    name: "T Conduit Body",
     category: "Conduit Bodies",
+    image: "/wp-content/uploads/2024/12/T-Conduit-Body_v1-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
@@ -144,8 +151,9 @@ const sampleProducts = [
   },
   {
     id: "SR6XB",
-    name: "SS316 X Conduit Body",
+    name: "X Conduit Body",
     category: "Conduit Bodies",
+    image: "/wp-content/uploads/2024/12/X-Conduit-Body_v1-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
@@ -166,8 +174,9 @@ const sampleProducts = [
   // Conduit Boxes
   {
     id: "SR6FD",
-    name: "SS316 FD Device Box",
+    name: "FD Device Box",
     category: "Conduit Boxes",
+    image: "/wp-content/uploads/2024/12/SS-Device-Box_v1-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"'],
       "Material Grade": "316",
@@ -186,8 +195,9 @@ const sampleProducts = [
   },
   {
     id: "SR6FDT",
-    name: "SS316 FD Device Box with Threaded Hubs",
+    name: "FD Device Box with Threaded Hubs",
     category: "Conduit Boxes",
+    image: "/wp-content/uploads/2024/12/SS-Device-Box_v1-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"'],
       "Material Grade": "316",
@@ -208,8 +218,9 @@ const sampleProducts = [
   // Hubs
   {
     id: "SR6HUB",
-    name: "SS316 Line Terminating Hub",
+    name: "Line Terminating Hub",
     category: "Hubs",
+    image: "/wp-content/uploads/2024/12/Grounding-Locknut-Hub.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
@@ -229,8 +240,9 @@ const sampleProducts = [
   },
   {
     id: "SR6GHB",
-    name: "SS316 Grounding Hub",
+    name: "Grounding Hub",
     category: "Hubs",
+    image: "/wp-content/uploads/2024/12/Grounding-Hub.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
@@ -250,8 +262,9 @@ const sampleProducts = [
   },
   {
     id: "SR6ORH",
-    name: "SS316 O-Ring/Locknut Hub",
+    name: "O-Ring/Locknut Hub",
     category: "Hubs",
+    image: "/wp-content/uploads/2024/12/Grounding-Locknut-Hub.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
@@ -273,8 +286,9 @@ const sampleProducts = [
   // Strut
   {
     id: "STR-12G-158-158-EHO",
-    name: "SS316 Strut Channel with Elongated Holes",
+    name: "Strut Channel with Elongated Holes",
     category: "Strut",
+    image: "/wp-content/uploads/2024/12/SS-Rigid-Conduit_v1-min.png",
     specifications: {
       "Strut Properties": ["12 Gauge", '1⅝" x 1⅝"'],
       "Strut Pattern": "Elongated Holes",
@@ -292,8 +306,9 @@ const sampleProducts = [
   },
   {
     id: "STR-14G-1316-158-SLD",
-    name: "SS316 Strut Channel Solid",
+    name: "Strut Channel Solid",
     category: "Strut",
+    image: "/wp-content/uploads/2024/12/SS-Rigid-Conduit_v1-min.png",
     specifications: {
       "Strut Properties": ["14 Gauge", '13/16" x 1⅝"'],
       "Strut Pattern": "Solid",
@@ -311,8 +326,9 @@ const sampleProducts = [
   },
   {
     id: "STR-12G-158-158-EHO-BB",
-    name: "SS316 Back-to-Back Strut Channel",
+    name: "Back-to-Back Strut Channel",
     category: "Strut",
+    image: "/wp-content/uploads/2024/12/SS-Rigid-Conduit_v1-min.png",
     specifications: {
       "Strut Properties": ["12 Gauge", '1⅝" x 1⅝"'],
       "Strut Pattern": "Elongated Holes",
@@ -332,8 +348,9 @@ const sampleProducts = [
   // Couplings
   {
     id: "SR6CPL",
-    name: "SS316 Standard Coupling",
+    name: "Standard Coupling",
     category: "Couplings",
+    image: "/wp-content/uploads/2024/12/SS-Rigid-Coupling_v1.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
@@ -352,8 +369,9 @@ const sampleProducts = [
   },
   {
     id: "SR6CPL3P",
-    name: "SS316 3-Piece Coupling",
+    name: "3-Piece Coupling",
     category: "Couplings",
+    image: "/wp-content/uploads/2024/12/3pc-Couplings.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
@@ -370,32 +388,13 @@ const sampleProducts = [
       Certification: ["UL 514B"],
     },
   },
-  {
-    id: "SR6CPLR",
-    name: "SS316 Reducing Coupling",
-    category: "Couplings",
-    specifications: {
-      "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
-      "Material Grade": "316",
-      "Coupling Style": "Reducing",
-      Environment: [
-        "Indoor",
-        "Outdoor",
-        "Corrosive",
-        "Marine",
-        "Chemical",
-        "Food Processing",
-        "Wet Location",
-      ],
-      Certification: ["UL 514B"],
-    },
-  },
 
   // Elbows
   {
     id: "SR6EL45",
-    name: "SS316 45° Elbow",
+    name: "45° Elbow",
     category: "Elbows",
+    image: "/wp-content/uploads/2024/12/SS-Rigid-Conduit_v1-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
@@ -414,8 +413,9 @@ const sampleProducts = [
   },
   {
     id: "SR6EL90",
-    name: "SS316 90° Elbow",
+    name: "90° Elbow",
     category: "Elbows",
+    image: "/wp-content/uploads/2024/12/SS-Rigid-Conduit_v1-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",

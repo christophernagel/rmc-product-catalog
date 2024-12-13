@@ -42,10 +42,10 @@ const typeColors = {
   Hub: "#4682B4", // Steel Blue
   Elbow: "#708090", // Slate Gray
   Plug: "#2F4F4F", // Dark Slate Gray
-  Coupling: "#B8860B",
+  Coupling: "#B8860B", // Dark Golden Rod
 };
 
-const ProductCard = ({ name, specifications }) => {
+const ProductCard = ({ name, specifications, image }) => {
   const getProductType = () => {
     if (specifications["Conduit Type"]) return "Conduit";
     if (specifications["Body Style"]) return "Conduit Body";
@@ -74,7 +74,7 @@ const ProductCard = ({ name, specifications }) => {
   };
 
   const type = getProductType();
-  const color = typeColors[type] || "#808080"; // Default to gray if no color match
+  const color = typeColors[type] || "#808080";
 
   return (
     <div className="rmc-product-card">
@@ -87,7 +87,7 @@ const ProductCard = ({ name, specifications }) => {
           <span className="rmc-type-label">{type}</span>
         </div>
         <img
-          src="/wp-content/uploads/2024/12/Conduit-body.png"
+          src={image || "/wp-content/uploads/2024/12/default-product.png"}
           alt={name}
           className="rmc-product-image"
         />
