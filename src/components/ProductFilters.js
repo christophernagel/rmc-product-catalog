@@ -1,6 +1,101 @@
 import React, { useState, useRef, useEffect } from "react";
 import ReactDOM from "react-dom";
 
+// Filter Structure Configuration
+const filterStructure = {
+  Conduit: {
+    options: ["Rigid", "Flex"],
+    order: 1,
+    tooltip: "Type and construction method of conduit systems",
+  },
+  "Conduit Bodies": {
+    options: ["C", "LB", "LL", "LR", "T", "TB", "X", "XB"],
+    order: 2,
+    tooltip: "Standard conduit body configurations for routing changes",
+  },
+  "Device Boxes": {
+    options: ["Single Gang", "Double Gang", "Deep", "Shallow"],
+    order: 3,
+    tooltip: "Device and junction boxes for electrical installations",
+  },
+  "Conduit Hubs": {
+    options: ["Line Terminating", "Grounding"],
+    order: 4,
+    tooltip: "Hub types for conduit termination and grounding",
+  },
+  "Liquid Tight": {
+    options: ["Straight", "45°", "90°"],
+    order: 5,
+    tooltip: "Liquid tight connectors for flexible conduit systems",
+  },
+  Elbows: {
+    options: ["45°", "90°"],
+    order: 6,
+    tooltip: "Standard bend angles for conduit direction changes",
+  },
+  Couplings: {
+    options: ["Standard", "3-Piece"],
+    order: 7,
+    tooltip: "Coupling types for connecting conduit sections",
+  },
+  Nipples: {
+    options: ["Standard"],
+    order: 8,
+    tooltip: "Pre-cut threaded conduit sections for connections",
+  },
+  Bushings: {
+    options: ["Face"],
+    order: 9,
+    tooltip: "Bushings for protecting wire and cable",
+  },
+  Plugs: {
+    options: ["Counter Sunk Hex"],
+    order: 10,
+    tooltip: "Plugs for sealing unused openings",
+  },
+  Strut: {
+    options: [
+      "Deep Profile",
+      "Shallow Profile",
+      "Back to Back",
+      "Solid",
+      "Elongated Holes",
+    ],
+    order: 11,
+    tooltip: "Strut channel and mounting solutions",
+  },
+  "Material Grade": {
+    options: ["304", "316"],
+    order: 12,
+    tooltip: "Stainless steel grade specifications for corrosion resistance",
+  },
+  Environment: {
+    options: [
+      "Indoor",
+      "Outdoor",
+      "Corrosive",
+      "Marine",
+      "Chemical",
+      "Food Processing",
+      "Wet Location",
+    ],
+    order: 13,
+    tooltip: "Intended installation environment affecting material selection",
+  },
+  Certification: {
+    options: [
+      "UL 6A",
+      "UL 514A",
+      "UL 514B",
+      "CSA C22.1:21",
+      "CSA C22.2 NO 18.1",
+    ],
+    order: 14,
+    tooltip: "Applicable safety and compliance standards",
+  },
+};
+
+// Tooltip Popup Component
 const TooltipPopup = ({ content, title, onClose, position }) => {
   return ReactDOM.createPortal(
     <div className="tooltip-overlay" onClick={onClose}>
@@ -30,6 +125,7 @@ const TooltipPopup = ({ content, title, onClose, position }) => {
   );
 };
 
+// Filter Section Component
 const FilterSection = ({
   title,
   children,
@@ -136,79 +232,9 @@ const FilterSection = ({
   );
 };
 
+// Main ProductFilters Component
 const ProductFilters = ({ onFilterChange, activeFilters }) => {
   const [activeFilterCount, setActiveFilterCount] = useState(0);
-
-  const filterStructure = {
-    Conduit: {
-      options: ["Rigid", "IMC"],
-      order: 1,
-      tooltip: "Type and construction method of conduit",
-    },
-    Strut: {
-      options: ["Solid", "Slotted", "Elongated Holes"],
-      order: 2,
-      tooltip: "Strut specifications including gauge, profile, and patterns",
-    },
-    "Conduit Hubs": {
-      options: ["Grounding", "Line Terminating", "Standard", "O-Ring/Locknut"],
-      order: 3,
-      tooltip: "Hub types and configurations for conduit termination",
-    },
-    "Conduit Elbows": {
-      options: ["45°", "90°"],
-      order: 4,
-      tooltip: "Standard bend angles for direction changes",
-    },
-    "Conduit Bodies": {
-      options: ["C", "LB", "LL", "LR", "T", "TB", "X"],
-      order: 5,
-      tooltip: "Standard conduit body configurations for routing changes",
-    },
-    "Junction Boxes": {
-      options: ["FDC", "FDCT", "FDX"],
-      order: 6,
-      tooltip: "Conduit box configurations for junctions and pulls",
-    },
-    Couplings: {
-      options: ["Standard", "3-Piece", "Reducing"],
-      order: 7,
-      tooltip: "Coupling configurations for conduit connections",
-    },
-    Plugs: {
-      options: [
-        "Face Bushing",
-        "Grounding Bushing",
-        "Box Connector",
-        "Conduit Cap",
-        "Floor Flange",
-      ],
-      order: 8,
-      tooltip: "Various fittings for conduit system connections",
-    },
-    "Material Grade": {
-      options: ["304", "316", "316L"],
-      order: 9,
-      tooltip:
-        "Stainless steel grade specifications determining corrosion resistance and strength",
-    },
-    Environment: {
-      options: ["Indoor", "Outdoor", "Corrosive", "Wet Location"],
-      order: 10,
-      tooltip: "Intended installation environment affecting material selection",
-    },
-    Certification: {
-      options: [
-        "UL 6A",
-        "UL 514A",
-        "UL 514B",
-        "CSA C22.1:21",
-        "CSA C22.2 NO 18.1",
-      ],
-      order: 11,
-      tooltip: "Applicable safety and compliance standards",
-    },
-  };
 
   useEffect(() => {
     updateFilterCount();

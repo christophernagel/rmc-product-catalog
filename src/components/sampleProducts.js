@@ -208,11 +208,12 @@ const sampleProducts = [
     id: "SSTH",
     name: "Terminator Hub",
     pageUrl: "/index.php/home/products/terminator-hub/",
-    category: "Conduit Boxes",
+    category: "Hubs", // Changed from "Conduit Boxes" to "Hubs"
     image: "/wp-content/uploads/2024/12/SS-Terminator-Hub-min.png",
     specifications: {
-      "Trade Size": ['½"', '¾"', '1"'],
+      "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
+      "Hub Style": "Line Terminating", // Added Hub Style specification
       Environment: [
         "Indoor",
         "Outdoor",
@@ -222,7 +223,7 @@ const sampleProducts = [
         "Food Processing",
         "Wet Location",
       ],
-      Certification: [""],
+      Certification: ["UL 514B", "CSA C22.1:21"], // Updated certifications from spec sheet
     },
   },
 

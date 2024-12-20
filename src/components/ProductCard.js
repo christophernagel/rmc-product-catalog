@@ -1,48 +1,69 @@
 import React from "react";
 
 const productDescriptions = {
-  conduitBody: {
-    default:
-      "These ports provide access to wire and cable inside metal conduit for pulling, splicing, and maintenance.",
-    LB: "LB conduit bodies allow for 90-degree bends while providing pull access for wire installation.",
-    LL: "LL conduit bodies provide left-side 90-degree turns with pull access.",
-    LR: "LR conduit bodies provide right-side 90-degree turns with pull access.",
-    T: "T conduit bodies allow for three-way connections and wire access.",
-    C: "C conduit bodies provide straight-through wire access and pulling points.",
-    X: "X conduit bodies allow for four-way connections with inspection access.",
-  },
   conduit: {
     Rigid:
-      "This impact- and crush-resistant conduit provides maximum physical protection for conductors.",
-    IMC: "Also known as Intermediate Metallic Conduit (IMC), this is lighter in weight than thick-wall (rigid) conduit while maintaining comparable strength.",
+      "Impact- and crush-resistant conduit providing maximum physical protection for conductors.",
+    Flex: "Flexible conduit designed for installations requiring movement or vibration absorption.",
   },
-  elbows: {
-    "45°":
-      "45-degree elbows provide gradual directional changes in conduit runs, ideal for parallel offsets.",
-    "90°":
-      "90-degree elbows enable right-angle turns in conduit runs while maintaining proper bend radius for wire pulling.",
+  conduitBody: {
+    default:
+      "Provides access to wire and cable inside metal conduit for pulling, splicing, and maintenance.",
+    LB: "Allows for 90-degree bends while providing pull access for wire installation.",
+    LL: "Provides left-side 90-degree turns with pull access.",
+    LR: "Provides right-side 90-degree turns with pull access.",
+    T: "Allows for three-way connections and wire access.",
+    C: "Provides straight-through wire access and pulling points.",
+    X: "Allows for four-way connections with inspection access.",
+    XB: "Provides four-way access with increased capacity for larger wire pulls.",
+    TB: "Provides three-way access with bottom outlet.",
   },
-  hubs: {
+  deviceBox: {
+    "Single Gang": "Standard device box for single gang applications.",
+    "Double Gang": "Wider box for multiple device installations.",
+    Deep: "Extra depth for additional wiring space.",
+    Shallow: "Compact depth for limited wall space applications.",
+  },
+  hub: {
     "Line Terminating":
-      "These hubs provide liquid-tight connections between conduit and enclosures.",
+      "Provides liquid-tight connections between conduit and enclosures.",
     Grounding:
-      "These hubs ensure proper grounding while providing liquid-tight connections between conduit and enclosures.",
+      "Ensures proper grounding while providing liquid-tight connections.",
+  },
+  liquidTight: {
+    Straight: "Direct connection for flexible conduit applications.",
+    "45°": "45-degree angled connection for gradual direction changes.",
+    "90°": "90-degree angled connection for right-angle turns.",
+  },
+  ecn: {
+    elbow: {
+      "45°": "Provides gradual directional changes in conduit runs.",
+      "90°": "Enables right-angle turns while maintaining proper bend radius.",
+    },
+    coupling: {
+      Standard: "Basic connection between conduit sections.",
+      "3-Piece": "Allows for easier installation and removal in tight spaces.",
+    },
+    nipple: "Pre-cut threaded conduit section for connections.",
+  },
+  plugsAndBushings: {
+    "Counter Sunk Hex": "Sealing plug for unused openings.",
+    Face: "Protection for wire entry points.",
   },
   strut: {
-    default:
-      "Provides mounting support for electrical equipment, conduit, and other mechanical systems.",
+    default: "Mounting support for electrical equipment and conduit systems.",
   },
 };
 
 const typeColors = {
   Conduit: "#A52A2A", // Brown
   "Conduit Body": "#FF8C00", // Dark Orange
-  "Junction Box": "#FFD700", // Gold
-  Strut: "#228B22", // Forest Green
+  "Device Box": "#FFD700", // Gold
   Hub: "#4682B4", // Steel Blue
-  Elbow: "#708090", // Slate Gray
-  Plug: "#2F4F4F", // Dark Slate Gray
-  Coupling: "#B8860B", // Dark Golden Rod
+  "Liquid Tight": "#9370DB", // Medium Purple
+  ECN: "#708090", // Slate Gray
+  "Plugs & Bushings": "#2F4F4F", // Dark Slate Gray
+  Strut: "#228B22", // Forest Green
 };
 
 const ProductCard = ({
@@ -51,32 +72,95 @@ const ProductCard = ({
   image,
   specSheetUrl,
   pageUrl,
+  category,
 }) => {
   const getProductType = () => {
-    if (specifications["Conduit Type"]) return "Conduit";
-    if (specifications["Body Style"]) return "Conduit Body";
-    if (specifications["Box Style"]) return "Junction Box";
-    if (specifications["Strut Pattern"]) return "Strut";
-    if (specifications["Hub Configuration"]) return "Hub";
-    if (specifications["Elbow Angle"]) return "Elbow";
-    if (specifications["Fitting Type"]) return "Plug";
-    if (specifications["Coupling Style"]) return "Coupling";
-    return "Product";
+    // Check for direct category matches first
+    if (category === "Liquid Tight") return "Liquid Tight";
+    if (category === "Plugs") return "Plugs & Bushings";
+    if (category === "Bushings") return "Plugs & Bushings";
+    if (category === "Nipples") return "ECN";
+
+    // Check specifications
+    if (specifications?.["Conduit Type"]) return "Conduit";
+    if (specifications?.["Body Style"]) return "Conduit Body";
+    if (specifications?.["Box Style"]) return "Device Box";
+
+    // Check for hub types
+    if (
+      specifications?.["Hub Style"] ||
+      specifications?.["Hub Configuration"] ||
+      category === "Hubs"
+    )
+      return "Hub";
+
+    // Check for ECN components
+    if (specifications?.["Elbow Angle"] || specifications?.["Coupling Style"])
+      return "ECN";
+
+    // Check for strut
+    if (specifications?.["Strut Properties"]) return "Strut";
+
+    return "Other";
   };
 
   const getProductDescription = () => {
-    const baseType = getProductType().toLowerCase().replace(" ", "");
-    const style =
-      specifications["Body Style"] ||
-      specifications["Conduit Type"] ||
-      specifications["Hub Configuration"] ||
-      specifications["Elbow Angle"];
+    const type = getProductType();
+    const baseType = type.toLowerCase().replace(/\s+&?\s*/g, "");
 
-    return (
-      productDescriptions[baseType]?.[style] ||
-      productDescriptions[baseType]?.default ||
-      ""
-    );
+    switch (type) {
+      case "Conduit Body": {
+        const bodyStyle = specifications?.["Body Style"];
+        return (
+          productDescriptions.conduitBody[bodyStyle] ||
+          productDescriptions.conduitBody.default
+        );
+      }
+
+      case "Liquid Tight": {
+        const connectionType = specifications?.["Connection Type"];
+        return (
+          productDescriptions.liquidTight[connectionType] ||
+          "Liquid-tight connection for flexible conduit systems."
+        );
+      }
+
+      case "Hub": {
+        const hubStyle = specifications?.["Hub Style"];
+        return (
+          productDescriptions.hub[hubStyle] ||
+          "Provides secure conduit termination and connection to enclosures."
+        );
+      }
+
+      case "ECN": {
+        if (specifications?.["Elbow Angle"]) {
+          return productDescriptions.ecn.elbow[specifications["Elbow Angle"]];
+        }
+        if (specifications?.["Coupling Style"]) {
+          return productDescriptions.ecn.coupling[
+            specifications["Coupling Style"]
+          ];
+        }
+        if (category === "Nipples") {
+          return productDescriptions.ecn.nipple;
+        }
+        return "Conduit connection and routing component.";
+      }
+
+      default: {
+        const descriptionCategory = productDescriptions[baseType];
+        if (!descriptionCategory) return "";
+
+        const style =
+          specifications?.["Body Style"] ||
+          specifications?.["Conduit Type"] ||
+          specifications?.["Hub Style"] ||
+          specifications?.["Box Style"];
+
+        return descriptionCategory[style] || descriptionCategory.default || "";
+      }
+    }
   };
 
   const type = getProductType();
@@ -105,7 +189,7 @@ const ProductCard = ({
           className="rmc-download-button"
           title="Download Spec Sheet"
           onClick={(e) => {
-            e.stopPropagation(); // Prevent card click when clicking download button
+            e.stopPropagation();
             console.log("Download spec sheet for:", name);
           }}
         >
