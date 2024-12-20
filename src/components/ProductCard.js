@@ -59,7 +59,7 @@ const ProductCard = ({
   return (
     <div
       className="rmc-product-card"
-      onClick={() => pageUrl && window.open(pageUrl, "_blank")}
+      onClick={() => pageUrl && window.open(pageUrl, "_self")}
       style={{ cursor: pageUrl ? "pointer" : "default" }}
     >
       <div className="rmc-product-image-container">
