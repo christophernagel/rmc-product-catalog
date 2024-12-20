@@ -21,6 +21,8 @@ const sampleProducts = [
       ],
       Certification: ["UL 6A", "CSA C22.1:21"],
     },
+    description:
+      "Impact- and crush-resistant conduit providing maximum protection for conductors.",
   },
 
   // Conduit Bodies
@@ -45,6 +47,8 @@ const sampleProducts = [
       ],
       Certification: ["UL 514A", "CSA C22.2 NO 18.1"],
     },
+    description:
+      "LB conduit bodies allow for 90-degree bends while providing pull access for wire installation.",
   },
   {
     id: "SR6LL",
@@ -67,6 +71,8 @@ const sampleProducts = [
       ],
       Certification: ["UL 514A", "CSA C22.2 NO 18.1"],
     },
+    description:
+      "LL conduit bodies provide left-side 90-degree turns with pull access.",
   },
   {
     id: "SR6LR",
@@ -89,6 +95,8 @@ const sampleProducts = [
       ],
       Certification: ["UL 514A", "CSA C22.2 NO 18.1"],
     },
+    description:
+      "LR conduit bodies provide right-side 90-degree turns with pull access.",
   },
   {
     id: "SR6C",
@@ -111,6 +119,8 @@ const sampleProducts = [
       ],
       Certification: ["UL 514A", "CSA C22.2 NO 18.1"],
     },
+    description:
+      "C conduit bodies provide straight-through wire access and pulling points.",
   },
   {
     id: "SR6T",
@@ -133,6 +143,8 @@ const sampleProducts = [
       ],
       Certification: ["UL 514A", "CSA C22.2 NO 18.1"],
     },
+    description:
+      "T conduit bodies allow for three-way connections and wire access.",
   },
   {
     id: "SR6TB",
@@ -155,6 +167,8 @@ const sampleProducts = [
       ],
       Certification: ["UL 514A", "CSA C22.2 NO 18.1"],
     },
+    description:
+      "TB conduit bodies allow for three-way connections and wire access.",
   },
   {
     id: "SR6XB",
@@ -177,6 +191,8 @@ const sampleProducts = [
       ],
       Certification: ["UL 514A", "CSA C22.2 NO 18.1"],
     },
+    description:
+      "XB conduit bodies allow for four-way connections with inspection access.",
   },
 
   // Device Box
@@ -201,6 +217,7 @@ const sampleProducts = [
       ],
       Certification: ["UL 514A", "CSA C22.2 NO 18.1"],
     },
+    description: "Standard device box for single gang applications.",
   },
 
   // Hubs
@@ -225,6 +242,8 @@ const sampleProducts = [
       ],
       Certification: ["UL 514B", "CSA C22.1:21"], // Updated certifications from spec sheet
     },
+    description:
+      "These hubs provide liquid-tight connections between conduit and enclosures.",
   },
 
   // Liquid Tight
@@ -247,6 +266,7 @@ const sampleProducts = [
         "Wet Location",
       ],
     },
+    description: "Direct connection for flexible conduit applications.",
   },
 
   {
@@ -268,6 +288,7 @@ const sampleProducts = [
         "Wet Location",
       ],
     },
+    description: "90-degree angled connection for right-angle turns.",
   },
 
   {
@@ -289,6 +310,7 @@ const sampleProducts = [
         "Wet Location",
       ],
     },
+    description: "45-degree angled connection for gradual direction changes.",
   },
 
   // Elbows
@@ -313,6 +335,7 @@ const sampleProducts = [
       ],
       Certification: ["UL 514B"],
     },
+    description: "Provides gradual directional changes in conduit runs.",
   },
   {
     id: "SR6EL90",
@@ -335,6 +358,8 @@ const sampleProducts = [
       ],
       Certification: ["UL 514B"],
     },
+    description:
+      "Enables right-angle turns while maintaining proper bend radius.",
   },
 
   // Couplings
@@ -359,6 +384,7 @@ const sampleProducts = [
       ],
       Certification: ["UL 514B"],
     },
+    description: "Basic connection between conduit sections.",
   },
   {
     id: "SR6CPL3P",
@@ -381,6 +407,8 @@ const sampleProducts = [
       ],
       Certification: ["UL 514B"],
     },
+    description:
+      "Allows for easier installation and removal in tight spaces and retrofit applications.",
   },
   // Nipples
   {
@@ -404,6 +432,7 @@ const sampleProducts = [
       ],
       Certification: ["UL 514B"],
     },
+    description: "Pre-cut threaded conduit section for connections.",
   },
 
   // Plugs & Bushings
@@ -428,6 +457,7 @@ const sampleProducts = [
       ],
       Certification: ["UL 514B"],
     },
+    description: "Sealing plug for unused openings.",
   },
 
   {
@@ -451,6 +481,7 @@ const sampleProducts = [
       ],
       Certification: ["UL 514B"],
     },
+    description: "Protection for wire entry points.",
   },
 
   // Strut
@@ -474,6 +505,8 @@ const sampleProducts = [
         "Wet Location",
       ],
     },
+    description:
+      "Mounting support for electrical equipment and conduit systems.",
   },
   {
     id: "STR-SHALLOW",
@@ -495,6 +528,8 @@ const sampleProducts = [
         "Wet Location",
       ],
     },
+    description:
+      "Mounting support for electrical equipment and conduit systems.",
   },
 ];
 

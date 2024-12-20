@@ -1,60 +1,5 @@
 import React from "react";
 
-const productDescriptions = {
-  conduit: {
-    Rigid:
-      "Impact- and crush-resistant conduit providing maximum physical protection for conductors.",
-    Flex: "Flexible conduit designed for installations requiring movement or vibration absorption.",
-  },
-  conduitBody: {
-    default:
-      "Provides access to wire and cable inside metal conduit for pulling, splicing, and maintenance.",
-    LB: "Allows for 90-degree bends while providing pull access for wire installation.",
-    LL: "Provides left-side 90-degree turns with pull access.",
-    LR: "Provides right-side 90-degree turns with pull access.",
-    T: "Allows for three-way connections and wire access.",
-    C: "Provides straight-through wire access and pulling points.",
-    X: "Allows for four-way connections with inspection access.",
-    XB: "Provides four-way access with increased capacity for larger wire pulls.",
-    TB: "Provides three-way access with bottom outlet.",
-  },
-  deviceBox: {
-    "Single Gang": "Standard device box for single gang applications.",
-    "Double Gang": "Wider box for multiple device installations.",
-    Deep: "Extra depth for additional wiring space.",
-    Shallow: "Compact depth for limited wall space applications.",
-  },
-  hub: {
-    "Line Terminating":
-      "Provides liquid-tight connections between conduit and enclosures.",
-    Grounding:
-      "Ensures proper grounding while providing liquid-tight connections.",
-  },
-  liquidTight: {
-    Straight: "Direct connection for flexible conduit applications.",
-    "45°": "45-degree angled connection for gradual direction changes.",
-    "90°": "90-degree angled connection for right-angle turns.",
-  },
-  ecn: {
-    elbow: {
-      "45°": "Provides gradual directional changes in conduit runs.",
-      "90°": "Enables right-angle turns while maintaining proper bend radius.",
-    },
-    coupling: {
-      Standard: "Basic connection between conduit sections.",
-      "3-Piece": "Allows for easier installation and removal in tight spaces.",
-    },
-    nipple: "Pre-cut threaded conduit section for connections.",
-  },
-  plugsAndBushings: {
-    "Counter Sunk Hex": "Sealing plug for unused openings.",
-    Face: "Protection for wire entry points.",
-  },
-  strut: {
-    default: "Mounting support for electrical equipment and conduit systems.",
-  },
-};
-
 const typeColors = {
   Conduit: "#A52A2A", // Brown
   "Conduit Body": "#FF8C00", // Dark Orange
@@ -73,6 +18,7 @@ const ProductCard = ({
   specSheetUrl,
   pageUrl,
   category,
+  description, // now we directly accept description from product props
 }) => {
   const getProductType = () => {
     // Map product categories to display types
@@ -104,74 +50,8 @@ const ProductCard = ({
     return "Other";
   };
 
-  const getProductDescription = () => {
-    const type = getProductType();
-
-    switch (type) {
-      case "Conduit Body": {
-        const bodyStyle = specifications?.["Body Style"];
-        return (
-          productDescriptions.conduitBody[bodyStyle] ||
-          productDescriptions.conduitBody.default
-        );
-      }
-
-      case "Liquid Tight": {
-        const connectionType = specifications?.["Connection Type"];
-        return (
-          productDescriptions.liquidTight[connectionType] ||
-          "Liquid-tight connection for flexible conduit systems."
-        );
-      }
-
-      case "Hub": {
-        const hubStyle = specifications?.["Hub Style"];
-        return (
-          productDescriptions.hub[hubStyle] ||
-          "Provides secure conduit termination and connection to enclosures."
-        );
-      }
-
-      case "Plugs & Bushings": {
-        // Check the specific category to determine which description to use
-        if (category === "Plugs") {
-          return productDescriptions.plugsAndBushings["Counter Sunk Hex"];
-        } else if (category === "Bushings") {
-          return productDescriptions.plugsAndBushings.Face;
-        }
-        return "Component for sealing or protecting conduit openings.";
-      }
-
-      case "ECN": {
-        if (specifications?.["Elbow Angle"]) {
-          return productDescriptions.ecn.elbow[specifications["Elbow Angle"]];
-        }
-        if (specifications?.["Coupling Style"]) {
-          return productDescriptions.ecn.coupling[
-            specifications["Coupling Style"]
-          ];
-        }
-        if (category === "Nipples") {
-          return productDescriptions.ecn.nipple;
-        }
-        return "Conduit connection and routing component.";
-      }
-
-      default: {
-        const baseType = type.toLowerCase().replace(/\s+&?\s*/g, "");
-        const descriptionCategory = productDescriptions[baseType];
-        if (!descriptionCategory) return "";
-
-        const style =
-          specifications?.["Body Style"] ||
-          specifications?.["Conduit Type"] ||
-          specifications?.["Hub Style"] ||
-          specifications?.["Box Style"];
-
-        return descriptionCategory[style] || descriptionCategory.default || "";
-      }
-    }
-  };
+  // Since we now have a description on each product, we don't need complicated logic:
+  const getProductDescription = () => description || "";
 
   const type = getProductType();
   const color = typeColors[type] || "#808080";
