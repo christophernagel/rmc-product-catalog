@@ -5,17 +5,63 @@ import FilterDrawer from "./FilterDrawer";
 import ActiveFiltersBar from "./ActiveFiltersBar";
 import sampleProducts from "./sampleProducts";
 
+// Mappings for categories
+const categoryMap = {
+  Conduit: "c",
+  "Conduit Bodies": "cb",
+  "Device Box": "db",
+  "Conduit Hubs": "ch",
+  "Liquid Tight Connectors": "lt",
+  "Conduit Fittings": "cf",
+  "Plugs & Bushings": "pb",
+  Strut: "st",
+  "Material Grade": "mg",
+  Environment: "env",
+  Certification: "cert",
+};
+
+// Optional value mappings for further abbreviation
+const valueMap = {
+  Rigid: "r",
+  "45° Elbow": "45e",
+  "90° Elbow": "90e",
+  "3-Piece Coupling": "3pc",
+  "Standard Nipple": "sn",
+  "Recessed Plug": "rp",
+  "Face Bushing": "fb",
+  "Deep Profile": "dp",
+  "Shallow Profile": "sp",
+  "Elongated Holes": "eh",
+};
+
+// Reverse maps for decoding URL params back to full names
+const categoryMapReverse = Object.fromEntries(
+  Object.entries(categoryMap).map(([full, shorty]) => [shorty, full])
+);
+
+const valueMapReverse = Object.fromEntries(
+  Object.entries(valueMap).map(([full, shorty]) => [shorty, full])
+);
+
+const encodeCategory = (category) => categoryMap[category] || category;
+const decodeCategory = (short) => categoryMapReverse[short] || short;
+
+const encodeValue = (value) => valueMap[value] || value;
+const decodeValue = (short) => valueMapReverse[short] || short;
+
 const ProductCatalog = () => {
-  // Initialize filters from URL
+  // Initialize filters from URL (with decoding)
   const initializeFiltersFromURL = () => {
     try {
       const params = new URLSearchParams(window.location.search);
       const filterParams = {};
 
-      params.forEach((value, category) => {
-        filterParams[category] = {
-          ...(filterParams[category] || {}),
-          [value]: true,
+      params.forEach((v, c) => {
+        const fullCategory = decodeCategory(c);
+        const fullValue = decodeValue(v);
+        filterParams[fullCategory] = {
+          ...(filterParams[fullCategory] || {}),
+          [fullValue]: true,
         };
       });
 
@@ -31,13 +77,15 @@ const ProductCatalog = () => {
   );
   const [searchQuery, setSearchQuery] = useState("");
 
-  // Update URL when filters change
+  // Update URL when filters change, now encoding values
   useEffect(() => {
     const params = new URLSearchParams();
     Object.entries(activeFilters).forEach(([category, values]) => {
+      const catKey = encodeCategory(category);
       Object.entries(values).forEach(([value, isActive]) => {
         if (isActive) {
-          params.append(category, value);
+          const valKey = encodeValue(value);
+          params.append(catKey, valKey);
         }
       });
     });
@@ -78,11 +126,9 @@ const ProductCatalog = () => {
       const query = searchQuery.toLowerCase();
       filtered = filtered.filter((product) => {
         const nameMatch = product.name.toLowerCase().includes(query);
-
         const categoryMatch = product.category
           ? product.category.toLowerCase().includes(query)
           : false;
-
         const envMatch = product.specifications?.Environment?.some((env) =>
           env.toLowerCase().includes(query)
         );
