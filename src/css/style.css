@@ -1081,11 +1081,11 @@ body .rmc-product-catalog .rmc-search-input::placeholder,
     border-radius: 16px 16px 0 0;
   }
 
-  .handle-line {
-    width: 40px;
-    height: 4px;
-    background: #e5e7eb;
-    border-radius: 2px;
+  .filter-drawer-handle .handle-icon {
+    display: inline-block;
+    padding-top: 12px;  /* Increase top padding */
+    padding-bottom: 0px; /* Decrease bottom padding */
+    font-size: 1.2rem; /* Optional: adjust size of the icon */
   }
 
   .filter-drawer-overlay {
