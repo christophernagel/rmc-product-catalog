@@ -230,8 +230,7 @@ const sampleProducts = [
   {
     id: "LT-STR",
     name: "Liquid Tight Straight Connector",
-    pageUrl:
-      "/index.php/home/products//index.php/home/products/liquid-tight-straight-connector/",
+    pageUrl: "/index.php/home/products/liquid-tight-straight-connector/",
     category: "Liquid Tight",
     image: "/wp-content/uploads/2024/12/SS-LT-Straight-Connector-min.png",
     specifications: {
