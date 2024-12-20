@@ -75,30 +75,30 @@ const ProductCard = ({
   category,
 }) => {
   const getProductType = () => {
-    // Check for direct category matches first
-    if (category === "Liquid Tight") return "Liquid Tight";
-    if (category === "Plugs") return "Plugs & Bushings";
-    if (category === "Bushings") return "Plugs & Bushings";
-    if (category === "Nipples") return "ECN";
+    // Map product categories to display types
+    const categoryToType = {
+      Conduit: "Conduit",
+      "Conduit Bodies": "Conduit Body",
+      "Device Box": "Device Box",
+      "Conduit Hubs": "Hub",
+      "Liquid Tight Connectors": "Liquid Tight",
+      "Conduit Fittings": "ECN",
+      "Plugs & Bushings": "Plugs & Bushings",
+      Strut: "Strut",
+    };
 
-    // Check specifications
+    // Return mapped type if category exists
+    if (category && categoryToType[category]) {
+      return categoryToType[category];
+    }
+
+    // Fallback checks based on specifications
     if (specifications?.["Conduit Type"]) return "Conduit";
     if (specifications?.["Body Style"]) return "Conduit Body";
     if (specifications?.["Box Style"]) return "Device Box";
-
-    // Check for hub types
-    if (
-      specifications?.["Hub Style"] ||
-      specifications?.["Hub Configuration"] ||
-      category === "Hubs"
-    )
-      return "Hub";
-
-    // Check for ECN components
+    if (specifications?.["Hub Style"]) return "Hub";
     if (specifications?.["Elbow Angle"] || specifications?.["Coupling Style"])
       return "ECN";
-
-    // Check for strut
     if (specifications?.["Strut Properties"]) return "Strut";
 
     return "Other";
@@ -106,7 +106,6 @@ const ProductCard = ({
 
   const getProductDescription = () => {
     const type = getProductType();
-    const baseType = type.toLowerCase().replace(/\s+&?\s*/g, "");
 
     switch (type) {
       case "Conduit Body": {
@@ -133,6 +132,16 @@ const ProductCard = ({
         );
       }
 
+      case "Plugs & Bushings": {
+        // Check the specific category to determine which description to use
+        if (category === "Plugs") {
+          return productDescriptions.plugsAndBushings["Counter Sunk Hex"];
+        } else if (category === "Bushings") {
+          return productDescriptions.plugsAndBushings.Face;
+        }
+        return "Component for sealing or protecting conduit openings.";
+      }
+
       case "ECN": {
         if (specifications?.["Elbow Angle"]) {
           return productDescriptions.ecn.elbow[specifications["Elbow Angle"]];
@@ -149,6 +158,7 @@ const ProductCard = ({
       }
 
       default: {
+        const baseType = type.toLowerCase().replace(/\s+&?\s*/g, "");
         const descriptionCategory = productDescriptions[baseType];
         if (!descriptionCategory) return "";
 

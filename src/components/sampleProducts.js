@@ -184,12 +184,12 @@ const sampleProducts = [
     id: "SR6FD",
     name: "Device Box",
     pageUrl: "/index.php/home/products/device-box/",
-    category: "Conduit Boxes",
+    category: "Device Box",
     image: "/wp-content/uploads/2024/12/SS-Device-Box_v2-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"'],
       "Material Grade": "316",
-      "Box Style": "FDC",
+      "Box Style": "Single Gang",
       Environment: [
         "Indoor",
         "Outdoor",
@@ -208,7 +208,7 @@ const sampleProducts = [
     id: "SSTH",
     name: "Terminator Hub",
     pageUrl: "/index.php/home/products/terminator-hub/",
-    category: "Hubs", // Changed from "Conduit Boxes" to "Hubs"
+    category: "Conduit Hubs", // Changed from "Conduit Boxes" to "Hubs"
     image: "/wp-content/uploads/2024/12/SS-Terminator-Hub-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
@@ -232,10 +232,11 @@ const sampleProducts = [
     id: "LT-STR",
     name: "Liquid Tight Straight Connector",
     pageUrl: "/index.php/home/products/liquid-tight-straight-connector/",
-    category: "Liquid Tight",
+    category: "Liquid Tight Connectors",
     image: "/wp-content/uploads/2024/12/SS-LT-Straight-Connector-min.png",
     specifications: {
       "Material Grade": "316",
+      "Connection Type": "Straight",
       Environment: [
         "Indoor",
         "Outdoor",
@@ -252,10 +253,11 @@ const sampleProducts = [
     id: "LT-90",
     name: "Liquid Tight 90° Connector",
     pageUrl: "/index.php/home/products/liquid-tight-90-connector/",
-    category: "Liquid Tight",
+    category: "Liquid Tight Connectors",
     image: "/wp-content/uploads/2024/12/SS-LT-90-Connector-min.png",
     specifications: {
       "Material Grade": "316",
+      "Connection Type": "90°",
       Environment: [
         "Indoor",
         "Outdoor",
@@ -272,10 +274,11 @@ const sampleProducts = [
     id: "LT-45",
     name: "Liquid Tight 45° Connector",
     pageUrl: "/index.php/home/products/liquid-tight-45-connector/",
-    category: "Liquid Tight",
+    category: "Liquid Tight Connectors",
     image: "/wp-content/uploads/2024/12/SS-LT-45-Connector-min.png",
     specifications: {
       "Material Grade": "316",
+      "Connection Type": "45°",
       Environment: [
         "Indoor",
         "Outdoor",
@@ -293,7 +296,7 @@ const sampleProducts = [
     id: "SR6EL45",
     name: "45° Elbow",
     pageUrl: "/index.php/home/products/45-elbow/",
-    category: "Elbows",
+    category: "Conduit Fittings",
     image: "/wp-content/uploads/2024/12/SS-45°-Elbow-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
@@ -315,7 +318,7 @@ const sampleProducts = [
     id: "SR6EL90",
     name: "90° Elbow",
     pageUrl: "/index.php/home/products/90-elbow/",
-    category: "Elbows",
+    category: "Conduit Fittings",
     image: "/wp-content/uploads/2024/12/SS-90°-Elbow-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
@@ -339,7 +342,7 @@ const sampleProducts = [
     id: "SR6CPL",
     name: "Rigid Coupling",
     pageUrl: "/index.php/home/products/rigid-coupling/",
-    category: "Couplings",
+    category: "Conduit Fittings",
     image: "/wp-content/uploads/2024/12/SS-Rigid-Coupling_v2-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
@@ -361,7 +364,7 @@ const sampleProducts = [
     id: "SR6CPL3P",
     name: "3-Piece Coupling",
     pageUrl: "/index.php/home/products/3-piece-coupling/",
-    category: "Couplings",
+    category: "Conduit Fittings",
     image: "/wp-content/uploads/2024/12/3-Piece-Coupling-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
@@ -384,7 +387,7 @@ const sampleProducts = [
     id: "SSN",
     name: "Stainless Steel Nipple",
     pageUrl: "/index.php/home/products/nipples/",
-    category: "Couplings",
+    category: "Conduit Fittings",
     image: "/wp-content/uploads/2024/12/SS-Nipple-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
@@ -408,7 +411,7 @@ const sampleProducts = [
     id: "SSRP",
     name: "Recessed Plug",
     pageUrl: "/index.php/home/products/recessed-plug/",
-    category: "Couplings",
+    category: "Plugs & Bushings",
     image: "/wp-content/uploads/2024/12/SS-Recessed-Plug_v2-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
@@ -431,7 +434,7 @@ const sampleProducts = [
     id: "SSFB",
     name: "Face Bushing",
     pageUrl: "/index.php/home/products/face-bushing/",
-    category: "Couplings",
+    category: "Plugs & Bushings",
     image: "/wp-content/uploads/2024/12/SS_Face-Bushing-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],

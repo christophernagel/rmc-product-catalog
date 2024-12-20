@@ -89,7 +89,7 @@ const ProductCatalog = () => {
       );
     }
 
-    // Apply category filters with OR logic
+    // Apply category filters
     const hasActiveFilters = Object.values(activeFilters).some((category) =>
       Object.values(category).some(Boolean)
     );
@@ -109,28 +109,57 @@ const ProductCatalog = () => {
             switch (category) {
               case "Conduit":
                 return product.specifications["Conduit Type"] === value;
+
+              case "Conduit Bodies":
+                return product.specifications["Body Style"] === value;
+
+              case "Device Box":
+                return product.specifications["Box Style"] === value;
+
+              case "Conduit Hubs":
+                const hubStyleMap = {
+                  "Terminator Hub": "Line Terminating",
+                  "Grounding Hub": "Grounding",
+                };
+                return (
+                  product.specifications["Hub Style"] === hubStyleMap[value]
+                );
+
+              case "Liquid Tight Connectors":
+                return product.specifications["Connection Type"] === value;
+
+              case "Conduit Fittings":
+                if (value.includes("Elbow")) {
+                  return (
+                    product.specifications["Elbow Angle"] ===
+                    value.split(" ")[0]
+                  );
+                }
+                if (value.includes("Coupling")) {
+                  return (
+                    product.specifications["Coupling Style"] ===
+                    value.split(" ")[0]
+                  );
+                }
+                if (value.includes("Nipple")) {
+                  return product.category === "Conduit Fittings";
+                }
+                return false;
+
+              case "Plugs & Bushings":
+                return product.category === "Plugs & Bushings";
+
               case "Strut":
                 return (
                   product.specifications["Strut Properties"]?.includes(value) ||
-                  product.specifications["Strut Pattern"]?.includes(value)
+                  product.specifications["Strut Pattern"] === value
                 );
-              case "Conduit Bodies":
-                return product.specifications["Body Style"] === value;
-              case "Conduit Hubs":
-                return (
-                  product.specifications["Hub Configuration"] === value ||
-                  product.specifications["Hub Style"] === value
-                );
-              case "Conduit Elbows":
-                return product.specifications["Elbow Angle"] === value;
-              case "Junction Boxes":
-                return product.specifications["Box Style"] === value;
-              case "Couplings":
-                return product.specifications["Coupling Style"] === value;
+
               case "Material Grade":
               case "Environment":
               case "Certification":
                 return product.specifications[category]?.includes(value);
+
               default:
                 return false;
             }

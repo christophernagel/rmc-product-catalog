@@ -4,69 +4,58 @@ import ReactDOM from "react-dom";
 // Filter Structure Configuration
 const filterStructure = {
   Conduit: {
-    options: ["Rigid", "Flex"],
+    options: ["Rigid"],
     order: 1,
     tooltip: "Type and construction method of conduit systems",
   },
   "Conduit Bodies": {
-    options: ["C", "LB", "LL", "LR", "T", "TB", "X", "XB"],
+    options: ["LB", "LL", "LR", "C", "T", "TB", "XB"],
     order: 2,
     tooltip: "Standard conduit body configurations for routing changes",
   },
-  "Device Boxes": {
-    options: ["Single Gang", "Double Gang", "Deep", "Shallow"],
+  "Device Box": {
+    options: ["Single Gang"],
     order: 3,
     tooltip: "Device and junction boxes for electrical installations",
   },
   "Conduit Hubs": {
-    options: ["Line Terminating", "Grounding"],
+    options: ["Terminator Hub", "Grounding Hub"],
     order: 4,
     tooltip: "Hub types for conduit termination and grounding",
   },
-  "Liquid Tight": {
+  "Liquid Tight Connectors": {
     options: ["Straight", "45°", "90°"],
     order: 5,
     tooltip: "Liquid tight connectors for flexible conduit systems",
   },
-  Elbows: {
-    options: ["45°", "90°"],
+  "Conduit Fittings": {
+    // Combined category for ECN products
+    options: [
+      // Elbows
+      "45° Elbow",
+      "90° Elbow",
+      // Couplings
+      "Standard Coupling",
+      "3-Piece Coupling",
+      // Nipples
+      "Standard Nipple",
+    ],
     order: 6,
-    tooltip: "Standard bend angles for conduit direction changes",
+    tooltip: "Elbows, couplings, and nipples for conduit connections",
   },
-  Couplings: {
-    options: ["Standard", "3-Piece"],
+  "Plugs & Bushings": {
+    options: ["Recessed Plug", "Face Bushing"],
     order: 7,
-    tooltip: "Coupling types for connecting conduit sections",
-  },
-  Nipples: {
-    options: ["Standard"],
-    order: 8,
-    tooltip: "Pre-cut threaded conduit sections for connections",
-  },
-  Bushings: {
-    options: ["Face"],
-    order: 9,
-    tooltip: "Bushings for protecting wire and cable",
-  },
-  Plugs: {
-    options: ["Counter Sunk Hex"],
-    order: 10,
-    tooltip: "Plugs for sealing unused openings",
+    tooltip: "Sealing plugs and protective bushings",
   },
   Strut: {
-    options: [
-      "Deep Profile",
-      "Shallow Profile",
-      "Back to Back",
-      "Solid",
-      "Elongated Holes",
-    ],
-    order: 11,
+    options: ["Deep Profile", "Shallow Profile", "Solid", "Elongated Holes"],
+    order: 8,
     tooltip: "Strut channel and mounting solutions",
   },
   "Material Grade": {
     options: ["304", "316"],
-    order: 12,
+    order: 9,
     tooltip: "Stainless steel grade specifications for corrosion resistance",
   },
   Environment: {
@@ -79,7 +68,7 @@ const filterStructure = {
       "Food Processing",
       "Wet Location",
     ],
-    order: 13,
+    order: 10,
     tooltip: "Intended installation environment affecting material selection",
   },
   Certification: {
@@ -90,9 +79,65 @@ const filterStructure = {
       "CSA C22.1:21",
       "CSA C22.2 NO 18.1",
     ],
-    order: 14,
+    order: 11,
     tooltip: "Applicable safety and compliance standards",
   },
+};
+
+// Helper function to match filters with product specifications
+export const matchesFilter = (product, category, value) => {
+  switch (category) {
+    case "Conduit":
+      return product.specifications["Conduit Type"] === value;
+
+    case "Conduit Bodies":
+      return product.specifications["Body Style"] === value;
+
+    case "Device Box":
+      return product.specifications["Box Style"] === value;
+
+    case "Conduit Hubs":
+      return product.specifications["Hub Style"] === value;
+
+    case "Liquid Tight Connectors":
+      return product.specifications["Connection Type"] === value;
+
+    case "Conduit Fittings":
+      // Handle combined ECN products
+      if (value.includes("Elbow")) {
+        return product.specifications["Elbow Angle"] === value.split(" ")[0];
+      }
+      if (value.includes("Couplings")) {
+        return product.specifications["Coupling Style"] === value.split(" ")[0];
+      }
+      if (value.includes("Nipple")) {
+        return product.category === "Nipples";
+      }
+      return false;
+
+    case "Plugs & Bushings":
+      if (value.includes("Plug")) {
+        return product.category === "Plugs";
+      }
+      if (value.includes("Bushing")) {
+        return product.category === "Bushings";
+      }
+      return false;
+
+    case "Strut":
+      return (
+        product.specifications["Strut Properties"]?.includes(value) ||
+        product.specifications["Strut Pattern"] === value
+      );
+
+    case "Material Grade":
+    case "Environment":
+    case "Certification":
+      return product.specifications[category]?.includes(value);
+
+    default:
+      return false;
+  }
 };
 
 // Tooltip Popup Component
