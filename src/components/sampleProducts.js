@@ -3,34 +3,12 @@ const sampleProducts = [
   {
     id: "SR6CT",
     name: "SS316 Rigid Conduit",
-    pageUrl: "/index.php/home/products/rigid-conduit/",
+    pageUrl: "/products/rigid-conduit/",
     category: "Conduit",
-    image: "/wp-content/uploads/2024/12/SS-Rigid-Conduit_v1-min.png",
+    image: "/wp-content/uploads/2024/12/SS-Rigid-Conduit_v2-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
-      "Conduit Type": "Rigid",
-      Environment: [
-        "Indoor",
-        "Outdoor",
-        "Corrosive",
-        "Marine",
-        "Chemical",
-        "Food Processing",
-        "Wet Location",
-      ],
-      Certification: ["UL 6A", "CSA C22.1:21"],
-    },
-  },
-  {
-    id: "SR4CT",
-    name: "SS304 Rigid Conduit",
-    pageUrl: "/index.php/home/products/rigid-conduit/",
-    category: "Conduit",
-    image: "/wp-content/uploads/2024/12/SS-Rigid-Conduit_v1-min.png",
-    specifications: {
-      "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
-      "Material Grade": "304",
       "Conduit Type": "Rigid",
       Environment: [
         "Indoor",
@@ -49,8 +27,9 @@ const sampleProducts = [
   {
     id: "SR6LB",
     name: "LB Conduit Body",
+    pageUrl: "/products/conduit-bodies/",
     category: "Conduit Bodies",
-    image: "/wp-content/uploads/2024/12/LB-Conduit-Body_v1-min.png",
+    image: "/wp-content/uploads/2024/12/LB-Conduit-Body_v2-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
@@ -70,8 +49,9 @@ const sampleProducts = [
   {
     id: "SR6LL",
     name: "LL Conduit Body",
+    pageUrl: "/products/conduit-bodies/",
     category: "Conduit Bodies",
-    image: "/wp-content/uploads/2024/12/LL-Conduit-Body_v1-min.png",
+    image: "/wp-content/uploads/2024/12/LL-Conduit-Body_v2-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
@@ -91,8 +71,9 @@ const sampleProducts = [
   {
     id: "SR6LR",
     name: "LR Conduit Body",
+    pageUrl: "/products/conduit-bodies/",
     category: "Conduit Bodies",
-    image: "/wp-content/uploads/2024/12/LR-Conduit-Body_v1-min.png",
+    image: "/wp-content/uploads/2024/12/LR-Conduit-Body_v2-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
@@ -112,8 +93,9 @@ const sampleProducts = [
   {
     id: "SR6C",
     name: "C Conduit Body",
+    pageUrl: "/products/conduit-bodies/",
     category: "Conduit Bodies",
-    image: "/wp-content/uploads/2024/12/C-Conduit-Body_v1-min.png",
+    image: "/wp-content/uploads/2024/12/C-Conduit-Body_v2-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
@@ -133,8 +115,9 @@ const sampleProducts = [
   {
     id: "SR6T",
     name: "T Conduit Body",
+    pageUrl: "/products/conduit-bodies/",
     category: "Conduit Bodies",
-    image: "/wp-content/uploads/2024/12/T-Conduit-Body_v1-min.png",
+    image: "/wp-content/uploads/2024/12/T-Conduit-Body_v2-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
@@ -152,10 +135,33 @@ const sampleProducts = [
     },
   },
   {
+    id: "SR6TB",
+    name: "TB Conduit Body",
+    pageUrl: "/products/conduit-bodies/",
+    category: "Conduit Bodies",
+    image: "/wp-content/uploads/2024/12/TB-Conduit-Body_v2-min.png",
+    specifications: {
+      "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
+      "Material Grade": "316",
+      "Body Style": "TB",
+      Environment: [
+        "Indoor",
+        "Outdoor",
+        "Corrosive",
+        "Marine",
+        "Chemical",
+        "Food Processing",
+        "Wet Location",
+      ],
+      Certification: ["UL 514A", "CSA C22.2 NO 18.1"],
+    },
+  },
+  {
     id: "SR6XB",
     name: "XB Conduit Body",
+    pageUrl: "/products/conduit-bodies/",
     category: "Conduit Bodies",
-    image: "/wp-content/uploads/2024/12/XB-Conduit-Body_v1-min.png",
+    image: "/wp-content/uploads/2024/12/XB-Conduit-Body_v2-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
@@ -173,12 +179,13 @@ const sampleProducts = [
     },
   },
 
-  // Conduit Boxes
+  // Device Box
   {
     id: "SR6FD",
     name: "FD Device Box",
+    pageUrl: "/products/device-boxes/",
     category: "Conduit Boxes",
-    image: "/wp-content/uploads/2024/12/SS-Device-Box_v1-min.png",
+    image: "/wp-content/uploads/2024/12/SS-Device-Box_v2-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"'],
       "Material Grade": "316",
@@ -195,105 +202,17 @@ const sampleProducts = [
       Certification: ["UL 514A", "CSA C22.2 NO 18.1"],
     },
   },
-  {
-    id: "SR6FDT",
-    name: "FD Device Box with Threaded Hubs",
-    category: "Conduit Boxes",
-    image: "/wp-content/uploads/2024/12/SS-Device-Box_v1-min.png",
-    specifications: {
-      "Trade Size": ['½"', '¾"', '1"'],
-      "Material Grade": "316",
-      "Box Style": "FDCT",
-      Environment: [
-        "Indoor",
-        "Outdoor",
-        "Corrosive",
-        "Marine",
-        "Chemical",
-        "Food Processing",
-        "Wet Location",
-      ],
-      Certification: ["UL 514A", "CSA C22.2 NO 18.1"],
-    },
-  },
-
-  // Hubs
-  {
-    id: "SR6HUB",
-    name: "Line Terminating Hub",
-    category: "Hubs",
-    image: "/wp-content/uploads/2024/12/Grounding-Locknut-Hub.png",
-    specifications: {
-      "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
-      "Material Grade": "316",
-      "Hub Configuration": "Line Terminating",
-      "Hub Style": "Standard",
-      Environment: [
-        "Indoor",
-        "Outdoor",
-        "Corrosive",
-        "Marine",
-        "Chemical",
-        "Food Processing",
-        "Wet Location",
-      ],
-      Certification: ["UL 514B"],
-    },
-  },
-  {
-    id: "SR6GHB",
-    name: "Grounding Hub",
-    category: "Hubs",
-    image: "/wp-content/uploads/2024/12/Grounding-Hub.png",
-    specifications: {
-      "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
-      "Material Grade": "316",
-      "Hub Configuration": "Grounding",
-      "Hub Style": "Standard",
-      Environment: [
-        "Indoor",
-        "Outdoor",
-        "Corrosive",
-        "Marine",
-        "Chemical",
-        "Food Processing",
-        "Wet Location",
-      ],
-      Certification: ["UL 514B"],
-    },
-  },
-  {
-    id: "SR6ORH",
-    name: "O-Ring/Locknut Hub",
-    category: "Hubs",
-    image: "/wp-content/uploads/2024/12/Grounding-Locknut-Hub.png",
-    specifications: {
-      "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
-      "Material Grade": "316",
-      "Hub Configuration": "Line Terminating",
-      "Hub Style": "O-Ring/Locknut",
-      Environment: [
-        "Indoor",
-        "Outdoor",
-        "Corrosive",
-        "Marine",
-        "Chemical",
-        "Food Processing",
-        "Wet Location",
-      ],
-      Certification: ["UL 514B"],
-    },
-  },
 
   // Strut
   {
-    id: "STR-12G-158-158-EHO",
-    name: "Strut Channel with Elongated Holes",
+    id: "STR-DEEP",
+    name: "Deep Strut Channel Slotted",
+    pageUrl: "/products/strut/",
     category: "Strut",
-    image: "/wp-content/uploads/2024/12/shallow-strut.png",
+    image: "/wp-content/uploads/2024/12/SS-Deep-Strut-Slotted-min.png",
     specifications: {
       "Strut Properties": ["12 Gauge", '1⅝" x 1⅝"'],
-      "Strut Pattern": "Elongated Holes",
+      "Strut Pattern": "Slotted",
       "Material Grade": "316",
       Environment: [
         "Indoor",
@@ -307,33 +226,14 @@ const sampleProducts = [
     },
   },
   {
-    id: "STR-14G-1316-158-SLD",
-    name: "Strut Channel Solid",
+    id: "STR-SHALLOW",
+    name: "Shallow Strut Channel Slotted",
+    pageUrl: "/products/strut/",
     category: "Strut",
-    image: "/wp-content/uploads/2024/12/shallow-strut.png",
+    image: "/wp-content/uploads/2024/12/SS-Shallow-Strut-Slotted-min.png",
     specifications: {
       "Strut Properties": ["14 Gauge", '13/16" x 1⅝"'],
-      "Strut Pattern": "Solid",
-      "Material Grade": "316",
-      Environment: [
-        "Indoor",
-        "Outdoor",
-        "Corrosive",
-        "Marine",
-        "Chemical",
-        "Food Processing",
-        "Wet Location",
-      ],
-    },
-  },
-  {
-    id: "STR-12G-158-158-EHO-BB",
-    name: "Deep Strut Channel with Elongated Holes",
-    category: "Strut",
-    image: "/wp-content/uploads/2024/12/deep-strut.png",
-    specifications: {
-      "Strut Properties": ["12 Gauge", '1⅝" x 1⅝"'],
-      "Strut Pattern": "Elongated Holes",
+      "Strut Pattern": "Slotted",
       "Material Grade": "316",
       Environment: [
         "Indoor",
@@ -351,8 +251,9 @@ const sampleProducts = [
   {
     id: "SR6CPL",
     name: "Standard Coupling",
+    pageUrl: "/products/couplings/",
     category: "Couplings",
-    image: "/wp-content/uploads/2024/12/SS-Rigid-Coupling_v1-min.png",
+    image: "/wp-content/uploads/2024/12/SS-Rigid-Coupling_v2-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
@@ -372,8 +273,9 @@ const sampleProducts = [
   {
     id: "SR6CPL3P",
     name: "3-Piece Coupling",
+    pageUrl: "/products/couplings/",
     category: "Couplings",
-    image: "/wp-content/uploads/2024/12/3pc-Couplings.png",
+    image: "/wp-content/uploads/2024/12/3-Piece-Coupling-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
@@ -395,8 +297,9 @@ const sampleProducts = [
   {
     id: "SR6EL45",
     name: "45° Elbow",
+    pageUrl: "/products/elbows/",
     category: "Elbows",
-    image: "/wp-content/uploads/2024/12/SS-Rigid-Conduit_v1-min.png",
+    image: "/wp-content/uploads/2024/12/SS-45°-Elbow-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
@@ -416,8 +319,9 @@ const sampleProducts = [
   {
     id: "SR6EL90",
     name: "90° Elbow",
+    pageUrl: "/products/elbows/",
     category: "Elbows",
-    image: "/wp-content/uploads/2024/12/SS-Rigid-Conduit_v1-min.png",
+    image: "/wp-content/uploads/2024/12/SS-90°-Elbow-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
