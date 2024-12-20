@@ -133,21 +133,27 @@ const ProductCatalog = () => {
                   return (
                     product.specifications["Elbow Angle"] ===
                     value.split(" ")[0]
-                  );
+                  ); // "45°" or "90°"
                 }
                 if (value.includes("Coupling")) {
                   return (
                     product.specifications["Coupling Style"] ===
                     value.split(" ")[0]
-                  );
+                  ); // "Rigid" or "3-Piece"
                 }
                 if (value.includes("Nipple")) {
-                  return product.category === "Conduit Fittings";
+                  return product.name === "Standard Nipple"; // Exact name match
                 }
                 return false;
 
               case "Plugs & Bushings":
-                return product.category === "Plugs & Bushings";
+                if (value.includes("Recessed Plug")) {
+                  return product.name === "Recessed Plug";
+                }
+                if (value.includes("Bushing")) {
+                  return product.name === "Face Bushing";
+                }
+                return false;
 
               case "Strut":
                 return (

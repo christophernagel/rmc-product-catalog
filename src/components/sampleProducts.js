@@ -165,7 +165,7 @@ const sampleProducts = [
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
-      "Body Style": "X",
+      "Body Style": "XB",
       Environment: [
         "Indoor",
         "Outdoor",
@@ -347,7 +347,7 @@ const sampleProducts = [
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
-      "Coupling Style": "Standard",
+      "Coupling Style": "Rigid",
       Environment: [
         "Indoor",
         "Outdoor",
@@ -385,7 +385,7 @@ const sampleProducts = [
   // Nipples
   {
     id: "SSN",
-    name: "Stainless Steel Nipple",
+    name: "Standard Nipple",
     pageUrl: "/index.php/home/products/nipples/",
     category: "Conduit Fittings",
     image: "/wp-content/uploads/2024/12/SS-Nipple-min.png",
@@ -416,7 +416,7 @@ const sampleProducts = [
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "304",
-      "Coupling Style": "Standard",
+      "Plug Type": "Recessed Plug",
       Environment: [
         "Indoor",
         "Outdoor",
@@ -439,7 +439,7 @@ const sampleProducts = [
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "304",
-      "Coupling Style": "Standard",
+      "Bushing Type": "Face Bushing",
       Environment: [
         "Indoor",
         "Outdoor",
@@ -461,8 +461,8 @@ const sampleProducts = [
     category: "Strut",
     image: "/wp-content/uploads/2024/12/SS-Deep-Strut-Slotted-min.png",
     specifications: {
-      "Strut Properties": ["12 Gauge", '1⅝" x 1⅝"'],
-      "Strut Pattern": "Slotted",
+      "Strut Properties": "Deep Profile",
+      "Strut Pattern": "Elongated Holes",
       "Material Grade": "316",
       Environment: [
         "Indoor",
@@ -482,8 +482,8 @@ const sampleProducts = [
     category: "Strut",
     image: "/wp-content/uploads/2024/12/SS-Shallow-Strut-Slotted-min.png",
     specifications: {
-      "Strut Properties": ["14 Gauge", '13/16" x 1⅝"'],
-      "Strut Pattern": "Slotted",
+      "Strut Properties": "Shallow Profile",
+      "Strut Pattern": "Elongated Holes",
       "Material Grade": "316",
       Environment: [
         "Indoor",

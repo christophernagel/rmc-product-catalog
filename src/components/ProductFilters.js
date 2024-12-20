@@ -35,7 +35,7 @@ const filterStructure = {
       "45° Elbow",
       "90° Elbow",
       // Couplings
-      "Standard Coupling",
+      "Rigid Coupling",
       "3-Piece Coupling",
       // Nipples
       "Standard Nipple",
@@ -110,17 +110,17 @@ export const matchesFilter = (product, category, value) => {
       if (value.includes("Couplings")) {
         return product.specifications["Coupling Style"] === value.split(" ")[0];
       }
-      if (value.includes("Nipple")) {
-        return product.category === "Nipples";
+      if (value === "Standard Nipple") {
+        return product.name === "Standard Nipple";
       }
       return false;
 
     case "Plugs & Bushings":
-      if (value.includes("Plug")) {
-        return product.category === "Plugs";
+      if (value.includes("Recessed Plug")) {
+        return product.name === "Recessed Plug";
       }
       if (value.includes("Bushing")) {
-        return product.category === "Bushings";
+        return product.name === "Face Bushing";
       }
       return false;
 
