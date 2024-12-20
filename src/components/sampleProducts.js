@@ -2,8 +2,8 @@ const sampleProducts = [
   // Conduit Products
   {
     id: "SR6CT",
-    name: "SS316 Rigid Conduit",
-    pageUrl: "/products/rigid-conduit/",
+    name: "Rigid Conduit",
+    pageUrl: "/index.php/home/products/rigid-conduit/",
     category: "Conduit",
     image: "/wp-content/uploads/2024/12/SS-Rigid-Conduit_v2-min.png",
     specifications: {
@@ -27,7 +27,7 @@ const sampleProducts = [
   {
     id: "SR6LB",
     name: "LB Conduit Body",
-    pageUrl: "/products/conduit-bodies/",
+    pageUrl: "/index.php/home/products/lb-conduit-body/",
     category: "Conduit Bodies",
     image: "/wp-content/uploads/2024/12/LB-Conduit-Body_v2-min.png",
     specifications: {
@@ -49,7 +49,7 @@ const sampleProducts = [
   {
     id: "SR6LL",
     name: "LL Conduit Body",
-    pageUrl: "/products/conduit-bodies/",
+    pageUrl: "/index.php/home/products/ll-conduit-body/",
     category: "Conduit Bodies",
     image: "/wp-content/uploads/2024/12/LL-Conduit-Body_v2-min.png",
     specifications: {
@@ -71,7 +71,7 @@ const sampleProducts = [
   {
     id: "SR6LR",
     name: "LR Conduit Body",
-    pageUrl: "/products/conduit-bodies/",
+    pageUrl: "/index.php/home/products/lr-conduit-body/",
     category: "Conduit Bodies",
     image: "/wp-content/uploads/2024/12/LR-Conduit-Body_v2-min.png",
     specifications: {
@@ -93,7 +93,7 @@ const sampleProducts = [
   {
     id: "SR6C",
     name: "C Conduit Body",
-    pageUrl: "/products/conduit-bodies/",
+    pageUrl: "/index.php/home/products/c-conduit-body/",
     category: "Conduit Bodies",
     image: "/wp-content/uploads/2024/12/C-Conduit-Body_v2-min.png",
     specifications: {
@@ -115,7 +115,7 @@ const sampleProducts = [
   {
     id: "SR6T",
     name: "T Conduit Body",
-    pageUrl: "/products/conduit-bodies/",
+    pageUrl: "/index.php/home/products/t-conduit-body//",
     category: "Conduit Bodies",
     image: "/wp-content/uploads/2024/12/T-Conduit-Body_v2-min.png",
     specifications: {
@@ -137,7 +137,7 @@ const sampleProducts = [
   {
     id: "SR6TB",
     name: "TB Conduit Body",
-    pageUrl: "/products/conduit-bodies/",
+    pageUrl: "/index.php/home/products/tb-conduit-body/",
     category: "Conduit Bodies",
     image: "/wp-content/uploads/2024/12/TB-Conduit-Body_v2-min.png",
     specifications: {
@@ -159,7 +159,7 @@ const sampleProducts = [
   {
     id: "SR6XB",
     name: "XB Conduit Body",
-    pageUrl: "/products/conduit-bodies/",
+    pageUrl: "/index.php/home/products/xb-conduit-body/",
     category: "Conduit Bodies",
     image: "/wp-content/uploads/2024/12/XB-Conduit-Body_v2-min.png",
     specifications: {
@@ -182,8 +182,8 @@ const sampleProducts = [
   // Device Box
   {
     id: "SR6FD",
-    name: "FD Device Box",
-    pageUrl: "/products/device-boxes/",
+    name: "Device Box",
+    pageUrl: "/index.php/home/products/device-box/",
     category: "Conduit Boxes",
     image: "/wp-content/uploads/2024/12/SS-Device-Box_v2-min.png",
     specifications: {
@@ -203,16 +203,15 @@ const sampleProducts = [
     },
   },
 
-  // Strut
+  // Hubs
   {
-    id: "STR-DEEP",
-    name: "Deep Strut Channel Slotted",
-    pageUrl: "/products/strut/",
-    category: "Strut",
-    image: "/wp-content/uploads/2024/12/SS-Deep-Strut-Slotted-min.png",
+    id: "SSTH",
+    name: "Terminator Hub",
+    pageUrl: "/index.php/home/products/terminator-hub/",
+    category: "Conduit Boxes",
+    image: "/wp-content/uploads/2024/12/SS-Terminator-Hub-min.png",
     specifications: {
-      "Strut Properties": ["12 Gauge", '1⅝" x 1⅝"'],
-      "Strut Pattern": "Slotted",
+      "Trade Size": ['½"', '¾"', '1"'],
       "Material Grade": "316",
       Environment: [
         "Indoor",
@@ -223,17 +222,19 @@ const sampleProducts = [
         "Food Processing",
         "Wet Location",
       ],
+      Certification: [""],
     },
   },
+
+  // Liquid Tight
   {
-    id: "STR-SHALLOW",
-    name: "Shallow Strut Channel Slotted",
-    pageUrl: "/products/strut/",
-    category: "Strut",
-    image: "/wp-content/uploads/2024/12/SS-Shallow-Strut-Slotted-min.png",
+    id: "LT-STR",
+    name: "Liquid Tight Straight Connector",
+    pageUrl:
+      "/index.php/home/products//index.php/home/products/liquid-tight-straight-connector/",
+    category: "Liquid Tight",
+    image: "/wp-content/uploads/2024/12/SS-LT-Straight-Connector-min.png",
     specifications: {
-      "Strut Properties": ["14 Gauge", '13/16" x 1⅝"'],
-      "Strut Pattern": "Slotted",
       "Material Grade": "316",
       Environment: [
         "Indoor",
@@ -247,17 +248,14 @@ const sampleProducts = [
     },
   },
 
-  // Couplings
   {
-    id: "SR6CPL",
-    name: "Standard Coupling",
-    pageUrl: "/products/couplings/",
-    category: "Couplings",
-    image: "/wp-content/uploads/2024/12/SS-Rigid-Coupling_v2-min.png",
+    id: "LT-90",
+    name: "Liquid Tight 90° Connector",
+    pageUrl: "/index.php/home/products/liquid-tight-90-connector/",
+    category: "Liquid Tight",
+    image: "/wp-content/uploads/2024/12/SS-LT-90-Connector-min.png",
     specifications: {
-      "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
-      "Coupling Style": "Standard",
       Environment: [
         "Indoor",
         "Outdoor",
@@ -267,19 +265,17 @@ const sampleProducts = [
         "Food Processing",
         "Wet Location",
       ],
-      Certification: ["UL 514B"],
     },
   },
+
   {
-    id: "SR6CPL3P",
-    name: "3-Piece Coupling",
-    pageUrl: "/products/couplings/",
-    category: "Couplings",
-    image: "/wp-content/uploads/2024/12/3-Piece-Coupling-min.png",
+    id: "LT-45",
+    name: "Liquid Tight 45° Connector",
+    pageUrl: "/index.php/home/products/liquid-tight-45-connector/",
+    category: "Liquid Tight",
+    image: "/wp-content/uploads/2024/12/SS-LT-45-Connector-min.png",
     specifications: {
-      "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
-      "Coupling Style": "3-Piece",
       Environment: [
         "Indoor",
         "Outdoor",
@@ -289,7 +285,6 @@ const sampleProducts = [
         "Food Processing",
         "Wet Location",
       ],
-      Certification: ["UL 514B"],
     },
   },
 
@@ -297,7 +292,7 @@ const sampleProducts = [
   {
     id: "SR6EL45",
     name: "45° Elbow",
-    pageUrl: "/products/elbows/",
+    pageUrl: "/index.php/home/products/45-elbow/",
     category: "Elbows",
     image: "/wp-content/uploads/2024/12/SS-45°-Elbow-min.png",
     specifications: {
@@ -319,7 +314,7 @@ const sampleProducts = [
   {
     id: "SR6EL90",
     name: "90° Elbow",
-    pageUrl: "/products/elbows/",
+    pageUrl: "/index.php/home/products/90-elbow/",
     category: "Elbows",
     image: "/wp-content/uploads/2024/12/SS-90°-Elbow-min.png",
     specifications: {
@@ -336,6 +331,166 @@ const sampleProducts = [
         "Wet Location",
       ],
       Certification: ["UL 514B"],
+    },
+  },
+
+  // Couplings
+  {
+    id: "SR6CPL",
+    name: "Rigid Coupling",
+    pageUrl: "/index.php/home/products/rigid-coupling/",
+    category: "Couplings",
+    image: "/wp-content/uploads/2024/12/SS-Rigid-Coupling_v2-min.png",
+    specifications: {
+      "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
+      "Material Grade": "316",
+      "Coupling Style": "Standard",
+      Environment: [
+        "Indoor",
+        "Outdoor",
+        "Corrosive",
+        "Marine",
+        "Chemical",
+        "Food Processing",
+        "Wet Location",
+      ],
+      Certification: ["UL 514B"],
+    },
+  },
+  {
+    id: "SR6CPL3P",
+    name: "3-Piece Coupling",
+    pageUrl: "/index.php/home/products/3-piece-coupling/",
+    category: "Couplings",
+    image: "/wp-content/uploads/2024/12/3-Piece-Coupling-min.png",
+    specifications: {
+      "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
+      "Material Grade": "316",
+      "Coupling Style": "3-Piece",
+      Environment: [
+        "Indoor",
+        "Outdoor",
+        "Corrosive",
+        "Marine",
+        "Chemical",
+        "Food Processing",
+        "Wet Location",
+      ],
+      Certification: ["UL 514B"],
+    },
+  },
+  // Nipples
+  {
+    id: "SSN",
+    name: "Stainless Steel Nipple",
+    pageUrl: "/index.php/home/products/nipples/",
+    category: "Couplings",
+    image: "/wp-content/uploads/2024/12/SS-Nipple-min.png",
+    specifications: {
+      "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
+      "Material Grade": "304",
+      "Coupling Style": "Standard",
+      Environment: [
+        "Indoor",
+        "Outdoor",
+        "Corrosive",
+        "Marine",
+        "Chemical",
+        "Food Processing",
+        "Wet Location",
+      ],
+      Certification: ["UL 514B"],
+    },
+  },
+
+  // Plugs & Bushings
+  {
+    id: "SSRP",
+    name: "Recessed Plug",
+    pageUrl: "/index.php/home/products/recessed-plug/",
+    category: "Couplings",
+    image: "/wp-content/uploads/2024/12/SS-Recessed-Plug_v2-min.png",
+    specifications: {
+      "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
+      "Material Grade": "304",
+      "Coupling Style": "Standard",
+      Environment: [
+        "Indoor",
+        "Outdoor",
+        "Corrosive",
+        "Marine",
+        "Chemical",
+        "Food Processing",
+        "Wet Location",
+      ],
+      Certification: ["UL 514B"],
+    },
+  },
+
+  {
+    id: "SSFB",
+    name: "Face Bushing",
+    pageUrl: "/index.php/home/products/face-bushing/",
+    category: "Couplings",
+    image: "/wp-content/uploads/2024/12/SS_Face-Bushing-min.png",
+    specifications: {
+      "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
+      "Material Grade": "304",
+      "Coupling Style": "Standard",
+      Environment: [
+        "Indoor",
+        "Outdoor",
+        "Corrosive",
+        "Marine",
+        "Chemical",
+        "Food Processing",
+        "Wet Location",
+      ],
+      Certification: ["UL 514B"],
+    },
+  },
+
+  // Strut
+  {
+    id: "STR-DEEP",
+    name: "Deep Channel Slotted Strut",
+    pageUrl: "/index.php/home/products/deep-strut-elongated-holes/",
+    category: "Strut",
+    image: "/wp-content/uploads/2024/12/SS-Deep-Strut-Slotted-min.png",
+    specifications: {
+      "Strut Properties": ["12 Gauge", '1⅝" x 1⅝"'],
+      "Strut Pattern": "Slotted",
+      "Material Grade": "316",
+      Environment: [
+        "Indoor",
+        "Outdoor",
+        "Corrosive",
+        "Marine",
+        "Chemical",
+        "Food Processing",
+        "Wet Location",
+      ],
+    },
+  },
+  {
+    id: "STR-SHALLOW",
+    name: "Shallow Channel Slotted Strut",
+    pageUrl: "/index.php/home/products/shallow-strut-elongated-holes/",
+    category: "Strut",
+    image: "/wp-content/uploads/2024/12/SS-Shallow-Strut-Slotted-min.png",
+    specifications: {
+      "Strut Properties": ["14 Gauge", '13/16" x 1⅝"'],
+      "Strut Pattern": "Slotted",
+      "Material Grade": "316",
+      Environment: [
+        "Indoor",
+        "Outdoor",
+        "Corrosive",
+        "Marine",
+        "Chemical",
+        "Food Processing",
+        "Wet Location",
+      ],
     },
   },
 ];
