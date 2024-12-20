@@ -29,15 +29,11 @@ const filterStructure = {
     tooltip: "Liquid tight connectors for flexible conduit systems",
   },
   "Conduit Fittings": {
-    // Combined category for ECN products
     options: [
-      // Elbows
       "45° Elbow",
       "90° Elbow",
-      // Couplings
       "Rigid Coupling",
       "3-Piece Coupling",
-      // Nipples
       "Standard Nipple",
     ],
     order: 6,
@@ -97,18 +93,28 @@ export const matchesFilter = (product, category, value) => {
       return product.specifications["Box Style"] === value;
 
     case "Conduit Hubs":
-      return product.specifications["Hub Style"] === value;
+      // Map UI values to spec values
+      const hubStyleMap = {
+        "Terminator Hub": "Line Terminating",
+        "Grounding Hub": "Grounding",
+      };
+      return product.specifications["Hub Style"] === hubStyleMap[value];
 
     case "Liquid Tight Connectors":
       return product.specifications["Connection Type"] === value;
 
     case "Conduit Fittings":
-      // Handle combined ECN products
-      if (value.includes("Elbow")) {
-        return product.specifications["Elbow Angle"] === value.split(" ")[0];
+      if (value === "45° Elbow") {
+        return product.specifications["Elbow Angle"] === "45°";
       }
-      if (value.includes("Couplings")) {
-        return product.specifications["Coupling Style"] === value.split(" ")[0];
+      if (value === "90° Elbow") {
+        return product.specifications["Elbow Angle"] === "90°";
+      }
+      if (value === "Rigid Coupling") {
+        return product.specifications["Coupling Style"] === "Rigid";
+      }
+      if (value === "3-Piece Coupling") {
+        return product.specifications["Coupling Style"] === "3-Piece";
       }
       if (value === "Standard Nipple") {
         return product.name === "Standard Nipple";
@@ -116,19 +122,31 @@ export const matchesFilter = (product, category, value) => {
       return false;
 
     case "Plugs & Bushings":
-      if (value.includes("Recessed Plug")) {
-        return product.name === "Recessed Plug";
+      if (value === "Recessed Plug") {
+        return product.specifications["Plug Type"] === "Recessed Plug";
       }
-      if (value.includes("Bushing")) {
-        return product.name === "Face Bushing";
+      if (value === "Face Bushing") {
+        return product.specifications["Bushing Type"] === "Face Bushing";
       }
       return false;
 
     case "Strut":
-      return (
-        product.specifications["Strut Properties"]?.includes(value) ||
-        product.specifications["Strut Pattern"] === value
-      );
+      // Check either Strut Properties or Strut Pattern
+      if (value === "Deep Profile") {
+        return product.specifications["Strut Properties"] === "Deep Profile";
+      }
+      if (value === "Shallow Profile") {
+        return product.specifications["Strut Properties"] === "Shallow Profile";
+      }
+      if (value === "Elongated Holes") {
+        return product.specifications["Strut Pattern"] === "Elongated Holes";
+      }
+      if (value === "Solid") {
+        // If you had a "Solid" pattern or property, check here
+        // If "Solid" isn't actually used, you can remove or define a condition.
+        return false;
+      }
+      return false;
 
     case "Material Grade":
     case "Environment":
