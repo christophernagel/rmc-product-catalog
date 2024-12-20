@@ -76,13 +76,19 @@ const ProductCatalog = () => {
     // Apply search filter if query exists
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
-      filtered = filtered.filter(
-        (product) =>
-          product.name.toLowerCase().includes(query) ||
-          product.specifications?.Environment?.some((env) =>
-            env.toLowerCase().includes(query)
-          )
-      );
+      filtered = filtered.filter((product) => {
+        const nameMatch = product.name.toLowerCase().includes(query);
+
+        const categoryMatch = product.category
+          ? product.category.toLowerCase().includes(query)
+          : false;
+
+        const envMatch = product.specifications?.Environment?.some((env) =>
+          env.toLowerCase().includes(query)
+        );
+
+        return nameMatch || categoryMatch || envMatch;
+      });
     }
 
     // Apply category filters using matchesFilter
@@ -97,10 +103,8 @@ const ProductCatalog = () => {
             .filter(([_, isActive]) => isActive)
             .map(([value]) => value);
 
-          // If no active values in this category, ignore it
           if (activeValues.length === 0) return true;
 
-          // At least one value in this category must match
           return activeValues.some((value) =>
             matchesFilter(product, category, value)
           );
