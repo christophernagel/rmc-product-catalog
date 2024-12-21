@@ -144,7 +144,7 @@ const ProductCatalog = () => {
 
     if (hasActiveFilters) {
       filtered = filtered.filter((product) =>
-        Object.entries(activeFilters).every(([category, values]) => {
+        Object.entries(activeFilters).some(([category, values]) => {
           const activeValues = Object.entries(values)
             .filter(([_, isActive]) => isActive)
             .map(([value]) => value);
