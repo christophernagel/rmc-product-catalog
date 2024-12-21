@@ -45,7 +45,7 @@ const filterStructure = {
     tooltip: "Sealing plugs and protective bushings",
   },
   Strut: {
-    options: ["Deep Profile", "Shallow Profile", "Solid", "Elongated Holes"],
+    options: ["Deep Profile", "Shallow Profile"],
     order: 8,
     tooltip: "Strut channel and mounting solutions",
   },
