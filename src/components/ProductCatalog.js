@@ -16,7 +16,7 @@ const categoryMap = {
   "Plugs & Bushings": "pb",
   Strut: "st",
   "Material Grade": "mg",
-  Environment: "env",
+  // Environment: "env",
   Certification: "cert",
 };
 

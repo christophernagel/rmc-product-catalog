@@ -54,19 +54,19 @@ const filterStructure = {
     order: 9,
     tooltip: "Stainless steel grade specifications for corrosion resistance",
   },
-  Environment: {
-    options: [
-      "Indoor",
-      "Outdoor",
-      "Corrosive",
-      "Marine",
-      "Chemical",
-      "Food Processing",
-      "Wet Location",
-    ],
-    order: 10,
-    tooltip: "Intended installation environment affecting material selection",
-  },
+  // Environment: {
+  //   options: [
+  //     "Indoor",
+  //     "Outdoor",
+  //     "Corrosive",
+  //     "Marine",
+  //     "Chemical",
+  //     "Food Processing",
+  //     "Wet Location",
+  //   ],
+  //   order: 10,
+  //   tooltip: "Intended installation environment affecting material selection",
+  // },
   Certification: {
     options: [
       "UL 6A",
@@ -149,7 +149,7 @@ export const matchesFilter = (product, category, value) => {
       return false;
 
     case "Material Grade":
-    case "Environment":
+    // case "Environment":
     case "Certification":
       return product.specifications[category]?.includes(value);
 
