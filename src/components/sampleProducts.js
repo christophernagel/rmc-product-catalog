@@ -223,7 +223,7 @@ const sampleProducts = [
         "Food Processing",
         "Wet Location",
       ],
-      Certification: ["UL 514A", "CSA C22.2 NO 18.1"],
+      Certification: ["UL 514A", "CSA C22.1:21"],
     },
     description: "Standard device box for single gang applications.",
     specSheetUrl: "/wp-content/uploads/2024/12/SS-Device-Box.pdf",
@@ -275,6 +275,7 @@ const sampleProducts = [
         "Food Processing",
         "Wet Location",
       ],
+      Certification: ["UL 514B", "CSA C22.2 NO 18F"],
     },
     description: "Direct connection for flexible conduit applications.",
     specSheetUrl: "/wp-content/uploads/2024/12/LT-Straight-Connector-.pdf",
@@ -298,6 +299,7 @@ const sampleProducts = [
         "Food Processing",
         "Wet Location",
       ],
+      Certification: ["UL 514B", "CSA C22.2 NO 18F"],
     },
     description: "90-degree angled connection for right-angle turns.",
     specSheetUrl: "/wp-content/uploads/2024/12/LT-90-Connector-.pdf",
@@ -321,6 +323,7 @@ const sampleProducts = [
         "Food Processing",
         "Wet Location",
       ],
+      Certification: ["UL 514B", "CSA C22.2 NO 18F"],
     },
     description: "45-degree angled connection for gradual direction changes.",
     specSheetUrl: "/wp-content/uploads/2024/12/LT-45-Connector.pdf",
@@ -335,7 +338,7 @@ const sampleProducts = [
     image: "/wp-content/uploads/2024/12/SS-45°-Elbow-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
-      "Material Grade": "316",
+      "Material Grade": ["316", "304"],
       "Elbow Angle": "45°",
       Environment: [
         "Indoor",
@@ -346,7 +349,7 @@ const sampleProducts = [
         "Food Processing",
         "Wet Location",
       ],
-      Certification: ["UL 514B"],
+      Certification: ["UL 6A"],
     },
     description: "Provides gradual directional changes in conduit runs.",
     specSheetUrl:
@@ -360,7 +363,7 @@ const sampleProducts = [
     image: "/wp-content/uploads/2024/12/SS-90°-Elbow-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
-      "Material Grade": "316",
+      "Material Grade": ["316", "304"],
       "Elbow Angle": "90°",
       Environment: [
         "Indoor",
@@ -371,7 +374,7 @@ const sampleProducts = [
         "Food Processing",
         "Wet Location",
       ],
-      Certification: ["UL 514B"],
+      Certification: ["UL 6A"],
     },
     description:
       "Enables right-angle turns while maintaining proper bend radius.",
@@ -388,7 +391,7 @@ const sampleProducts = [
     image: "/wp-content/uploads/2024/12/SS-Rigid-Coupling_v2-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
-      "Material Grade": "316",
+      "Material Grade": ["316", "304"],
       "Coupling Style": "Rigid",
       Environment: [
         "Indoor",
@@ -399,7 +402,7 @@ const sampleProducts = [
         "Food Processing",
         "Wet Location",
       ],
-      Certification: ["UL 514B"],
+      Certification: ["UL 6A", "CSA C22.2 NO 18.1"],
     },
     description: "Basic connection between conduit sections.",
     specSheetUrl: "/wp-content/uploads/2024/12/SS-Rigid-Coupling.pdf",
@@ -424,7 +427,7 @@ const sampleProducts = [
         "Food Processing",
         "Wet Location",
       ],
-      Certification: ["UL 514B"],
+      Certification: ["UL 514B", "CSA C22.2 NO 18.3"],
     },
     description:
       "Allows for easier installation and removal in tight spaces and retrofit applications.",
@@ -439,7 +442,7 @@ const sampleProducts = [
     image: "/wp-content/uploads/2024/12/SS-Nipple-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
-      "Material Grade": "304",
+      "Material Grade": ["316", "304"],
       "Coupling Style": "Standard",
       Environment: [
         "Indoor",
@@ -450,7 +453,7 @@ const sampleProducts = [
         "Food Processing",
         "Wet Location",
       ],
-      Certification: ["UL 514B"],
+      Certification: ["UL 6A", "CSA C22.1:21"],
     },
     description: "Pre-cut threaded conduit section for connections.",
     specSheetUrl: "/wp-content/uploads/2024/12/SS-Nipples.pdf",
@@ -465,7 +468,7 @@ const sampleProducts = [
     image: "/wp-content/uploads/2024/12/SS-Recessed-Plug_v2-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
-      "Material Grade": "304",
+      "Material Grade": "316",
       "Plug Type": "Recessed Plug",
       Environment: [
         "Indoor",
@@ -476,7 +479,6 @@ const sampleProducts = [
         "Food Processing",
         "Wet Location",
       ],
-      Certification: ["UL 514B"],
     },
     description: "Sealing plug for unused openings.",
     specSheetUrl: "/wp-content/uploads/2024/12/SS-Recessed-Plug.pdf",
@@ -490,7 +492,7 @@ const sampleProducts = [
     image: "/wp-content/uploads/2024/12/SS_Face-Bushing-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
-      "Material Grade": "304",
+      "Material Grade": "316",
       "Bushing Type": "Face Bushing",
       Environment: [
         "Indoor",
@@ -501,7 +503,7 @@ const sampleProducts = [
         "Food Processing",
         "Wet Location",
       ],
-      Certification: ["UL 514B"],
+      Certification: ["UL 514A", "CSA C22.2 NO 18.1"],
     },
     description: "Protection for wire entry points.",
     specSheetUrl: "/wp-content/uploads/2024/12/SS-Face-Bushing.pdf",
@@ -517,7 +519,7 @@ const sampleProducts = [
     specifications: {
       "Strut Properties": "Deep Profile",
       "Strut Pattern": "Elongated Holes",
-      "Material Grade": "316",
+      "Material Grade": ["316", "304"],
       Environment: [
         "Indoor",
         "Outdoor",
@@ -542,7 +544,7 @@ const sampleProducts = [
     specifications: {
       "Strut Properties": "Shallow Profile",
       "Strut Pattern": "Elongated Holes",
-      "Material Grade": "316",
+      "Material Grade": ["316", "304"],
       Environment: [
         "Indoor",
         "Outdoor",

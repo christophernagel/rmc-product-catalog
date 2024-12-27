@@ -74,6 +74,8 @@ const filterStructure = {
       "UL 514B",
       "CSA C22.1:21",
       "CSA C22.2 NO 18.1",
+      "CSA C22.2 NO 18.3",
+      "CSA C22.2 NO 18F",
     ],
     order: 11,
     tooltip: "Applicable safety and compliance standards",
