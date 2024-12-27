@@ -8,7 +8,7 @@ const sampleProducts = [
     image: "/wp-content/uploads/2024/12/SS-Rigid-Conduit_v2-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
-      "Material Grade": "316",
+      "Material Grade": ["316", "304"],
       "Conduit Type": "Rigid",
       Environment: [
         "Indoor",
@@ -23,6 +23,7 @@ const sampleProducts = [
     },
     description:
       "Impact- and crush-resistant conduit providing maximum protection for conductors.",
+    specSheetUrl: "/wp-content/uploads/2024/12/SS-Rigid-Conduit-Sub-Sheet.pdf",
   },
 
   // Conduit Bodies
@@ -49,6 +50,7 @@ const sampleProducts = [
     },
     description:
       "LB conduit bodies allow for 90-degree bends while providing pull access for wire installation.",
+    specSheetUrl: "/wp-content/uploads/2024/12/SS-LB-Conduit-Body.pdf",
   },
   {
     id: "SR6LL",
@@ -73,6 +75,7 @@ const sampleProducts = [
     },
     description:
       "LL conduit bodies provide left-side 90-degree turns with pull access.",
+    specSheetUrl: "/wp-content/uploads/2024/12/SS-LL-Conduit-Body.pdf",
   },
   {
     id: "SR6LR",
@@ -97,6 +100,7 @@ const sampleProducts = [
     },
     description:
       "LR conduit bodies provide right-side 90-degree turns with pull access.",
+    specSheetUrl: "/wp-content/uploads/2024/12/SS-LR-Conduit-Body.pdf",
   },
   {
     id: "SR6C",
@@ -121,6 +125,7 @@ const sampleProducts = [
     },
     description:
       "C conduit bodies provide straight-through wire access and pulling points.",
+    specSheetUrl: "/wp-content/uploads/2024/12/SS-C-Conduit-Body.pdf",
   },
   {
     id: "SR6T",
@@ -145,6 +150,7 @@ const sampleProducts = [
     },
     description:
       "T conduit bodies allow for three-way connections and wire access.",
+    specSheetUrl: "/wp-content/uploads/2024/12/SS-T-Conduit-Body.pdf",
   },
   {
     id: "SR6TB",
@@ -169,6 +175,7 @@ const sampleProducts = [
     },
     description:
       "TB conduit bodies allow for three-way connections and wire access.",
+    specSheetUrl: "/wp-content/uploads/2024/12/SS-TB-Conduit-Body.pdf",
   },
   {
     id: "SR6XB",
@@ -193,6 +200,7 @@ const sampleProducts = [
     },
     description:
       "XB conduit bodies allow for four-way connections with inspection access.",
+    specSheetUrl: "/wp-content/uploads/2024/12/SS-XB-Conduit-Body.pdf",
   },
 
   // Device Box
@@ -218,6 +226,7 @@ const sampleProducts = [
       Certification: ["UL 514A", "CSA C22.2 NO 18.1"],
     },
     description: "Standard device box for single gang applications.",
+    specSheetUrl: "/wp-content/uploads/2024/12/SS-Device-Box.pdf",
   },
 
   // Hubs
@@ -244,6 +253,7 @@ const sampleProducts = [
     },
     description:
       "These hubs provide liquid-tight connections between conduit and enclosures.",
+    specSheetUrl: "/wp-content/uploads/2024/12/Terminator-Hub.pdf",
   },
 
   // Liquid Tight
@@ -267,6 +277,7 @@ const sampleProducts = [
       ],
     },
     description: "Direct connection for flexible conduit applications.",
+    specSheetUrl: "/wp-content/uploads/2024/12/LT-Straight-Connector-.pdf",
   },
 
   {
@@ -289,6 +300,7 @@ const sampleProducts = [
       ],
     },
     description: "90-degree angled connection for right-angle turns.",
+    specSheetUrl: "/wp-content/uploads/2024/12/LT-90-Connector-.pdf",
   },
 
   {
@@ -311,6 +323,7 @@ const sampleProducts = [
       ],
     },
     description: "45-degree angled connection for gradual direction changes.",
+    specSheetUrl: "/wp-content/uploads/2024/12/LT-45-Connector.pdf",
   },
 
   // Elbows
@@ -336,6 +349,8 @@ const sampleProducts = [
       Certification: ["UL 514B"],
     },
     description: "Provides gradual directional changes in conduit runs.",
+    specSheetUrl:
+      "/wp-content/uploads/2024/12/SS-45°-Rigid-Conduit-Elbow-Sub-Sheet.pdf",
   },
   {
     id: "SR6EL90",
@@ -360,6 +375,8 @@ const sampleProducts = [
     },
     description:
       "Enables right-angle turns while maintaining proper bend radius.",
+    specSheetUrl:
+      "/wp-content/uploads/2024/12/SS-90°-Rigid-Conduit-Elbow-Sub-Sheet.pdf",
   },
 
   // Couplings
@@ -385,7 +402,9 @@ const sampleProducts = [
       Certification: ["UL 514B"],
     },
     description: "Basic connection between conduit sections.",
+    specSheetUrl: "/wp-content/uploads/2024/12/SS-Rigid-Coupling.pdf",
   },
+
   {
     id: "SR6CPL3P",
     name: "3-Piece Coupling",
@@ -409,6 +428,7 @@ const sampleProducts = [
     },
     description:
       "Allows for easier installation and removal in tight spaces and retrofit applications.",
+    specSheetUrl: "wp-content/uploads/2024/12/SS-three-piece-coupling.pdf",
   },
   // Nipples
   {
@@ -433,6 +453,7 @@ const sampleProducts = [
       Certification: ["UL 514B"],
     },
     description: "Pre-cut threaded conduit section for connections.",
+    specSheetUrl: "/wp-content/uploads/2024/12/SS-Nipples.pdf",
   },
 
   // Plugs & Bushings
@@ -458,6 +479,7 @@ const sampleProducts = [
       Certification: ["UL 514B"],
     },
     description: "Sealing plug for unused openings.",
+    specSheetUrl: "/wp-content/uploads/2024/12/SS-Recessed-Plug.pdf",
   },
 
   {
@@ -482,6 +504,7 @@ const sampleProducts = [
       Certification: ["UL 514B"],
     },
     description: "Protection for wire entry points.",
+    specSheetUrl: "/wp-content/uploads/2024/12/SS-Face-Bushing.pdf",
   },
 
   // Strut
@@ -507,6 +530,8 @@ const sampleProducts = [
     },
     description:
       "Mounting support for electrical equipment and conduit systems.",
+    specSheetUrl:
+      "/wp-content/uploads/2024/12/SS-Shallow-Strut-Elongated-Holes.pdf",
   },
   {
     id: "STR-SHALLOW",
@@ -530,6 +555,8 @@ const sampleProducts = [
     },
     description:
       "Mounting support for electrical equipment and conduit systems.",
+    specSheetUrl:
+      "/wp-content/uploads/2024/12/SS-Deep-Strut-Elongated-Holes.pdf",
   },
 ];
 

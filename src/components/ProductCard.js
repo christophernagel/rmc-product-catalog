@@ -18,7 +18,7 @@ const ProductCard = ({
   specSheetUrl,
   pageUrl,
   category,
-  description, // now we directly accept description from product props
+  description,
 }) => {
   const getProductType = () => {
     // Map product categories to display types
@@ -50,7 +50,6 @@ const ProductCard = ({
     return "Other";
   };
 
-  // Since we now have a description on each product, we don't need complicated logic:
   const getProductDescription = () => description || "";
 
   const type = getProductType();
@@ -80,7 +79,19 @@ const ProductCard = ({
           title="Download Spec Sheet"
           onClick={(e) => {
             e.stopPropagation();
-            console.log("Download spec sheet for:", name);
+            if (specSheetUrl) {
+              // Open in a new tab
+              window.open(specSheetUrl, "_blank");
+
+              // Force download
+              const link = document.createElement("a");
+              link.href = specSheetUrl;
+              link.download = specSheetUrl.split("/").pop() || "spec-sheet.pdf";
+              link.target = "_blank";
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+            }
           }}
         >
           <svg
