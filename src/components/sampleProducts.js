@@ -32,7 +32,7 @@ const sampleProducts = [
     name: "LB Conduit Body",
     pageUrl: "/index.php/home/products/lb-conduit-body/",
     category: "Conduit Bodies",
-    image: "/wp-content/uploads/2024/12/LB-Conduit-Body_v2-min.png",
+    image: "/wp-content/uploads/2024/12/LB-Conduit-Body_v2-min-1.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
@@ -57,7 +57,7 @@ const sampleProducts = [
     name: "LL Conduit Body",
     pageUrl: "/index.php/home/products/ll-conduit-body/",
     category: "Conduit Bodies",
-    image: "/wp-content/uploads/2024/12/LL-Conduit-Body_v2-min.png",
+    image: "/wp-content/uploads/2024/12/LL-Conduit-Body_v2-min-1.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
@@ -107,7 +107,7 @@ const sampleProducts = [
     name: "C Conduit Body",
     pageUrl: "/index.php/home/products/c-conduit-body/",
     category: "Conduit Bodies",
-    image: "/wp-content/uploads/2024/12/C-Conduit-Body_v2-min.png",
+    image: "/wp-content/uploads/2024/12/C-Conduit-Body_v2-min-1.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
@@ -132,7 +132,7 @@ const sampleProducts = [
     name: "T Conduit Body",
     pageUrl: "/index.php/home/products/t-conduit-body//",
     category: "Conduit Bodies",
-    image: "/wp-content/uploads/2024/12/T-Conduit-Body_v2-min.png",
+    image: "/wp-content/uploads/2024/12/T-Conduit-Body_v2-min-1.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
@@ -182,7 +182,7 @@ const sampleProducts = [
     name: "XB Conduit Body",
     pageUrl: "/index.php/home/products/xb-conduit-body/",
     category: "Conduit Bodies",
-    image: "/wp-content/uploads/2024/12/XB-Conduit-Body_v2-min.png",
+    image: "/wp-content/uploads/2024/12/XB-Conduit-Body_v2-min-1.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
