@@ -431,7 +431,7 @@ const sampleProducts = [
     },
     description:
       "Allows for easier installation and removal in tight spaces and retrofit applications.",
-    specSheetUrl: "wp-content/uploads/2024/12/SS-three-piece-coupling.pdf",
+    specSheetUrl: "/wp-content/uploads/2024/12/SS-three-piece-coupling.pdf",
   },
   // Nipples
   {
