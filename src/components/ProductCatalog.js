@@ -137,7 +137,7 @@ const ProductCatalog = () => {
       });
     }
 
-    // Apply category filters using matchesFilter
+    // Apply category filters using OR logic
     const hasActiveFilters = Object.values(activeFilters).some((category) =>
       Object.values(category).some(Boolean)
     );
@@ -149,10 +149,13 @@ const ProductCatalog = () => {
             .filter(([_, isActive]) => isActive)
             .map(([value]) => value);
 
-          if (activeValues.length === 0) return true;
-
-          return activeValues.some((value) =>
-            matchesFilter(product, category, value)
+          // Instead of automatically returning true on empty,
+          // we only include if the product matches at least one activeValue:
+          return (
+            activeValues.length > 0 &&
+            activeValues.some((value) =>
+              matchesFilter(product, category, value)
+            )
           );
         })
       );
