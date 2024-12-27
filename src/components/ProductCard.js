@@ -33,7 +33,6 @@ const ProductCard = ({
       Strut: "Strut",
     };
 
-    // Return mapped type if category exists
     if (category && categoryToType[category]) {
       return categoryToType[category];
     }
@@ -43,8 +42,9 @@ const ProductCard = ({
     if (specifications?.["Body Style"]) return "Conduit Body";
     if (specifications?.["Box Style"]) return "Device Box";
     if (specifications?.["Hub Style"]) return "Hub";
-    if (specifications?.["Elbow Angle"] || specifications?.["Coupling Style"])
+    if (specifications?.["Elbow Angle"] || specifications?.["Coupling Style"]) {
       return "ECN";
+    }
     if (specifications?.["Strut Properties"]) return "Strut";
 
     return "Other";
@@ -80,14 +80,10 @@ const ProductCard = ({
           onClick={(e) => {
             e.stopPropagation();
             if (specSheetUrl) {
-              // Open in a new tab
-              window.open(specSheetUrl, "_blank");
-
-              // Force download
+              // Force browser to prompt download
               const link = document.createElement("a");
               link.href = specSheetUrl;
               link.download = specSheetUrl.split("/").pop() || "spec-sheet.pdf";
-              link.target = "_blank";
               document.body.appendChild(link);
               link.click();
               document.body.removeChild(link);
