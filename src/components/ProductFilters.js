@@ -19,7 +19,7 @@ const filterStructure = {
     tooltip: "Device and junction boxes for electrical installations",
   },
   "Conduit Hubs": {
-    options: ["Terminator Hub", "Grounding Hub"],
+    options: ["Terminating Hub", "Grounding Hub"],
     order: 4,
     tooltip: "Hub types for conduit termination and grounding",
   },
@@ -97,7 +97,7 @@ export const matchesFilter = (product, category, value) => {
     case "Conduit Hubs":
       // Map UI values to spec values
       const hubStyleMap = {
-        "Terminator Hub": "Line Terminating",
+        "Terminating Hub": "Line Terminating",
         "Grounding Hub": "Grounding",
       };
       return product.specifications["Hub Style"] === hubStyleMap[value];
