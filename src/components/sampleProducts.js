@@ -232,8 +232,8 @@ const sampleProducts = [
   // Hubs
   {
     id: "SSTH",
-    name: "Terminator Hub",
-    pageUrl: "/index.php/home/products/terminator-hub/",
+    name: "Terminating Hub",
+    pageUrl: "/index.php/home/products/terminating-hub/",
     category: "Conduit Hubs", // Changed from "Conduit Boxes" to "Hubs"
     image: "/wp-content/uploads/2024/12/SS-Terminator-Hub-min.png",
     specifications: {
@@ -254,6 +254,31 @@ const sampleProducts = [
     description:
       "These hubs provide liquid-tight connections between conduit and enclosures.",
     specSheetUrl: "/wp-content/uploads/2024/12/Terminator-Hub.pdf",
+  },
+  {
+    id: "SSGH",
+    name: "Grounding Hub",
+    pageUrl: "/index.php/home/products/grounding-hub/",
+    category: "Conduit Hubs", // Changed from "Conduit Boxes" to "Hubs"
+    image: "/wp-content/uploads/2024/12/Grounding-hub-1.png",
+    specifications: {
+      "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
+      "Material Grade": "316",
+      "Hub Style": "Grounding", // Added Hub Style specification
+      Environment: [
+        "Indoor",
+        "Outdoor",
+        "Corrosive",
+        "Marine",
+        "Chemical",
+        "Food Processing",
+        "Wet Location",
+      ],
+      Certification: ["UL 514B", "CSA C22.1:21"], // Updated certifications from spec sheet
+    },
+    description:
+      "These hubs provide grounded liquid-tight connections between conduit and enclosures.",
+    specSheetUrl: "/wp-content/uploads/2024/12/Grounding-Hub.pdf",
   },
 
   // Liquid Tight
