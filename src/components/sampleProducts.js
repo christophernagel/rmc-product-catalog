@@ -481,7 +481,7 @@ const sampleProducts = [
       Certification: ["UL 6A", "CSA C22.1:21"],
     },
     description: "Pre-cut threaded conduit section for connections.",
-    specSheetUrl: "/wp-content/uploads/2025/1/SS-Nipples.pdf",
+    specSheetUrl: "/wp-content/uploads/2025/01/SS-Nipples.pdf",
   },
 
   // Plugs & Bushings
