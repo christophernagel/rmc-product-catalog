@@ -29,18 +29,12 @@ const filterStructure = {
     tooltip: "Liquid tight connectors for flexible conduit systems",
   },
   "Conduit Fittings": {
-    options: [
-      "45° Elbow",
-      "90° Elbow",
-      "Rigid Coupling",
-      "3-Piece Coupling",
-      "Standard Nipple",
-    ],
+    options: ["45° Elbow", "90° Elbow", "Rigid Coupling", "Standard Nipple"],
     order: 6,
     tooltip: "Elbows, couplings, and nipples for conduit connections",
   },
   "Plugs & Bushings": {
-    options: ["Recessed Plug", "Face Bushing"],
+    options: ["Recessed Plug", "Face Bushing", "3-Piece Coupling"],
     order: 7,
     tooltip: "Sealing plugs and protective bushings",
   },
@@ -115,9 +109,6 @@ export const matchesFilter = (product, category, value) => {
       if (value === "Rigid Coupling") {
         return product.specifications["Coupling Style"] === "Rigid";
       }
-      if (value === "3-Piece Coupling") {
-        return product.specifications["Coupling Style"] === "3-Piece";
-      }
       if (value === "Standard Nipple") {
         return product.name === "Standard Nipple";
       }
@@ -129,6 +120,9 @@ export const matchesFilter = (product, category, value) => {
       }
       if (value === "Face Bushing") {
         return product.specifications["Bushing Type"] === "Face Bushing";
+      }
+      if (value === "3-Piece Coupling") {
+        return product.specifications["Coupling Style"] === "3-Piece";
       }
       return false;
 

@@ -437,7 +437,7 @@ const sampleProducts = [
     id: "SR6CPL3P",
     name: "3-Piece Coupling",
     pageUrl: "/index.php/home/products/3-piece-coupling/",
-    category: "Conduit Fittings",
+    category: "Plugs & Bushings",
     image: "/wp-content/uploads/2024/12/3-Piece-Coupling-min.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
@@ -528,10 +528,10 @@ const sampleProducts = [
         "Food Processing",
         "Wet Location",
       ],
-      Certification: ["UL 514A", "CSA C22.2 NO 18.1"],
+      Certification: ["UL 514B", "CSA C22.2 NO 18.1"],
     },
     description: "Protection for wire entry points.",
-    specSheetUrl: "/wp-content/uploads/2024/12/SS-Face-Bushing.pdf",
+    specSheetUrl: "/wp-content/uploads/2025/01/SS-Face-Bushing.pdf",
   },
 
   // Strut
