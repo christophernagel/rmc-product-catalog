@@ -97,7 +97,7 @@ export const matchesFilter = (product, category, value) => {
     case "Conduit Hubs":
       // Map UI values to spec values
       const hubStyleMap = {
-        "Terminating Hub": "Line Terminating",
+        "Terminator Hub": "Line Terminating",
         "Grounding Hub": "Grounding",
       };
       return product.specifications["Hub Style"] === hubStyleMap[value];
