@@ -432,32 +432,6 @@ const sampleProducts = [
     description: "Basic connection between conduit sections.",
     specSheetUrl: "/wp-content/uploads/2024/12/SS-Rigid-Coupling.pdf",
   },
-
-  {
-    id: "SR6CPL3P",
-    name: "3-Piece Coupling",
-    pageUrl: "/index.php/home/products/3-piece-coupling/",
-    category: "Plugs & Bushings",
-    image: "/wp-content/uploads/2024/12/3-Piece-Coupling-min.png",
-    specifications: {
-      "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
-      "Material Grade": "316",
-      "Coupling Style": "3-Piece",
-      Environment: [
-        "Indoor",
-        "Outdoor",
-        "Corrosive",
-        "Marine",
-        "Chemical",
-        "Food Processing",
-        "Wet Location",
-      ],
-      Certification: ["UL 514B", "CSA C22.2 NO 18.3"],
-    },
-    description:
-      "Allows for easier installation and removal in tight spaces and retrofit applications.",
-    specSheetUrl: "/wp-content/uploads/2024/12/SS-three-piece-coupling.pdf",
-  },
   // Nipples
   {
     id: "SSN",
@@ -532,6 +506,31 @@ const sampleProducts = [
     },
     description: "Protection for wire entry points.",
     specSheetUrl: "/wp-content/uploads/2025/01/SS-Face-Bushing.pdf",
+  },
+  {
+    id: "SR6CPL3P",
+    name: "3-Piece Coupling",
+    pageUrl: "/index.php/home/products/3-piece-coupling/",
+    category: "Plugs & Bushings",
+    image: "/wp-content/uploads/2024/12/3-Piece-Coupling-min.png",
+    specifications: {
+      "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
+      "Material Grade": "316",
+      "Coupling Style": "3-Piece",
+      Environment: [
+        "Indoor",
+        "Outdoor",
+        "Corrosive",
+        "Marine",
+        "Chemical",
+        "Food Processing",
+        "Wet Location",
+      ],
+      Certification: ["UL 514B", "CSA C22.2 NO 18.3"],
+    },
+    description:
+      "Allows for easier installation and removal in tight spaces and retrofit applications.",
+    specSheetUrl: "/wp-content/uploads/2025/01/SS-three-piece-coupling.pdf",
   },
 
   // Strut
