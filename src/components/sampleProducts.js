@@ -23,7 +23,7 @@ const sampleProducts = [
     },
     description:
       "Impact- and crush-resistant conduit providing maximum protection for conductors.",
-    specSheetUrl: "/wp-content/uploads/2024/12/SS-Rigid-Conduit-Sub-Sheet.pdf",
+    specSheetUrl: "/wp-content/uploads/2025/02/SS-Rigid-Conduit-Sub-Sheet.pdf",
   },
 
   // Conduit Bodies
@@ -32,7 +32,7 @@ const sampleProducts = [
     name: "LB Conduit Body",
     pageUrl: "/index.php/home/products/lb-conduit-body/",
     category: "Conduit Bodies",
-    image: "/wp-content/uploads/2024/12/LB-Conduit-Body_v2-min-1.png",
+    image: "/wp-content/uploads/2024/12/LL-Conduit-Body_v2-min-1.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
@@ -57,7 +57,7 @@ const sampleProducts = [
     name: "LL Conduit Body",
     pageUrl: "/index.php/home/products/ll-conduit-body/",
     category: "Conduit Bodies",
-    image: "/wp-content/uploads/2024/12/LL-Conduit-Body_v2-min-1.png",
+    image: "/wp-content/uploads/2025/03/LL-Conduit-Body_v4.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
@@ -182,7 +182,7 @@ const sampleProducts = [
     name: "XB Conduit Body",
     pageUrl: "/index.php/home/products/xb-conduit-body/",
     category: "Conduit Bodies",
-    image: "/wp-content/uploads/2024/12/XB-Conduit-Body_v2-min-1.png",
+    image: "/wp-content/uploads/2025/03/X-Conduit-Body-01.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
@@ -203,17 +203,17 @@ const sampleProducts = [
     specSheetUrl: "/wp-content/uploads/2024/12/SS-XB-Conduit-Body.pdf",
   },
 
-  // Device Box
+  // Device Boxes
   {
-    id: "SR6FD",
-    name: "Device Box",
-    pageUrl: "/index.php/home/products/device-box/",
+    id: "SR6FDC",
+    name: "FDC Device Box",
+    pageUrl: "/index.php/home/products/fdc-device-box/",
     category: "Device Box",
-    image: "/wp-content/uploads/2024/12/SS-Device-Box_v2-min.png",
+    image: "/wp-content/uploads/2025/08/FDC-Device-Box-scaled.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"'],
       "Material Grade": "316",
-      "Box Style": "Single Gang",
+      "Box Style": "FDC",
       Environment: [
         "Indoor",
         "Outdoor",
@@ -225,8 +225,56 @@ const sampleProducts = [
       ],
       Certification: ["UL 514A", "CSA C22.1:21"],
     },
-    description: "Standard device box for single gang applications.",
-    specSheetUrl: "/wp-content/uploads/2024/12/SS-Device-Box.pdf",
+    description: "FDC device boxes for surface mount applications.",
+    specSheetUrl: "/wp-content/uploads/2025/08/SS-FDC-Device-Box.pdf",
+  },
+  {
+    id: "SR6X",
+    name: "X Device Box",
+    pageUrl: "/index.php/home/products/x-device-box/",
+    category: "Device Box",
+    image: "/wp-content/uploads/2025/08/X-Device-Box_v1-scaled.png",
+    specifications: {
+      "Trade Size": ['½"', '¾"', '1"'],
+      "Material Grade": "316",
+      "Box Style": "X",
+      Environment: [
+        "Indoor",
+        "Outdoor",
+        "Corrosive",
+        "Marine",
+        "Chemical",
+        "Food Processing",
+        "Wet Location",
+      ],
+      Certification: ["UL 514A", "CSA C22.1:21"],
+    },
+    description: "X device boxes for four-way conduit connections.",
+    specSheetUrl: "/wp-content/uploads/2025/08/SS-X-Device-Box.pdf",
+  },
+  {
+    id: "SR6TDB",
+    name: "T Device Box",
+    pageUrl: "/index.php/home/products/t-device-box/",
+    category: "Device Box",
+    image: "/wp-content/uploads/2025/08/T-Device-Box-scaled.png",
+    specifications: {
+      "Trade Size": ['½"', '¾"', '1"'],
+      "Material Grade": "316",
+      "Box Style": "T",
+      Environment: [
+        "Indoor",
+        "Outdoor",
+        "Corrosive",
+        "Marine",
+        "Chemical",
+        "Food Processing",
+        "Wet Location",
+      ],
+      Certification: ["UL 514A", "CSA C22.1:21"],
+    },
+    description: "T device boxes for three-way conduit connections.",
+    specSheetUrl: "/wp-content/uploads/2025/08/SS-T-Device-Box.pdf",
   },
 
   // Hubs

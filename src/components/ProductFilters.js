@@ -14,7 +14,7 @@ const filterStructure = {
     tooltip: "Standard conduit body configurations for routing changes",
   },
   "Device Box": {
-    options: ["Single Gang"],
+    options: ["FDC", "X", "T"],
     order: 3,
     tooltip: "Device and junction boxes for electrical installations",
   },
