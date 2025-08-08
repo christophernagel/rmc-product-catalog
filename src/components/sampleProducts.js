@@ -82,7 +82,7 @@ const sampleProducts = [
     name: "LR Conduit Body",
     pageUrl: "/index.php/home/products/lr-conduit-body/",
     category: "Conduit Bodies",
-    image: "/wp-content/uploads/2024/12/LR-Conduit-Body_v2-min.png",
+    image: "/wp-content/uploads/2024/12/LB-Conduit-Body_v2-min-1.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
@@ -100,7 +100,7 @@ const sampleProducts = [
     },
     description:
       "LR conduit bodies provide right-side 90-degree turns with pull access.",
-    specSheetUrl: "/wp-content/uploads/2024/12/SS-LR-Conduit-Body.pdf",
+    specSheetUrl: "/wp-content/uploads/2025/03/SS-LR-Conduit-Body.pdf",
   },
   {
     id: "SR6C",
