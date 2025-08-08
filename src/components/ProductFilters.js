@@ -13,7 +13,7 @@ const filterStructure = {
     order: 2,
     tooltip: "Standard conduit body configurations for routing changes",
   },
-  "Device Box": {
+  "Device Boxes": {
     options: ["FDC", "X", "T"],
     order: 3,
     tooltip: "Device and junction boxes for electrical installations",
@@ -85,7 +85,7 @@ export const matchesFilter = (product, category, value) => {
     case "Conduit Bodies":
       return product.specifications["Body Style"] === value;
 
-    case "Device Box":
+    case "Device Boxes":
       return product.specifications["Box Style"] === value;
 
     case "Conduit Hubs":
