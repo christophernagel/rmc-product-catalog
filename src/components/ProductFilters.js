@@ -9,7 +9,7 @@ const filterStructure = {
     tooltip: "Type and construction method of conduit systems",
   },
   "Conduit Bodies": {
-    options: ["LB", "LL", "LR", "C", "T", "TB", "XB"],
+    options: ["LB", "LL", "LR", "C", "T", "TB", "X"],
     order: 2,
     tooltip: "Standard conduit body configurations for routing changes",
   },
