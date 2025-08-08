@@ -179,14 +179,14 @@ const sampleProducts = [
   },
   {
     id: "SR6XB",
-    name: "XB Conduit Body",
-    pageUrl: "/index.php/home/products/xb-conduit-body/",
+    name: "X Conduit Body",
+    pageUrl: "/index.php/home/products/x-conduit-body/",
     category: "Conduit Bodies",
     image: "/wp-content/uploads/2025/03/X-Conduit-Body-01.png",
     specifications: {
       "Trade Size": ['½"', '¾"', '1"', '1¼"', '1½"', '2"'],
       "Material Grade": "316",
-      "Body Style": "XB",
+      "Body Style": "X",
       Environment: [
         "Indoor",
         "Outdoor",
@@ -199,8 +199,8 @@ const sampleProducts = [
       Certification: ["UL 514A", "CSA C22.2 NO 18.1"],
     },
     description:
-      "XB conduit bodies allow for four-way connections with inspection access.",
-    specSheetUrl: "/wp-content/uploads/2024/12/SS-XB-Conduit-Body.pdf",
+      "X conduit bodies allow for four-way connections with inspection access.",
+    specSheetUrl: "/wp-content/uploads/2025/03/SS-X-Conduit-Body.pdf",
   },
 
   // Device Boxes
